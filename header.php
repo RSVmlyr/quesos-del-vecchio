@@ -17,15 +17,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+	<script type="text/javascript">
+		// This will set the path into the global JavaScript scope so it can be picked up further down the path of execution.
+		window.__webpack_public_path__ = "<?php echo get_template_directory_uri(); ?>/";
+	</script>
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class("relative bg-custom-grey text-custom-black_light font-figtree font-normal antialiased"); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'quesos-del-vecchio' ); ?></a>
+<?php include_once('template-parts/loader.php'); ?>
+<div id="page" class="h-full min-h-screen flex flex-col">
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sibs-co' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="header">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -56,4 +61,7 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+
+
+		<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg" />
 	</header><!-- #masthead -->

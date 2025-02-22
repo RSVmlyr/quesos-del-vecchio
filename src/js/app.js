@@ -5,12 +5,13 @@ import Swiper from 'swiper';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { gsap } from 'gsap';
 import { Header } from './lib';
+import Loader from './elements/Loader';
 
 // import Swiper styles
 import 'swiper/css';
 
 // Components
-const COMPONENTS = ['HeroSlider'];
+const COMPONENTS = ['HeroSlider', 'Test'];
 
 class App {
   constructor() {
@@ -28,6 +29,9 @@ class App {
     window.$APP.Swiper.Navigation = Navigation;
 
     // Mandatory instances
+    this.loader = new Loader({
+      componentsLength: COMPONENTS.length,
+    });
     // new Header(this);
 
     // Init loading
@@ -35,6 +39,7 @@ class App {
   }
 
   async _init() {
+    this.loader.run();
     this._runComponents();
   }
 
@@ -50,8 +55,8 @@ class App {
 
   async _loadComponent(ClassComponentName, htmlContainers) {
     // Dynamic component import
-    const { default: ClassComponent } = await import(`./lib/${ClassComponentName}`);
-
+    const { default: ClassComponent } = await import(`./components/${ClassComponentName}`);
+    this.loader.onComponentLoaded();
     htmlContainers.forEach((container) => {
       new ClassComponent(this, container);
     });
@@ -62,3 +67,9 @@ class App {
 // Run app
 ////////////////////
 new App();
+
+// Listen for the complete page load (all assets)
+window.addEventListener('load', () => {
+  // This call informs the Loader that the entire page is loaded.
+  window.$APP.loader.onPageLoaded();
+});

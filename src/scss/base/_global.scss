@@ -1,20 +1,12 @@
 @layer base {
   :root {
     // colors
-    --black: #{$black};
-    --blue_dark: #{$blue_dark};
-    --blue_light: #{$blue_light};
-    --content: #{$content};
-    --pink: #{$pink};
+    --blue: #{$blue};
+    --beige: #{$beige};
     --white: #{$white};
-    --white_dark: #{$white_dark};
 
     // fonts
-    --font-myriad: #{$font-myriad};
-    --font-gotham: #{$font-gotham};
-    --font-gotham-narrow: #{$font-gotham-narrow};
-    --font-cocogoose: #{$font-cocogoose};
-    --font-cocogoose-block: #{$font-cocogoose-block};
+    --font-figtree: #{$font-figtree};
   }
 }
 

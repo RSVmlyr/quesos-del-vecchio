@@ -2,37 +2,3 @@
   border: 0;
   appearance: none;
 }
-
-.button--solid {
-  padding: rem-calc(18) rem-calc(30);
-  border-radius: rem-calc(38);
-  text-align: center;
-  transition: background-color 0.15s ease-in-out;
-}
-
-.button--white {
-  background-color: rgb($white);
-  color: rgb($blue_dark);
-
-  &:hover {
-    background-color: rgba(rgb($white), 0.7);
-  }
-}
-
-.button--pink {
-  background-color: rgb($pink);
-  color: rgb($white);
-
-  &:hover {
-    background-color: darken(rgb($pink), 10%);
-  }
-}
-
-.button--blue {
-  background-color: rgb($blue_dark);
-  color: rgb($white);
-
-  &:hover {
-    background-color: rgba(rgb($blue_dark), 0.7);
-  }
-}
