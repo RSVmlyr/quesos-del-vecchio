@@ -1,0 +1,36 @@
+@import './base/wordpress';
+
+/* Typography
+--------------------------------------------- */
+@import './base/typography';
+
+/* Tailwind
+--------------------------------------------- */
+@tailwind base;
+
+/* Start purging... */
+@tailwind components;
+@tailwind utilities;
+/* Stop purging. */
+
+/* Variables
+--------------------------------------------- */
+@import './base/variables';
+@import './utils/mixins';
+@import './utils/functions';
+
+/* Base Styles
+--------------------------------------------- */
+@import './base/global';
+
+/* Blocks
+--------------------------------------------- */
+@import './blocks/header';
+@import './blocks/footer';
+
+/* Elements
+--------------------------------------------- */
+@import './elements/container';
+@import './elements/headings';
+@import './elements/button';
+@import './elements/rich-text';

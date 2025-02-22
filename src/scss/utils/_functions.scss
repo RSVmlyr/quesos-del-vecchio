@@ -1,0 +1,8 @@
+@use 'sass:math';
+// Rem Calculation of Pixel Values
+$rem-base: 16;
+
+@function rem-calc($px) {
+  $rems: math.div($px, $rem-base) * 1rem;
+  @return $rems;
+}

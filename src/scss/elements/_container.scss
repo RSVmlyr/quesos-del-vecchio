@@ -1,0 +1,42 @@
+.container {
+  padding-left: rem-calc(20);
+  padding-right: rem-calc(20);
+  max-width: $page-max-width;
+  margin: 0 auto;
+  width: 100%;
+
+  @media only screen and (min-width: theme('screens.xl')) {
+    padding-left: rem-calc(25);
+    padding-right: rem-calc(25);
+  }
+
+  &__large {
+    max-width: rem-calc(1440);
+  }
+
+  &__small {
+    max-width: rem-calc(650);
+  }
+
+  &__no_pr {
+    padding-right: 0;
+
+    @media only screen and (min-width: theme('screens.lg')) {
+      padding-right: rem-calc(20);
+    }
+
+    @media only screen and (min-width: theme('screens.xl')) {
+      padding-right: rem-calc(25);
+    }
+  }
+}
+
+.custom-space {
+  padding-top: var(--mobile-top-space);
+  padding-bottom: var(--mobile-bottom-space);
+
+  @media only screen and (min-width: theme('screens.xl')) {
+    padding-top: var(--desktop-top-space);
+    padding-bottom: var(--desktop-bottom-space);
+  }
+}

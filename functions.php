@@ -140,8 +140,9 @@ add_action( 'widgets_init', 'quesos_del_vecchio_widgets_init' );
 function quesos_del_vecchio_scripts() {
 	wp_enqueue_style( 'quesos-del-vecchio-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'quesos-del-vecchio-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'quesos-del-vecchio-styles', get_template_directory_uri() . '/dist/app.css', '', _S_VERSION);
 
-	wp_enqueue_script( 'quesos-del-vecchio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'quesos-del-vecchio-js', get_template_directory_uri() . '/dist/app.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

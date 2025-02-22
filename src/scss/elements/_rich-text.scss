@@ -1,0 +1,104 @@
+%titles {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.375;
+    letter-spacing: -0.05rem;
+    color: currentColor;
+  }
+
+  h5,
+  h6 {
+    font-family: $font-gotham;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.8em;
+  }
+
+  h4 {
+    font-size: 1.4em;
+  }
+
+  h5 {
+    font-size: 1.4em;
+  }
+
+  h6 {
+    font-size: 1em;
+  }
+}
+
+%links {
+  a {
+    color: rgb($pink);
+    text-decoration: underline;
+  }
+}
+
+%lists {
+  ul,
+  ol {
+    list-style-position: inside;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+}
+
+%blockquote {
+  blockquote {
+    background: rgba(rgb($blue_dark), 0.04);
+    border-left: rem-calc(10) solid rgb($pink);
+    margin: rem-calc(10) rem-calc(10);
+    padding: rem-calc(20) rem-calc(10);
+    quotes: '\201C''\201D''\2018''\2019';
+
+    &::before {
+      content: open-quote;
+      color: rgb($blue_dark);
+      font-size: rem-calc(60);
+      line-height: rem-calc(1);
+      margin-right: rem-calc(10);
+      vertical-align: rem-calc(-25);
+    }
+
+    p {
+      display: inline;
+    }
+  }
+}
+
+%separator {
+  hr {
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(rgb($blue_dark), 0), rgba(rgb($blue_dark), 0.75), rgba(rgb($blue_dark), 0));
+    margin: rem-calc(20) 0;
+  }
+}
+
+.rich-text {
+  @extend %titles;
+  @extend %links;
+  @extend %lists;
+  @extend %blockquote;
+  @extend %separator;
+}
