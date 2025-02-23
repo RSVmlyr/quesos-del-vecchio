@@ -1,13 +1,13 @@
 .container {
-  padding-left: rem-calc(20);
-  padding-right: rem-calc(20);
+  padding-left: rem-calc(16);
+  padding-right: rem-calc(16);
   max-width: $page-max-width;
   margin: 0 auto;
   width: 100%;
 
   @media only screen and (min-width: theme('screens.xl')) {
-    padding-left: rem-calc(25);
-    padding-right: rem-calc(25);
+    padding-left: rem-calc(46);
+    padding-right: rem-calc(46);
   }
 
   &__large {

@@ -4,8 +4,8 @@ __webpack_public_path__ = window.__webpack_public_path__;
 import Swiper from 'swiper';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { gsap } from 'gsap';
-import { Header } from './lib';
 import Loader from './elements/Loader';
+import Header from './elements/Header';
 
 // import Swiper styles
 import 'swiper/css';
@@ -35,6 +35,7 @@ class App {
       },
       componentsLength: COMPONENTS.length,
     });
+    new Header(this);
 
     // Init loading
     this._init();

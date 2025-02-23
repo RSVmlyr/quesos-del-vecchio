@@ -22,7 +22,7 @@ class Loader {
         duration: 0.5,
         onComplete: () => {
           this.loaderDOM.style.display = 'none';
-          document.body.classList.remove('overflow-hidden');
+          document.body.classList.remove('disabled');
         },
       });
     }
