@@ -11,7 +11,7 @@ import Loader from './elements/Loader';
 import 'swiper/css';
 
 // Components
-const COMPONENTS = ['HeroSlider', 'Test'];
+const COMPONENTS = [];
 
 class App {
   constructor() {
@@ -30,16 +30,17 @@ class App {
 
     // Mandatory instances
     this.loader = new Loader({
+      libraries: {
+        gsap,
+      },
       componentsLength: COMPONENTS.length,
     });
-    // new Header(this);
 
     // Init loading
     this._init();
   }
 
   async _init() {
-    this.loader.run();
     this._runComponents();
   }
 

@@ -1,7 +1,6 @@
-import { gsap } from 'gsap';
-
 class Loader {
   constructor(params) {
+    this.gsapLibrary = params.libraries.gsap;
     this.componentsLength = params.componentsLength;
     this.loadedComponents = 0;
     // Define weights: components 90%, page load 10%
@@ -13,18 +12,12 @@ class Loader {
 
     this.loaderDOM = document.querySelector('[data-loader]');
     this.percentageDOM = document.querySelector('[data-loader-percentage]');
-  }
-
-  run() {
-    console.log('Loader started');
-    // Optionally, start an animation here (e.g., fade in the loader)
+    this.phraseDOM = document.querySelector('[data-loader-phrase]');
   }
 
   close() {
-    console.log('Loader closed');
-    // Animate out and hide the loader (using gsap for a smooth transition)
     if (this.loaderDOM) {
-      gsap.to(this.loaderDOM, {
+      this.gsapLibrary.to(this.loaderDOM, {
         opacity: 0,
         duration: 0.5,
         onComplete: () => {
@@ -41,7 +34,7 @@ class Loader {
     const targetPercentage = Math.round(componentsProgress + pageProgress);
 
     // Animate the change from current percentage to targetPercentage gradually
-    gsap.to(this, {
+    this.gsapLibrary.to(this, {
       duration: 0.5, // Adjust duration as needed
       percentage: targetPercentage,
       ease: 'power1.out',
@@ -56,10 +49,18 @@ class Loader {
         if (Math.round(this.percentage) >= 100) {
           // Update text with final phrase
           if (this.percentageDOM) {
-            this.percentageDOM.innerText = 'Loaded! Enjoy!';
+            this.percentageDOM.style.opacity = '0';
           }
 
-          gsap.delayedCall(this.completeDelay, () => {
+          if (this.phraseDOM) {
+            this.gsapLibrary.to(this.phraseDOM, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+            });
+          }
+
+          this.gsapLibrary.delayedCall(this.completeDelay, () => {
             this.close();
           });
         }

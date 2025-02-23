@@ -177,3 +177,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * ACF Config
+ */
+require get_template_directory() . '/inc/acf/acf-config.php';
+require get_template_directory() . '/inc/acf/custom-wysiwyg.php';
+
+/**
+ * Removing external sources
+ */
+require get_template_directory() . '/inc/remove-external-assets.php';

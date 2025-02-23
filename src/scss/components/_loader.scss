@@ -1,0 +1,14 @@
+.loader_component__rich_text {
+  strong,
+  b {
+    font-weight: inherit;
+    color: rgb($beige);
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    strong,
+    b {
+      font-weight: 700;
+    }
+  }
+}

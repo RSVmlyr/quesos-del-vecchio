@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // Directories
 const RESOURCES_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
-const LOCAL_URL = 'localhost:10043/';
+const LOCAL_URL = 'quesos-del-vecchio.local/';
 
 mix
   .webpackConfig({
