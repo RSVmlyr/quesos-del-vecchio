@@ -41,6 +41,7 @@ class App {
   }
 
   async _init() {
+    this.loader.onComponentLoaded();
     this._runComponents();
   }
 

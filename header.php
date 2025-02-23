@@ -24,7 +24,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class("relative bg-custom-grey text-custom-black_light font-figtree font-normal antialiased"); ?>>
+<body <?php body_class("relative bg-custom-grey text-custom-black_light font-figtree font-normal antialiased overflow-hidden"); ?>>
 <?php wp_body_open(); ?>
 <?php include_once('template-parts/loader.php'); ?>
 <div id="page" class="h-full min-h-screen flex flex-col">

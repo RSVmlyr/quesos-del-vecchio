@@ -1,7 +1,7 @@
 class Loader {
   constructor(params) {
     this.gsapLibrary = params.libraries.gsap;
-    this.componentsLength = params.componentsLength;
+    this.componentsLength = Math.max(params.componentsLength, 1);
     this.loadedComponents = 0;
     // Define weights: components 90%, page load 10%
     this.componentsWeight = 0.9;
@@ -22,6 +22,7 @@ class Loader {
         duration: 0.5,
         onComplete: () => {
           this.loaderDOM.style.display = 'none';
+          document.body.classList.remove('overflow-hidden');
         },
       });
     }
