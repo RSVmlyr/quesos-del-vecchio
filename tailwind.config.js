@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         figtree: 'var(--font-figtree)',
+        gazpacho: 'var(--font-gazpacho)',
       },
     },
   },

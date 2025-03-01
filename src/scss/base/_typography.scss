@@ -1,1 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-Bold.woff2') format('woff2'), url('./gazpacho/Gazpacho-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho Italic';
+  src: url('./gazpacho/Gazpacho-ItalicRegular.woff2') format('woff2'), url('./gazpacho/Gazpacho-ItalicRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-Regular.woff2') format('woff2'), url('./gazpacho/Gazpacho-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-Medium.woff2') format('woff2'), url('./gazpacho/Gazpacho-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-ItalicHeavy.woff2') format('woff2'), url('./gazpacho/Gazpacho-ItalicHeavy.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-Black.woff2') format('woff2'), url('./gazpacho/Gazpacho-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-Heavy.woff2') format('woff2'), url('./gazpacho/Gazpacho-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-ItalicMedium.woff2') format('woff2'), url('./gazpacho/Gazpacho-ItalicMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-ItalicBlack.woff2') format('woff2'), url('./gazpacho/Gazpacho-ItalicBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gazpacho';
+  src: url('./gazpacho/Gazpacho-Light.woff2') format('woff2'), url('./gazpacho/Gazpacho-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
