@@ -1,3 +1,7 @@
+.loader_component {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .loader_component__rich_text {
   strong,
   b {

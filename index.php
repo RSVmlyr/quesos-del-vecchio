@@ -16,7 +16,6 @@ get_header();
 ?>
 
 	<main id="primary" class="relative block grow">
-
 		<?php
 		if ( have_posts() ) :
 

@@ -2,7 +2,7 @@
 const glob = require('fast-glob');
 
 module.exports = {
-  content: glob.sync(['./**.php', './**/**.php', './src/js/**.js', './src/js/**/**.js']),
+  content: glob.sync(['./*.php', './**.php', './**/**.php', './template-parts/**/*.php', './src/js/**.js', './src/js/**/**.js']),
   blocklist: ['container'],
   theme: {
     extend: {

@@ -10,8 +10,8 @@ import Header from './elements/Header';
 // import Swiper styles
 import 'swiper/css';
 
-// Components
-const COMPONENTS = [];
+// Sections
+const SECTIONS = ['HomepageHero'];
 
 class App {
   constructor() {
@@ -33,7 +33,7 @@ class App {
       libraries: {
         gsap,
       },
-      componentsLength: COMPONENTS.length,
+      sectionsLength: SECTIONS.length,
     });
     new Header(this);
 
@@ -42,26 +42,26 @@ class App {
   }
 
   async _init() {
-    this.loader.onComponentLoaded();
-    this._runComponents();
+    this.loader.onSectionLoaded('app-init');
+    this._runSections();
   }
 
-  _runComponents() {
-    if (!COMPONENTS.length) return null;
+  _runSections() {
+    if (!SECTIONS.length) return null;
 
-    COMPONENTS.forEach((Component) => {
+    SECTIONS.forEach((section) => {
       // Get DOM elements
-      const htmlContainers = document.querySelectorAll(`[data-component="${Component}"]`);
-      if (!!htmlContainers.length) this._loadComponent(Component, htmlContainers);
+      const htmlContainers = document.querySelectorAll(`[data-section="${section}"]`);
+      if (!!htmlContainers.length) this._loadSection(section, htmlContainers);
     });
   }
 
-  async _loadComponent(ClassComponentName, htmlContainers) {
+  async _loadSection(ClassSectionName, htmlContainers) {
     // Dynamic component import
-    const { default: ClassComponent } = await import(`./components/${ClassComponentName}`);
-    this.loader.onComponentLoaded();
+    const { default: ClassSection } = await import(`./section/${ClassSectionName}`);
+    this.loader.onSectionLoaded(ClassSectionName);
     htmlContainers.forEach((container) => {
-      new ClassComponent(this, container);
+      new ClassSection(this, container);
     });
   }
 }

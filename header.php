@@ -165,6 +165,3 @@ $author = $additional_information['author'];
 			</div>
 		</div>
 	</div>
-
-	<img class="relative z-10" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg" />
-

@@ -187,3 +187,8 @@ require get_template_directory() . '/inc/acf/custom-wysiwyg.php';
  * Removing external sources
  */
 require get_template_directory() . '/inc/remove-external-assets.php';
+
+/**
+ * Custom Post Types
+ */
+require get_template_directory() . '/inc/custom-post-type.php';

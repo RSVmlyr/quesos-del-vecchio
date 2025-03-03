@@ -5,11 +5,6 @@
   margin: 0 auto;
   width: 100%;
 
-  @media only screen and (min-width: theme('screens.xl')) {
-    padding-left: rem-calc(46);
-    padding-right: rem-calc(46);
-  }
-
   &__large {
     max-width: rem-calc(1440);
   }
