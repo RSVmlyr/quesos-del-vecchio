@@ -3,6 +3,7 @@ import { mediaQueryHook } from '../utils/mediaQuery';
 
 const CLASSNAMES = {
   MAIN_BACKGROUND: '.homepage-hero__background',
+  MAIN_BACKGROUND_CURSOR: '.homepage-hero__background-cursor',
 };
 
 class HomepageHero {
@@ -11,6 +12,7 @@ class HomepageHero {
     this.container = container;
 
     this.mainBackground = this.container.querySelector(CLASSNAMES.MAIN_BACKGROUND);
+    this.mainBackgroundCursor = this.container.querySelector(CLASSNAMES.MAIN_BACKGROUND_CURSOR);
 
     addClickEventListener(this.mainBackground, this.handleMainBackgroundClick.bind(this));
   }

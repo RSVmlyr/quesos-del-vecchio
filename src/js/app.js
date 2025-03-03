@@ -6,7 +6,7 @@ import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { gsap } from 'gsap';
 import Loader from './elements/Loader';
 import Header from './elements/Header';
-
+import Cursor from './elements/Cursor';
 // import Swiper styles
 import 'swiper/css';
 
@@ -36,6 +36,7 @@ class App {
       sectionsLength: SECTIONS.length,
     });
     new Header(this);
+    new Cursor(this);
 
     // Init loading
     this._init();

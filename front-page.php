@@ -25,9 +25,6 @@ get_header();
 
 </main>
 
-</div><!-- #page -->
 
-<?php wp_footer(); ?>
-
-</body>
-</html>
+<?php
+get_footer("no-content");

@@ -28,6 +28,12 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+
+<div class="custom-cursor" data-custom-cursor aria-hidden="true">
+	<span class="custom-cursor-label">
+	</span>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>

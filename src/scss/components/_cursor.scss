@@ -1,0 +1,40 @@
+.custom-cursor {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  pointer-events: none;
+  user-select: none;
+
+  background-color: rgb($white);
+  color: rgb($blue);
+  font-weight: 600;
+  border-radius: 100%;
+  max-width: fit-content;
+  border-radius: 100%;
+  text-align: center;
+  transform: translate(-100vw) rotate(-12deg);
+  font-size: rem-calc(18);
+  letter-spacing: -0.02rem;
+  opacity: 0;
+
+  &--circle {
+    padding: rem-calc(83) rem-calc(55);
+  }
+
+  &--default {
+    padding: rem-calc(25) rem-calc(55);
+  }
+
+  &--visible {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    display: flex;
+  }
+}
