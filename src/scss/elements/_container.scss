@@ -5,6 +5,20 @@
   margin: 0 auto;
   width: 100%;
 
+  &--lg {
+    padding-left: rem-calc(0);
+    padding-right: rem-calc(0);
+    max-width: 100%;
+
+    @media only screen and (min-width: theme('screens.lg')) {
+      padding-left: rem-calc(16);
+      padding-right: rem-calc(16);
+      max-width: $page-max-width;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
   &__large {
     max-width: rem-calc(1440);
   }

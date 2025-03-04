@@ -2,16 +2,17 @@
 __webpack_public_path__ = window.__webpack_public_path__;
 
 import Swiper from 'swiper';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import { Navigation, Mousewheel } from 'swiper/modules';
 import { gsap } from 'gsap';
 import Loader from './elements/Loader';
 import Header from './elements/Header';
 import Cursor from './elements/Cursor';
+
 // import Swiper styles
 import 'swiper/css';
 
 // Sections
-const SECTIONS = ['HomepageHero'];
+const SECTIONS = ['HomepageHero', 'OccasionsSlider'];
 
 class App {
   constructor() {
@@ -24,10 +25,8 @@ class App {
     window.$APP.gsap = gsap;
 
     window.$APP.Swiper = Swiper;
-    window.$APP.Swiper.Pagination = Pagination;
-    window.$APP.Swiper.Autoplay = Autoplay;
     window.$APP.Swiper.Navigation = Navigation;
-
+    window.$APP.Swiper.Mousewheel = Mousewheel;
     // Mandatory instances
     this.loader = new Loader({
       libraries: {

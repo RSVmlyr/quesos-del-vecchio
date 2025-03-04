@@ -1,0 +1,138 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.occasions-slider {
+  width: 100%;
+  height: 100vh;
+}
+
+.occasions-slider__item {
+  display: flex;
+}
+
+.occasions-slider__item-blob-container {
+  position: relative;
+  max-width: clamp(300px, 100vw, 450px);
+  width: 100vw;
+  aspect-ratio: 1;
+  transform: scale(1.3);
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    transform: scale(1);
+    max-width: clamp(500px, 75vw, 820px);
+  }
+}
+
+.occasions-slider__item-blob {
+  position: relative;
+  border-radius: 33% 67% 43% 57% / 54% 51% 49% 46%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.occasions-slider__item-blob-secondary {
+  display: none;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    display: block;
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+
+    &--first {
+      max-width: rem-calc(356);
+      bottom: 15%;
+      z-index: 1;
+      left: -25%;
+      border-radius: 61% 39% 57% 43% / 58% 67% 33% 42%;
+    }
+
+    &--left {
+      max-width: rem-calc(332);
+      top: 10%;
+      z-index: 1;
+      right: -25%;
+      border-radius: 38% 62% 51% 49% / 69% 70% 30% 31%;
+    }
+  }
+}
+
+.occasions-slider__item-blob-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
+  }
+
+  &--no-gradient {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.occasions-slider__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem-calc(40);
+  height: rem-calc(40);
+  border: 1px solid rgb($white);
+  border-radius: 100%;
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    width: rem-calc(48);
+    height: rem-calc(48);
+
+    &--next {
+      transform: rotate(270deg);
+    }
+
+    &--prev {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.occasions-slider__progress {
+  position: relative;
+  height: rem-calc(2);
+  width: rem-calc(20);
+  background-color: rgba(rgb($white), 0.3);
+  border-radius: rem-calc(120);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgb($white);
+    border-radius: rem-calc(120);
+    width: var(--progress-width);
+    height: 100%;
+    transition: width 0.4s ease;
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    width: rem-calc(40);
+    height: rem-calc(3);
+  }
+}
