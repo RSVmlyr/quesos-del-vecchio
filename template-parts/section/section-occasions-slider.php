@@ -4,7 +4,11 @@ $total_posts = 0
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-occasions-slider.css" rel="stylesheet" type="text/css" media="all">
 
-<div class="swiper occasions-slider" data-section="OccasionsSlider">
+<div 
+    class="bg-blue swiper occasions-slider" 
+    data-section="OccasionsSlider"
+    style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/circles.svg);"
+>
     <div class="swiper-wrapper">
         <?php
         while (have_posts()) :
@@ -13,7 +17,7 @@ $total_posts = 0
             $marquee_text = get_field('marquee');
             $total_posts++;
         ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class('swiper-slide bg-blue flex-col gap-10 lg:gap-0 occasions-slider__item'); ?>>
+            <article id="post-<?php the_ID(); ?>" <?php post_class('swiper-slide flex-col gap-10 lg:gap-0 occasions-slider__item'); ?>>
 
                 <div class="relative grow flex items-center justify-center">
 

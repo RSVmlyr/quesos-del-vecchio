@@ -1,5 +1,9 @@
 .loader_component {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .loader_component__rich_text {

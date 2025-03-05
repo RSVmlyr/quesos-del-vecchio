@@ -9,7 +9,11 @@ $random_phrase = $phrases[$random];
 ?>
 
 <!-- Loader -->
-<div data-loader class="loader_component fixed inset-0 z-[100] text-white bg-blue flex justify-center items-center">
+<div 
+    data-loader 
+    class="loader_component fixed inset-0 z-[100] text-white bg-blue flex justify-center items-center"
+    style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/loader.svg);"
+>
     <div class="grid gap-14 w-full max-w-80 justify-center items-center grid-cols-1 text-center lg:max-w-[22.875rem]">
         <figure class="w-full max-w-[7.5rem] mx-auto lg:max-w-[8.75rem]">
             <img 
