@@ -16,6 +16,8 @@ $occasions_background_color = $args['occasions_background_color'];
 $tempt_title = $args['tempt_title'];
 $tempt_background = $args['tempt_background'];
 $tempt_background_color = $args['tempt_background_color'];
+
+$text_bottom = $args['text_bottom'];
 ?>
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-homepage-hero.css" rel="stylesheet" type="text/css" media="all">
@@ -55,5 +57,23 @@ $tempt_background_color = $args['tempt_background_color'];
                 <div class="homepage-hero__link-image" style="background-image: url(<?php echo esc_url($occasions_background['url']); ?>);"></div>
             </div>
         </a>
+
+        <div class="absolute bottom-1/2 inset-x-0 -translate-y-1/4 lg:translate-y-0 lg:bottom-8 homepage-hero__bottom">
+            <div class="container flex gap-2 justify-center items-center overflow-hidden">
+                <div class="homepage-hero__arrow homepage-hero__arrow--left">
+                    <div class="homepage-hero__arrow-shape"></div>
+                    <div class="homepage-hero__arrow-shape"></div>
+                </div>
+        
+                <span class="text-white text-center font-semibold leading-none">
+                    <?php echo esc_html($text_bottom); ?>
+                </span>
+        
+                <div class="homepage-hero__arrow homepage-hero__arrow--right">
+                    <div class="homepage-hero__arrow-shape"></div>
+                    <div class="homepage-hero__arrow-shape"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

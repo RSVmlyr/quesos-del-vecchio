@@ -1,3 +1,7 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
 .homepage-hero__background {
   position: absolute;
   inset: 0;
@@ -32,6 +36,18 @@
     .homepage-hero__title {
       opacity: 1;
       transition: opacity 0.4s 0.4s ease;
+    }
+
+    &:nth-child(1) {
+      & ~ .homepage-hero__bottom .homepage-hero__arrow--left .homepage-hero__arrow-shape {
+        animation-name: bounceAlpha;
+      }
+    }
+
+    &:nth-child(2) {
+      & ~ .homepage-hero__bottom .homepage-hero__arrow--right .homepage-hero__arrow-shape {
+        animation-name: bounceAlpha;
+      }
     }
   }
 
@@ -76,4 +92,81 @@
 .homepage-hero__title {
   opacity: 0;
   transition: opacity 0.4s ease;
+}
+
+.homepage-hero__arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: rem-calc(25);
+  height: rem-calc(25);
+
+  &--right {
+    transform: rotate(180deg);
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    flex-direction: row;
+  }
+}
+
+.homepage-hero__arrow-shape {
+  width: rem-calc(10);
+  height: rem-calc(10);
+  border-top: rem-calc(2) solid rgb($white);
+  border-left: rem-calc(2) solid rgb($white);
+  transform: rotate(45deg);
+
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  &:last-child {
+    animation-delay: 0.2s;
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes bounceAlpha {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1) rotate(45deg);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.9) rotate(45deg);
+  }
+  26% {
+    opacity: 0;
+    transform: translateY(5px) scale(0.9) rotate(45deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(0px) scale(1) rotate(45deg);
+  }
+}
+
+@media only screen and (min-width: theme('screens.lg')) {
+  @keyframes bounceAlpha {
+    0% {
+      opacity: 1;
+      transform: translateX(0px) scale(1) rotate(-45deg);
+    }
+    25% {
+      opacity: 0;
+      transform: translateX(-5px) scale(0.9) rotate(-45deg);
+    }
+    26% {
+      opacity: 0;
+      transform: translateX(5px) scale(0.9) rotate(-45deg);
+    }
+    55% {
+      opacity: 1;
+      transform: translateX(0px) scale(1) rotate(-45deg);
+    }
+  }
 }

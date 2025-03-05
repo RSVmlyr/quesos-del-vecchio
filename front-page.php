@@ -19,7 +19,9 @@ get_header();
 
             "tempt_title" => get_field('tempt')['title'],
             "tempt_background" => get_field('tempt')['background_image'],
-            "tempt_background_color" => get_field('tempt')['background_color']
+            "tempt_background_color" => get_field('tempt')['background_color'],
+
+            "text_bottom" => get_field('text_bottom')
         ));
     ?>
 
