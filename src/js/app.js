@@ -48,7 +48,12 @@ class App {
     SECTIONS.forEach((section) => {
       // Get DOM elements
       const htmlContainers = document.querySelectorAll(`[data-section="${section}"]`);
-      if (!!htmlContainers.length) this._loadSection(section, htmlContainers);
+      if (!!htmlContainers.length) {
+        this._loadSection(section, htmlContainers);
+      } else {
+        // If no containers found, mark the section as loaded anyway
+        this.loader.onSectionLoaded(section);
+      }
     });
   }
 
