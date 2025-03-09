@@ -4,7 +4,7 @@ $total_posts = 0
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-occasions-slider.css" rel="stylesheet" type="text/css" media="all">
 
-<div 
+<section 
     class="bg-blue swiper occasions-slider" 
     data-section="OccasionsSlider"
     style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/circles.svg);"
@@ -29,11 +29,11 @@ $total_posts = 0
                     <div class="occasions-slider__item-blob-container">
                         <div class="occasions-slider__item-blob occasions-slider__item-blob occasions-slider__item-blob-primary">
                             <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-6 z-10 text-center w-full max-w-[15rem] lg:max-w-[33.375rem] lg:-translate-y-1/4">
-                                <h2 class="text-white text-5xl font-medium mb-5 lg:text-[4rem]">
+                                <h2 class="text-white text-5xl font-medium mb-5 tracking-tight lg:text-[4rem]">
                                     <?php the_title(); ?>
                                 </h2>
         
-                                <a href="<?php the_permalink(); ?>" class="bg-white text-blue rounded-[100%] px-7 py-3 block max-w-fit mx-auto font-semibold hover:bg-blue hover:text-white transition-colors duration-300 lg:text-2xl lg:px-14 lg:py-4 occasions-slider__item-blob-button">
+                                <a href="<?php the_permalink(); ?>" class="tracking-tight bg-white text-blue rounded-[100%] px-7 py-3 block max-w-fit mx-auto font-semibold hover:bg-blue hover:text-white transition-colors duration-300 lg:text-2xl lg:px-14 lg:py-4 occasions-slider__item-blob-button">
                                     Explorar
                                 </a>
                             </div>
@@ -62,7 +62,7 @@ $total_posts = 0
                 </div>
 
                 <div class="flex w-full py-4 lg:bottom-0 lg:absolute lg:inset-x-0 occasions-slider__marquee">
-                    <span class="whitespace-nowrap text-beige-3 text-[2rem] font-gazpacho font-medium flex items-center">
+                    <span class="whitespace-nowrap text-beige-3 text-[2rem] font-gazpacho font-medium flex items-center tracking-tight">
                         <?php echo $marquee_text; ?>
 
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-5">
@@ -95,7 +95,7 @@ $total_posts = 0
                 </button>
             </div>
             <div class="flex items-center gap-3 lg:row-span-2 lg:col-start-1 lg:row-start-1 lg:flex-col">
-                <span class="text-2xl font-medium occasions-slider__current-count">
+                <span class="text-2xl font-medium tracking-tight occasions-slider__current-count">
                     01
                 </span>
                 <div 
@@ -103,7 +103,7 @@ $total_posts = 0
                     style="--progress-width: <?php echo (1/$total_posts) * 100; ?>%;"
                     data-progress-width="<?php echo $total_posts; ?>"
                 ></div>
-                <span class="text-2xl font-medium">
+                <span class="text-2xl tracking-tight font-medium">
                     <?php echo str_pad($total_posts, 2, '0', STR_PAD_LEFT); ?>
                 </span>
             </div>
@@ -116,4 +116,4 @@ $total_posts = 0
             </div>
         </div>
     </div>
-</div>
+</section>

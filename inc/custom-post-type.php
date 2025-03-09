@@ -55,8 +55,12 @@ function create_post_types() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'ocasiones' ),
-		'capability_type'	 => 'post',
+        'rewrite'            => array(
+            'slug' => 'ocasiones',
+            'with_front' => false,
+            'hierarchical' => true
+        ),
+        'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => true,
         'menu_position'      => 5,

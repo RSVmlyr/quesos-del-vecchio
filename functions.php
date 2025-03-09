@@ -182,6 +182,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 require get_template_directory() . '/inc/acf/acf-config.php';
 require get_template_directory() . '/inc/acf/custom-wysiwyg.php';
+require get_template_directory() . '/inc/acf/acf-location-post-parent.php';
 
 /**
  * Removing external sources
