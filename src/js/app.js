@@ -18,20 +18,16 @@ class App {
   constructor() {
     window.$APP = this;
 
-    // Aplication state
-    this.isBackdropOpen = false;
-
     // Set Main Dependencies to Global State
     window.$APP.gsap = gsap;
 
     window.$APP.Swiper = Swiper;
     window.$APP.Swiper.Navigation = Navigation;
     window.$APP.Swiper.Mousewheel = Mousewheel;
+
     // Mandatory instances
     this.loader = new Loader({
-      libraries: {
-        gsap,
-      },
+      app: this,
       sectionsLength: SECTIONS.length,
     });
     new Header(this);

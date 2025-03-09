@@ -1,6 +1,7 @@
 class Loader {
   constructor(params) {
-    this.gsapLibrary = params.libraries.gsap;
+    this.app = params.app;
+    this.gsapLibrary = this.app.gsap;
     this.sectionsLength = Math.max(params.sectionsLength, 1);
     this.loadedSections = 0;
     this.loadedSectionInstances = new Set();
@@ -18,6 +19,9 @@ class Loader {
 
   close() {
     if (this.loaderDOM) {
+      // Dispatch custom event when isLoaded becomes true
+      window.dispatchEvent(new Event('appLoaded'));
+
       const tl = this.gsapLibrary.timeline();
 
       tl.to(this.loaderDOM, {

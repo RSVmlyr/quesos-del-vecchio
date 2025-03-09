@@ -13,6 +13,7 @@
 
 .occasions-slider__item {
   display: flex;
+  overflow: hidden;
 }
 
 .occasions-slider__item-blob-container {
@@ -29,6 +30,10 @@
 }
 
 .occasions-slider__item-blob {
+  transform: translateY(100vh) scale(0.8);
+}
+
+.occasions-slider__item-blob-primary {
   position: relative;
   border-radius: 33% 67% 43% 57% / 54% 51% 49% 46%;
   width: 100%;
@@ -50,7 +55,7 @@
       max-width: rem-calc(356);
       bottom: 15%;
       z-index: 1;
-      left: -25%;
+      left: -28%;
       border-radius: 61% 39% 57% 43% / 58% 67% 33% 42%;
     }
 
@@ -58,10 +63,14 @@
       max-width: rem-calc(332);
       top: 10%;
       z-index: 1;
-      right: -25%;
+      right: -28%;
       border-radius: 38% 62% 51% 49% / 69% 70% 30% 31%;
     }
   }
+}
+
+.occasions-slider__item-blob-hover {
+  opacity: 0;
 }
 
 .occasions-slider__item-blob-image {
@@ -138,5 +147,80 @@
   @media only screen and (min-width: theme('screens.lg')) {
     width: rem-calc(40);
     height: rem-calc(3);
+  }
+}
+
+.occasions-slider__marquee {
+  opacity: 0;
+}
+
+.occasions-slider__item-product-images {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+}
+
+.occasions-slider__item-product-image {
+  position: absolute;
+  aspect-ratio: 1;
+  max-width: rem-calc(200);
+  transform: translateY(100vh);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:nth-child(1) {
+    top: 10%;
+    left: 0%;
+    transform: translateY(100vh) rotate(-50deg);
+  }
+
+  &:nth-child(2) {
+    top: 30%;
+    left: 10%;
+    max-width: rem-calc(80);
+  }
+
+  &:nth-child(3) {
+    bottom: 10%;
+    left: 2%;
+  }
+
+  &:nth-child(4) {
+    bottom: 0%;
+    left: 15%;
+    max-width: rem-calc(300);
+    filter: blur(5px);
+    transform: translateY(100vh) rotate(-50deg);
+  }
+
+  &:nth-child(5) {
+    bottom: 5%;
+    right: 10%;
+    transform: translateY(100vh) rotate(-50deg);
+  }
+
+  &:nth-child(6) {
+    top: 10%;
+    right: 10%;
+  }
+
+  &:nth-child(7) {
+    top: 45%;
+    right: 0%;
+    transform: translateY(100vh) rotate(-50deg);
+    max-width: rem-calc(80);
+  }
+
+  &:nth-child(8) {
+    top: 0%;
+    right: 40%;
+    transform: translateY(100vh) rotate(-50deg);
   }
 }
