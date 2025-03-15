@@ -40,6 +40,16 @@
   }
 }
 
+.no-container {
+  &--lg {
+    @media only screen and (min-width: theme('screens.lg')) {
+      max-width: 100%;
+      padding-left: rem-calc(0);
+      padding-right: rem-calc(0);
+    }
+  }
+}
+
 .custom-space {
   padding-top: var(--mobile-top-space);
   padding-bottom: var(--mobile-bottom-space);

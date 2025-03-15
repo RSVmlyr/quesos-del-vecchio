@@ -1,0 +1,62 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.vertical-slider__swiper {
+  width: 100%;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    height: 100%;
+  }
+}
+
+.vertical-slider__slide {
+  .vertical-slider__blob {
+    border-radius: 38% 62% 51% 49% / 69% 70% 30% 31%;
+  }
+  &:nth-child(odd) {
+    .vertical-slider__blob {
+      border-radius: 61% 39% 57% 43% / 58% 67% 33% 42%;
+    }
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.vertical-slider__blob {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  max-width: rem-calc(350);
+  transform: scale(0.3);
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    max-width: rem-calc(680);
+  }
+}
+
+.vertical-slider__eyebrow {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: rem-calc(15);
+    height: rem-calc(2);
+    background-color: rgb($blue);
+    vertical-align: middle;
+  }
+}
+
+.vertical-slider__slide-title {
+  display: none;
+  opacity: 0;
+
+  &.active {
+    display: block;
+  }
+}
