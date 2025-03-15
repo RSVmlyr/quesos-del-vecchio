@@ -4,6 +4,7 @@ __webpack_public_path__ = window.__webpack_public_path__;
 import Swiper from 'swiper';
 import { Navigation, Mousewheel } from 'swiper/modules';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Loader from './elements/Loader';
 import Header from './elements/Header';
 import Cursor from './elements/Cursor';
@@ -12,7 +13,7 @@ import Cursor from './elements/Cursor';
 import 'swiper/css';
 
 // Sections
-const SECTIONS = ['HomepageHero', 'OccasionsSlider'];
+const SECTIONS = ['HomepageHero', 'OccasionsSlider', 'OccasionsHero'];
 
 class App {
   constructor() {
@@ -20,6 +21,7 @@ class App {
 
     // Set Main Dependencies to Global State
     window.$APP.gsap = gsap;
+    window.$APP.gsap.registerPlugin(ScrollTrigger);
 
     window.$APP.Swiper = Swiper;
     window.$APP.Swiper.Navigation = Navigation;

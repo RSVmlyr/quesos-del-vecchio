@@ -12,6 +12,7 @@ module.exports = {
         ['beige-2']: 'rgba(var(--beige-2) / <alpha-value>)',
         ['beige-3']: 'rgba(var(--beige-3) / <alpha-value>)',
         white: 'rgba(var(--white) / <alpha-value>)',
+        orange: 'rgba(var(--orange) / <alpha-value>)',
       },
       fontFamily: {
         figtree: 'var(--font-figtree)',
