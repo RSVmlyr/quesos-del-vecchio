@@ -118,11 +118,14 @@ class OccasionsHero {
   animateButton(activeIndex) {
     const isMobile = mediaQueryHook('(max-width: 1024px)');
     const menuOption = this.menu.children[activeIndex];
+    const menuOptionLink = menuOption.querySelector('a').href;
+    const menuButtonElement = this.menuButton.querySelector('a');
 
     for (const option of this.menu.children) {
       option.classList.remove('active');
     }
 
+    menuButtonElement.href = menuOptionLink;
     menuOption.classList.add('active');
 
     if (isMobile) {
