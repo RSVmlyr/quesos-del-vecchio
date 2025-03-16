@@ -1,0 +1,59 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.four-images-slider__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem-calc(40);
+  height: rem-calc(40);
+  border: 1px solid rgb($blue);
+  border-radius: 100%;
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    width: rem-calc(48);
+    height: rem-calc(48);
+  }
+}
+
+.four-images-slider__progress {
+  position: relative;
+  height: rem-calc(2);
+  width: rem-calc(20);
+  background-color: rgba(rgb($blue), 0.3);
+  border-radius: rem-calc(120);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgb($blue);
+    border-radius: rem-calc(120);
+    width: var(--progress-width);
+    height: 100%;
+    transition: width 0.4s ease;
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    width: rem-calc(40);
+    height: rem-calc(3);
+  }
+}
+
+.four-images-slider__images {
+  display: none;
+
+  &:first-child {
+    display: block;
+  }
+}
