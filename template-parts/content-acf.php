@@ -11,6 +11,6 @@ switch(get_row_layout()) {
         get_template_part('template-parts/section/section-four-images-slider');
         break;
     case "banner_image_background":
-        get_template_part('template-parts/section/section-four-images-slider');
+        get_template_part('template-parts/section/section-banner-image-background');
         break;
 }
