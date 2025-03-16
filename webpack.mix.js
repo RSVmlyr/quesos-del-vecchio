@@ -24,6 +24,7 @@ mix
   .sass(`${RESOURCES_DIR}/scss/section/section-occasions-hero.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-vertical-slider.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-four-images-slider.scss`, DIST_DIR)
+  .sass(`${RESOURCES_DIR}/scss/section/section-instagram-reels.scss`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/fonts`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/svg`, DIST_DIR)
   .sourceMaps();

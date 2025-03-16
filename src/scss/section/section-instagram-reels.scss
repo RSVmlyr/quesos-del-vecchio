@@ -1,0 +1,16 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.instagram-reels__button--prev,
+.instagram-reels__button--next {
+  display: none;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.instagram-reels__swiper {
+  padding-right: rem-calc(24);
+}

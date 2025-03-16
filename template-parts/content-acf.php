@@ -13,4 +13,7 @@ switch(get_row_layout()) {
     case "banner_image_background":
         get_template_part('template-parts/section/section-banner-image-background');
         break;
+    case "instagram_reels":
+        get_template_part('template-parts/section/section-instagram-reels');
+        break;
 }

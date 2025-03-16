@@ -19,6 +19,14 @@
     }
   }
 
+  &--right {
+    padding-left: rem-calc(16);
+    max-width: $page-max-width;
+    margin: 0 0 0 auto;
+    width: 100%;
+    max-width: calc($page-max-width + 32px);
+  }
+
   &__large {
     max-width: rem-calc(1440);
   }
