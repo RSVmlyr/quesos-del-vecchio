@@ -16,4 +16,7 @@ switch(get_row_layout()) {
     case "instagram_reels":
         get_template_part('template-parts/section/section-instagram-reels');
         break;
+    case "recipe_slider":
+        get_template_part('template-parts/section/section-recipe-slider');
+        break;
 }
