@@ -1,0 +1,52 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.recipe-slider__swiper {
+  position: relative;
+}
+
+.recipe-slider__container {
+  display: flex;
+}
+
+.embla__container {
+  backface-visibility: hidden;
+}
+
+.recipe-slider__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  position: relative;
+
+  @media only screen and (min-width: theme('screens.md')) {
+    flex: 0 0 calc(100% / 2);
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    flex: 0 0 calc(100% / 4);
+    height: var(--max-height);
+
+    &.is-active {
+      .recipe-slider__slide-item {
+        top: 0;
+      }
+    }
+
+    &.is-next,
+    &.is-prev {
+      .recipe-slider__slide-item {
+        top: calc(calc(100% - var(--height)) / 2);
+      }
+    }
+  }
+}
+
+.recipe-slider__slide-item {
+  position: relative;
+  transition: top 0.1s linear;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    top: calc(100% - var(--height));
+  }
+}
