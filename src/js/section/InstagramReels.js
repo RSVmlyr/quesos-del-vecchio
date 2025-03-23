@@ -33,6 +33,7 @@ class InstagramReels {
       slidesPerView: 4,
       spaceBetween: 24,
       speed: 500,
+      allowTouchMove: false,
     });
   }
 

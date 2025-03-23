@@ -55,11 +55,14 @@
                 <div class="swiper-wrapper">
                     <?php foreach ($reels as $item): 
                         $reel = $item['reel'];
+                        $reel_link = $item['reel_link'];
                     ?>
                         <div class="swiper-slide instagram-reels__slide">
-                            <video autoplay muted loop class="pointer-events-none aspect-[9/16] overflow-hidden rounded-3xl">
-                                <source src="<?php echo $reel; ?>" />
-                            </video>
+                            <a href="<?php echo $reel_link; ?>" target="_blank" class="block">
+                                <video autoplay muted loop class="pointer-events-none aspect-[9/16] overflow-hidden rounded-3xl">
+                                    <source src="<?php echo $reel; ?>" />
+                                </video>
+                            </a>
                         </div>
                     <?php endforeach; ?>
                 </div>
