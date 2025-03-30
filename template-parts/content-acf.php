@@ -22,4 +22,7 @@ switch(get_row_layout()) {
     case "ingredient_banner":
         get_template_part('template-parts/section/section-ingredient-banner');
         break; 
+    case "fun_fact":
+        get_template_part('template-parts/section/section-fun-fact');
+        break; 
 }
