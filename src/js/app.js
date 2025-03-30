@@ -13,7 +13,16 @@ import Cursor from './elements/Cursor';
 import 'swiper/css';
 
 // Sections
-const SECTIONS = ['HomepageHero', 'OccasionsSlider', 'OccasionsHero', 'VerticalSlider', 'FourImagesSlider', 'InstagramReels', 'RecipeSlider'];
+const SECTIONS = [
+  'HomepageHero',
+  'OccasionsSlider',
+  'OccasionsHero',
+  'VerticalSlider',
+  'FourImagesSlider',
+  'InstagramReels',
+  'RecipeSlider',
+  'ProductHero',
+];
 
 class App {
   constructor() {

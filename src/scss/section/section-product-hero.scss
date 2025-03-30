@@ -1,0 +1,30 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.product-hero {
+  background-position: center;
+  background-size: cover;
+}
+
+.product-hero__blob {
+  position: absolute;
+  width: 90%;
+  left: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 38% 62% 51% 49% / 69% 70% 30% 31%;
+}
+
+.product-hero__eyebrow {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: rem-calc(15);
+    height: rem-calc(2);
+    background-color: rgb($light-blue);
+    vertical-align: middle;
+  }
+}

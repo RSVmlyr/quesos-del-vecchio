@@ -117,6 +117,7 @@ class VerticalSlider {
   }
 
   goToNextSection() {
+    // TODO: Fix link tag
     const nextSection = this.container.nextElementSibling;
 
     if (nextSection) {

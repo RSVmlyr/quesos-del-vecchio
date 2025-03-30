@@ -72,6 +72,8 @@ function create_post_types() {
         'show_in_rest'          => true,
     );
 
+
+    // Recipe Post Type
 	$recipe_args = array(
         'labels'             => generate_post_type_labels( 'recipe', 'Recipes' ),
         'public'             => true,

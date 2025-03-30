@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         blue: 'rgba(var(--blue) / <alpha-value>)',
+        ['light-blue']: 'rgba(var(--light-blue) / <alpha-value>)',
         beige: 'rgba(var(--beige) / <alpha-value>)',
         ['beige-2']: 'rgba(var(--beige-2) / <alpha-value>)',
         ['beige-3']: 'rgba(var(--beige-3) / <alpha-value>)',
