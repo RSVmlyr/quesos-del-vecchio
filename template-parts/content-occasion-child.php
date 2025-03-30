@@ -26,4 +26,12 @@ $nutritional_info = get_field('nutritional_info');
             'delivery_link' => $rappi_link,
         )); 
     ?>
+
+    <?php if ( have_rows("layout") ) : ?>
+        <?php while ( have_rows("layout") ) : the_row(); ?>
+
+            <?php get_template_part( 'template-parts/content', 'acf'); ?>		
+
+        <?php endwhile; // End of the loop. ?>
+    <?php endif; ?>
 </article> 

@@ -19,4 +19,7 @@ switch(get_row_layout()) {
     case "recipe_slider":
         get_template_part('template-parts/section/section-recipe-slider');
         break;
+    case "ingredient_banner":
+        get_template_part('template-parts/section/section-ingredient-banner');
+        break; 
 }
