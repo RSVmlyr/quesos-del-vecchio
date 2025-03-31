@@ -10,7 +10,7 @@
 
 <section 
     data-section="LocationsSlider"
-    class="bg-beige-3"
+    class="bg-beige-3 py-20"
 >
     <div class="container">
         <div class="bg-beige-2 overflow-hidden rounded-[3.5rem] grid grid-cols-2 items-center px-20 py-20">
