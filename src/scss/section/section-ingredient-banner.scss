@@ -1,4 +1,37 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
 .ingredient-banner__bg {
   background-position: center;
   background-size: cover;
+
+  &:hover {
+    .ingredient-banner__button {
+      background-color: rgb($blue);
+      color: rgb($beige-3);
+    }
+
+    .ingredient-banner__image--left {
+      transform: rotate(-5deg) translateY(-50px);
+    }
+
+    .ingredient-banner__image--right {
+      transform: rotate(5deg) translateY(-20px);
+    }
+  }
+}
+
+.ingredient-banner__button {
+  transition: all 0.3s ease-in-out;
+}
+
+.ingredient-banner__image--left {
+  transform: rotate(-12deg) translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.ingredient-banner__image--right {
+  transform: rotate(12deg) translateY(40px);
+  transition: all 0.3s ease-in-out;
 }
