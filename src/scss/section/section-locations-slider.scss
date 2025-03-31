@@ -1,0 +1,46 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.locations-slider__location {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.locations-slider__slide {
+  width: 70%;
+
+  &.swiper-slide-active .locations-slider__location {
+    opacity: 1;
+  }
+
+  &.swiper-slide-next .locations-slider__location,
+  &.swiper-slide-prev .locations-slider__location {
+    opacity: 0.35;
+  }
+}
+
+.locations-slider__swiper {
+  width: 100%;
+}
+
+.locations-slider__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem-calc(8);
+  margin-top: rem-calc(36);
+
+  .swiper-pagination-bullet {
+    display: inline-block;
+    height: rem-calc(8);
+    width: rem-calc(8);
+    background-color: rgb($blue);
+    opacity: 0.35;
+    border-radius: 100%;
+
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
+}

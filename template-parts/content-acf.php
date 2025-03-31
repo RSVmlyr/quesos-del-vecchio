@@ -25,4 +25,7 @@ switch(get_row_layout()) {
     case "fun_fact":
         get_template_part('template-parts/section/section-fun-fact');
         break; 
+    case "locations_slider":
+        get_template_part('template-parts/section/section-locations-slider');
+        break; 
 }

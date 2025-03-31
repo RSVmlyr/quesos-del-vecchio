@@ -49,7 +49,7 @@ function generate_post_type_labels( $singular = '', $plural = '', $overrides = a
 function create_post_types() {
     // Occasions Post Type
     $occasions_args = array(
-        'labels'             => generate_post_type_labels( 'occasion', 'Occasions' ),
+        'labels'             => generate_post_type_labels( 'occasion', 'Ocasiones' ),
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
@@ -72,10 +72,9 @@ function create_post_types() {
         'show_in_rest'          => true,
     );
 
-
     // Recipe Post Type
 	$recipe_args = array(
-        'labels'             => generate_post_type_labels( 'recipe', 'Recipes' ),
+        'labels'             => generate_post_type_labels( 'recipe', 'Recetas' ),
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
@@ -97,9 +96,28 @@ function create_post_types() {
         'show_in_rest'          => true,
     );
 
+    // Locations Post Type
+	$locations_args = array(
+        'labels'             => generate_post_type_labels( 'location', 'Locaciones' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'menu_position'      => 5,
+        'supports'           => array( 'title', 'custom-fields', 'thumbnail' ),
+        'menu_icon'             => 'dashicons-calendar',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'exclude_from_search'   => false,
+        'show_in_rest'          => true,
+    );
+
 	register_post_type( 'occasion', $occasions_args );
 	register_post_type( 'recipe', $recipe_args );
-
+	register_post_type( 'location', $locations_args );
 }
 
 add_action( 'init', 'create_post_types', 0 );

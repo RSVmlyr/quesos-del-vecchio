@@ -2,7 +2,7 @@
 __webpack_public_path__ = window.__webpack_public_path__;
 
 import Swiper from 'swiper';
-import { Navigation, Mousewheel } from 'swiper/modules';
+import { Navigation, Mousewheel, EffectCoverflow, Pagination } from 'swiper/modules';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Loader from './elements/Loader';
@@ -22,6 +22,7 @@ const SECTIONS = [
   'InstagramReels',
   'RecipeSlider',
   'ProductHero',
+  'LocationsSlider',
 ];
 
 class App {
@@ -35,6 +36,8 @@ class App {
     window.$APP.Swiper = Swiper;
     window.$APP.Swiper.Navigation = Navigation;
     window.$APP.Swiper.Mousewheel = Mousewheel;
+    window.$APP.Swiper.EffectCoverflow = EffectCoverflow;
+    window.$APP.Swiper.Pagination = Pagination;
 
     // Mandatory instances
     this.loader = new Loader({
