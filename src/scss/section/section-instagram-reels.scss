@@ -14,3 +14,9 @@
 .instagram-reels__swiper {
   padding-right: rem-calc(24);
 }
+
+.instagram-reels__button--prev {
+  @media only screen and (min-width: 1500px) {
+    left: rem-calc(-48);
+  }
+}

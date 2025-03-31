@@ -21,10 +21,9 @@
 
   &--right {
     padding-left: rem-calc(16);
-    max-width: $page-max-width;
-    margin: 0 0 0 auto;
+    margin: 0 0 0 calc((100vw - $page-max-width) / 2);
     width: 100%;
-    max-width: calc($page-max-width + 32px);
+    max-width: calc(100vw - ((100vw - $page-max-width) / 2));
   }
 
   &__large {
