@@ -11,6 +11,7 @@
 
 
 $main_logo = get_field('general_logos', 'options')["main_logo"];
+$main_logo_dark = get_field('general_logos', 'options')["main_logo_dark"];
 
 $social_media = get_field('general_social_media', 'options');
 $facebook = $social_media['facebook'];
@@ -48,13 +49,17 @@ $author = $additional_information['author'];
 		<div class="container">
 			<div class="py-4 flex justify-between items-center lg:py-12 lg:pb-0 header_container">
 				<div class="">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="block max-w-44 lg:max-w-48" aria-label="Ir al inicio">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="block max-w-44 lg:max-w-48 header_logo" aria-label="Ir al inicio">
 						<img src="<?php echo $main_logo['url']; ?>" class="" alt="<?php bloginfo( 'name' ); ?>" width="192" height="56" />
+					</a>
+
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="block max-w-44 lg:max-w-48 header_logo-dark" aria-label="Ir al inicio">
+						<img src="<?php echo $main_logo_dark['url']; ?>" class="" alt="<?php bloginfo( 'name' ); ?>" width="192" height="56" />
 					</a>
 				</div>
 	
 				<div class="overflow-hidden rounded-[12.5rem] lg:flex lg:items-center lg:relative">
-					<nav class="hidden bg-beige-3 rounded-[12.5rem] items-center px-8 py-3 -mr-1 lg:flex header_navigation_desktop">
+					<nav class="hidden rounded-[12.5rem] items-center px-8 py-3 -mr-1 lg:flex header_navigation_desktop">
 						<?php
 							wp_nav_menu(
 								array(
@@ -68,13 +73,13 @@ $author = $additional_information['author'];
 					</nav>
 
 					<button class="text-blue flex items-center !leading-none lg:text-lg header_button" type="button" aria-label="Menu" aria-controls="navigation" aria-expanded="false">
-						<div class="bg-beige-3 rounded-[12.5rem] py-3 font-semibold px-6 -mr-1 lg:py-4 header_button_label">
+						<div class="rounded-[12.5rem] py-3 font-semibold px-6 -mr-1 lg:py-4 header_button_label">
 							<span>
 								Menú
 							</span>
 						</div>
 	
-						<div class="bg-beige-3 rounded-full py-2 px-2 relative z-0 lg:py-3 lg:px-3 header_button_svg">
+						<div class="rounded-full py-2 px-2 relative z-0 lg:py-3 lg:px-3 header_button_svg">
 							<?php
 								echo file_get_contents(get_template_directory() . '/public/icons/plus.svg');
 							?>
