@@ -113,6 +113,7 @@
   .header_container {
     padding-top: rem-calc(16);
   }
+
   .header_logo {
     display: none;
 
@@ -121,6 +122,26 @@
     }
   }
 
+  .header_button_svg {
+    background-color: rgb($blue);
+    color: rgb($beige-3);
+  }
+
+  .header_button_label {
+    background-color: rgb($blue);
+    color: rgb($beige-3);
+  }
+
+  .header_navigation_desktop {
+    background-color: rgb($blue);
+
+    a {
+      color: rgb($beige-3);
+    }
+  }
+}
+
+.header--dark {
   .header_button_svg {
     background-color: rgb($blue);
     color: rgb($beige-3);

@@ -3,7 +3,15 @@
  * The template for displaying single Occasion posts
  */
 
-get_header();
+// Check if this is a child occasion
+$is_child = wp_get_post_parent_id(get_the_ID()) ? true : false;
+
+// Use dark header for child occasions
+if ($is_child) {
+    get_header('dark');
+} else {
+    get_header();
+}
 ?>
 
 <main id="primary" class="relative block grow">
