@@ -23,6 +23,7 @@ const SECTIONS = [
   'RecipeSlider',
   'ProductHero',
   'LocationsSlider',
+  'Hotspots',
 ];
 
 class App {

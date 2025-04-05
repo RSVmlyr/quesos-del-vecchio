@@ -9,13 +9,13 @@
     "url": "git+https://github.com/SebastianMG92/quesos-del-vecchio"
   },
   "devDependencies": {
-    "embla-carousel": "^8.5.2",
     "@wordpress/scripts": "^26.8.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
+    "embla-carousel": "^8.5.2",
     "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",

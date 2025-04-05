@@ -8,7 +8,7 @@ $background_color = get_sub_field('color');
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-fun-fact.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
-    class="bg-beige-3 py-28 fun-fact"
+    class="bg-beige-3 py-28 fun-fact overflow-hidden"
     data-section=""
 >
     <div class="container flex items-center justify-center">

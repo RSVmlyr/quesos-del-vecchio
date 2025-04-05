@@ -88,7 +88,7 @@ function create_post_types() {
         'capability_type'    => 'post',
         'has_archive'        => true,
         'menu_position'      => 5,
-        'supports'           => array( 'title', 'custom-fields', 'thumbnail', 'page-attributes' ),
+        'supports'           => array( 'title', 'custom-fields', 'thumbnail', 'page-attributes', 'excerpt' ),
         'menu_icon'             => 'dashicons-calendar',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,

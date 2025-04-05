@@ -30,6 +30,7 @@ mix
   .sass(`${RESOURCES_DIR}/scss/section/section-ingredient-banner.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-fun-fact.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-locations-slider.scss`, DIST_DIR)
+  .sass(`${RESOURCES_DIR}/scss/section/section-hotspots.scss`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/fonts`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/svg`, DIST_DIR)
   .sourceMaps();

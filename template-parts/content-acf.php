@@ -28,4 +28,7 @@ switch(get_row_layout()) {
     case "locations_slider":
         get_template_part('template-parts/section/section-locations-slider');
         break; 
+    case "hotspots":
+        get_template_part('template-parts/section/section-hotspots');
+        break; 
 }
