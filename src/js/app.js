@@ -24,6 +24,7 @@ const SECTIONS = [
   'ProductHero',
   'LocationsSlider',
   'Hotspots',
+  'HorizontalScroll',
 ];
 
 class App {

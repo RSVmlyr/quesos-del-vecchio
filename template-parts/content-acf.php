@@ -31,4 +31,7 @@ switch(get_row_layout()) {
     case "hotspots":
         get_template_part('template-parts/section/section-hotspots');
         break; 
+    case "horizontal_scroll":
+        get_template_part('template-parts/section/section-horizontal-scroll');
+        break;
 }

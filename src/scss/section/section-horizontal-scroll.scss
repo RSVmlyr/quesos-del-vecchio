@@ -1,0 +1,51 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.horizontal-scroll__section {
+  &:nth-child(even) {
+    .horizontal-scroll__section-title {
+      align-self: flex-end;
+    }
+  }
+
+  &:nth-child(odd) {
+    .horizontal-scroll__section-title {
+      align-self: center;
+    }
+  }
+}
+
+.horizontal-scroll__asset {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.horizontal-scroll__main-asset {
+  width: rem-calc(900);
+  aspect-ratio: 1;
+  transform: translateY(10%) translateX(-20%);
+}
+
+.horizontal-scroll__asset-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  mask-image: var(--mask-image);
+  -webkit-mask-image: var(--mask-image);
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  overflow: hidden;
+
+  img,
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
