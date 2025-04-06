@@ -40,4 +40,7 @@ switch(get_row_layout()) {
     case "image_text":
         get_template_part('template-parts/section/section-image-text');
         break;
+    case "image":
+        get_template_part('template-parts/section/section-image');
+        break;
 }
