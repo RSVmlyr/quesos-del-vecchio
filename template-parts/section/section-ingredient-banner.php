@@ -43,7 +43,7 @@ $image = get_sub_field('image');
             </div>
         </a>
 
-        <div class="bg-beige-3 relative z-10 h-14">  
+        <div class="bg-beige-3 relative z-10 h-28">  
         </div>
     </div>
 </section>

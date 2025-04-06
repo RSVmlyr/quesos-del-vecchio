@@ -20,21 +20,3 @@
     max-width: rem-calc(560);
   }
 }
-
-.article-hero__share-button {
-  .article-hero__share-button--check {
-    display: none;
-  }
-  .article-hero__share-button--share {
-    display: block;
-  }
-  &--clicked {
-    .article-hero__share-button--check {
-      display: block;
-    }
-
-    .article-hero__share-button--share {
-      display: none;
-    }
-  }
-}

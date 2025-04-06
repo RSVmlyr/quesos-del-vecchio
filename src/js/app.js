@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Loader from './elements/Loader';
 import Header from './elements/Header';
 import Cursor from './elements/Cursor';
-
+import ShareButton from './elements/ShareButton';
 // import Swiper styles
 import 'swiper/css';
 
@@ -50,6 +50,7 @@ class App {
     });
     new Header(this);
     new Cursor(this);
+    new ShareButton(this);
 
     // Init loading
     this._init();

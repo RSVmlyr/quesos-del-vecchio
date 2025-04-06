@@ -101,9 +101,9 @@ $author = $additional_information['author'];
 					<?php endif; ?>
 				</div>
 				
-				<div class="pt-6 border-t border-blue/[0.12] text-xs grid gap-4 uppercase font-medium tracking-tight text-blue sm:pt-8 sm:grid-cols-2 md:flex lg:font-normal">
+				<div class="pt-6 border-t border-blue/[0.12] text-xs grid gap-4 uppercase font-medium tracking-tight text-blue sm:pt-8 sm:grid-cols-2 md:flex lg:items-center lg:font-normal">
 					<?php if ( ! empty( $copyright ) ): ?>
-						<div class="rich-text">
+						<div class="rich-text footer__copyright">
 							<?php echo $copyright; ?>
 						</div>
 					<?php endif; ?>
@@ -125,7 +125,7 @@ $author = $additional_information['author'];
 					<?php endif; ?>
 	
 					<?php if ( ! empty( $author ) ): ?>
-						<div class="rich-text md:ml-auto">
+						<div class="rich-text md:ml-auto footer__author">
 							<?php echo $author; ?>
 						</div>
 					<?php endif; ?>

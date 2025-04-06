@@ -1,14 +1,15 @@
 <?php
-    $pre_title = get_sub_field('pre_title');
-    $title = get_sub_field('title');
-    $recipes = get_sub_field('recipes');
+    $pre_title = $args['pre_title'];
+    $title = $args['title'];
+    $recipes = $args['recipes'];
+    $background_color = $args['background_color'];
 ?>
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-recipe-slider.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
     data-section="RecipeSlider"
-    class="custom-template-<?php echo get_row_layout(); ?> bg-beige-3 pt-20 pb-4"
+    class="custom-template-<?php echo get_row_layout(); ?> <?php echo $background_color; ?> pt-20 pb-4"
 >
     <div class="container text-center">
         <p class="font-semibold text-lg tracking-tight text-blue">

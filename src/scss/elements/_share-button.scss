@@ -1,0 +1,21 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.share-button {
+  .share-button--check {
+    display: none;
+  }
+  .share-button--share {
+    display: block;
+  }
+  &--clicked {
+    .share-button--check {
+      display: block;
+    }
+
+    .share-button--share {
+      display: none;
+    }
+  }
+}

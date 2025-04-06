@@ -30,8 +30,12 @@
     max-width: rem-calc(1440);
   }
 
-  &__small {
+  &--medium {
     max-width: rem-calc(1140);
+  }
+
+  &--small {
+    max-width: rem-calc(800);
   }
 
   &__no_pr {

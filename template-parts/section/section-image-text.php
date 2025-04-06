@@ -8,7 +8,7 @@ $image = get_sub_field('image');
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-image-text.css" rel="stylesheet" type="text/css" media="all">
 
 <section class="py-6 lg:py-12">
-    <div class="container container__small"> 
+    <div class="container container--medium"> 
         <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] lg:gap-9">
             <div class="lg:self-center lg:grid lg:gap-12">
                 <h2 class="text-blue text-2xl font-medium tracking-tight leading-snug lg:text-5xl lg:leading-[1.2]">

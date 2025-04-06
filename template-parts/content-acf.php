@@ -17,7 +17,15 @@ switch(get_row_layout()) {
         get_template_part('template-parts/section/section-instagram-reels');
         break;
     case "recipe_slider":
-        get_template_part('template-parts/section/section-recipe-slider');
+        $pre_title = get_sub_field('pre_title');
+        $title = get_sub_field('title');
+        $recipes = get_sub_field('recipes');
+        get_template_part('template-parts/section/section-recipe-slider', null, array(
+            'pre_title' => $pre_title,
+            'title' => $title,
+            'recipes' => $recipes,
+            'background_color' => "bg-beige-3",
+        ));
         break;
     case "ingredient_banner":
         get_template_part('template-parts/section/section-ingredient-banner');
@@ -42,5 +50,8 @@ switch(get_row_layout()) {
         break;
     case "image":
         get_template_part('template-parts/section/section-image');
+        break;
+    case "rich_text":
+        get_template_part('template-parts/section/section-rich-text');
         break;
 }

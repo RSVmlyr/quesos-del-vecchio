@@ -16,12 +16,12 @@
 }
 
 html {
-  background-color: rgb($beige-2);
+  background-color: rgb($beige-3);
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: rgb($beige-2);
+  background-color: rgb($beige-3);
 
   &.disabled {
     overflow: hidden;
