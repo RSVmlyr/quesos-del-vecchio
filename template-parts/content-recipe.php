@@ -24,7 +24,8 @@ $ingredients = get_field('ingredients');
             'theme' => 'blue',
         )); 
     ?>
-    <div class="container container--recipe relative lg:grid lg:grid-cols-[1fr_30rem] lg:gap-12 lg:items-start">
+
+    <div class="container container--recipe relative pt-6 lg:pt-12 lg:grid lg:grid-cols-[1fr_30rem] lg:gap-12 lg:items-start">
 
         <sidebar class="block bg-light-blue text-blue py-6 px-4 grid gap-8 rounded-3xl mt-6 mb-12 lg:order-2 lg:m-0 lg:py-12 lg:px-8 lg:gap-12 lg:sticky lg:top-20 lg:mb-12">
             <h2 class="text-2xl tracking-tight font-medium text-center lg:text-[2rem]">

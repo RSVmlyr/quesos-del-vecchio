@@ -28,7 +28,23 @@ switch(get_row_layout()) {
         ));
         break;
     case "ingredient_banner":
-        get_template_part('template-parts/section/section-ingredient-banner');
+        $container_class = get_sub_field('container');
+        $background_color = get_sub_field('background_color');
+        $eyebrow = get_sub_field('eyebrow');
+        $image = get_sub_field('image');
+        $product = get_sub_field('product')[0];
+        $button_text = get_sub_field('button_text');
+        $double_image = get_sub_field('double_image');
+
+        get_template_part('template-parts/section/section-ingredient-banner', null, array(
+            'container_class' => $container_class,
+            'background_color' => $background_color,
+            'eyebrow' => $eyebrow,
+            'image' => $image,
+            'product' => $product,
+            'button_text' => $button_text,
+            'double_image' => $double_image,
+        ));
         break; 
     case "fun_fact":
         get_template_part('template-parts/section/section-fun-fact');

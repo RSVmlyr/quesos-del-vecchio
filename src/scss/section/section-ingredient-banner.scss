@@ -6,18 +6,24 @@
   background-position: center;
   background-size: cover;
 
-  &:hover {
-    .ingredient-banner__button {
-      background-color: rgb($blue);
-      color: rgb($beige-3);
-    }
+  @media only screen and (min-width: theme('screens.lg')) {
+    &:hover {
+      .ingredient-banner__button {
+        background-color: rgb($blue);
+        color: rgb($beige-3);
+      }
 
-    .ingredient-banner__image--left {
-      transform: rotate(-5deg) translateY(-50px);
-    }
+      .ingredient-banner__image--left {
+        transform: rotate(-5deg) translateY(-50px);
 
-    .ingredient-banner__image--right {
-      transform: rotate(5deg) translateY(-20px);
+        &.ingredient-banner__image--single {
+          transform: rotate(-5deg) translateY(-20px);
+        }
+      }
+
+      .ingredient-banner__image--right {
+        transform: rotate(5deg) translateY(-20px);
+      }
     }
   }
 }
@@ -27,11 +33,28 @@
 }
 
 .ingredient-banner__image--left {
-  transform: rotate(-12deg) translateY(0);
   transition: all 0.3s ease-in-out;
+  transform: rotate(-4deg) translateY(40px);
+  z-index: 2;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    transform: rotate(-12deg) translateY(0);
+    left: -20%;
+
+    &.ingredient-banner__image--single {
+      left: 0;
+      bottom: rem-calc(-35);
+    }
+  }
 }
 
 .ingredient-banner__image--right {
-  transform: rotate(12deg) translateY(40px);
   transition: all 0.3s ease-in-out;
+  transform: rotate(4deg) translateY(100px);
+  z-index: 1;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    transform: rotate(12deg) translateY(40px);
+    right: -30%;
+  }
 }
