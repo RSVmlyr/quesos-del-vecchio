@@ -35,6 +35,6 @@ switch(get_row_layout()) {
         get_template_part('template-parts/section/section-horizontal-scroll');
         break;
     case "scroll_sections":
-        get_template_part('template-parts/section/section-scroll-sections');
+        // get_template_part('template-parts/section/section-scroll-sections');
         break; 
 }

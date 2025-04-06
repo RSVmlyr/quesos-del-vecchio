@@ -1,8 +1,10 @@
-.scroll-sections {
+.scroll-sections__pin {
   min-height: 100vh;
   position: relative;
   overflow: visible;
+}
 
+.scroll-sections {
   .title-container {
     min-height: 100vh;
     display: flex;
