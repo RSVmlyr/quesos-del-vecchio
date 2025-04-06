@@ -15,7 +15,7 @@ $article_created_at = $args['article_created_at'];
 
 <section 
     data-section="ArticleHero"
-    class="mt-[6.75rem] pb-12 lg:mt-[8.5rem]"
+    class="mt-[6.75rem] pb-6 lg:pb-12 lg:mt-[8.5rem]"
 >
     <div class="container"> 
         <div 

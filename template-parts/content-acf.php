@@ -36,5 +36,8 @@ switch(get_row_layout()) {
         break;
     case "scroll_sections":
         // get_template_part('template-parts/section/section-scroll-sections');
-        break; 
+        break;
+    case "image_text":
+        get_template_part('template-parts/section/section-image-text');
+        break;
 }

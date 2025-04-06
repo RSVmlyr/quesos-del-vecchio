@@ -1,0 +1,22 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.image-text__image {
+  mask-image: var(--mask-url);
+  mask-size: 100% auto; /* Fixed dimensions for the mask */
+  mask-repeat: no-repeat;
+  mask-position: center;
+  aspect-ratio: 1;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    max-width: rem-calc(498);
+  }
+}
