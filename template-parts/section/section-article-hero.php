@@ -10,6 +10,13 @@ $article_thumbnail = $args['article_thumbnail'];
 $article_title = $args['article_title'];
 $article_created_at = $args['article_created_at'];
 $article_year = $args['article_year'];
+$eyebrow = $args['eyebrow'];
+$theme = $args['theme'];
+
+$text_color = $theme === 'blue' ? 'text-white' : 'text-blue';
+$background_color = $theme === 'blue' ? 'bg-blue' : 'bg-light-blue';
+$border_color = $theme === 'blue' ? 'border-white/20' : 'border-blue/20';
+$icon_color = $theme === 'blue' ? 'text-light-blue' : 'text-blue';
 ?>
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-article-hero.css" rel="stylesheet" type="text/css" media="all">
@@ -19,15 +26,15 @@ $article_year = $args['article_year'];
 >
     <div class="container"> 
         <div 
-            class="bg-light-blue px-4 py-6 rounded-3xl overflow-hidden bg-cover bg-center bg-no-repeat lg:p-12"
+            class="px-4 py-6 rounded-3xl overflow-hidden bg-cover bg-center bg-no-repeat lg:p-12 <?php echo $text_color; ?> <?php echo $background_color; ?>"
             style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/patter-horizontal.svg);"
         >
             <div class="lg:grid lg:grid-cols-[1fr_auto] lg:gap-10">
                 <div class="grid gap-2 lg:self-center lg:max-w-[37.5rem]">
-                    <p class="text-sm font-medium tracking-tight text-blue lg:text-lg">
-                        ARTÍCULO
+                    <p class="text-sm font-medium tracking-tight  lg:text-lg">
+                        <?php echo $eyebrow; ?>
                     </p>
-                    <h1 class="text-[2rem] font-medium tracking-tight leading-tight text-blue lg:text-[3.5rem]">
+                    <h1 class="text-[2rem] font-medium tracking-tight leading-tight lg:text-[3.5rem]">
                         <?php echo $article_title; ?>
                     </h1>
                 </div>
@@ -40,11 +47,11 @@ $article_year = $args['article_year'];
                 </div>
             </div>
 
-            <div class="flex justify-between items-center pt-4 border-t border-blue/20 lg:pt-6">
+            <div class="flex justify-between items-center pt-4 border-t lg:pt-6 <?php echo $border_color; ?>">
                 <div>
-                    <p class="uppercase text-sm tracking-tight text-blue font-semibold flex items-center gap-3 lg:text-lg lg:font-medium">
+                    <p class="uppercase text-sm tracking-tight font-semibold flex items-center gap-3 lg:text-lg lg:font-medium">
                         <?php echo $article_created_at; ?>
-						<svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg class="<?php echo $icon_color; ?>" width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M9.12074 9.34375C8.92419 9.22917 8.45352 8.89062 7.70871 8.32812C6.97426 7.76562 6.11049 7.10417 5.11742 6.34375C3.95884 5.85417 2.95542 5.42708 2.10717 5.0625C1.25892 4.69792 0.731355 4.45833 0.524466 4.34375C0.265853 4.19792 0.100342 4 0.0279301 3.75C-0.0341368 3.48958 0.00724115 3.23958 0.152064 3C0.286542 2.76042 0.477915 2.60938 0.726183 2.54688C0.974451 2.47396 1.22789 2.51042 1.4865 2.65625C1.69339 2.77083 2.16407 3.10938 2.89853 3.67188C3.64333 4.22396 4.51744 4.88542 5.52085 5.65625C6.66909 6.14583 7.66734 6.57292 8.51558 6.9375C9.36383 7.30208 9.88623 7.54167 10.0828 7.65625C10.3207 7.79167 10.4759 7.98958 10.5483 8.25C10.631 8.51042 10.6 8.76042 10.4552 9C10.3207 9.23958 10.1242 9.39062 9.86554 9.45312C9.60693 9.51562 9.35866 9.47917 9.12074 9.34375ZM1.4865 9.34375C1.24858 9.47917 1.00031 9.51562 0.7417 9.45312C0.483088 9.39062 0.286542 9.23958 0.152064 9C0.00724115 8.76042 -0.0289646 8.51042 0.0434469 8.25C0.126203 7.98958 0.286542 7.79167 0.524466 7.65625C0.731355 7.54167 1.25892 7.30208 2.10717 6.9375C2.95542 6.57292 3.95884 6.14583 5.11742 5.65625C6.11049 4.88542 6.97426 4.22396 7.70871 3.67188C8.45352 3.10938 8.92419 2.77083 9.12074 2.65625C9.37935 2.51042 9.63279 2.47396 9.88106 2.54688C10.1293 2.60938 10.3207 2.76042 10.4552 3C10.6 3.23958 10.6362 3.48958 10.5638 3.75C10.5017 4 10.3414 4.19792 10.0828 4.34375C9.88623 4.45833 9.36383 4.69792 8.51558 5.0625C7.66734 5.42708 6.66909 5.85417 5.52085 6.34375C4.51744 7.10417 3.64333 7.76562 2.89853 8.32812C2.16407 8.89062 1.69339 9.22917 1.4865 9.34375ZM5.30362 12C5.02432 12 4.79157 11.9062 4.60537 11.7188C4.42951 11.5208 4.34158 11.2812 4.34158 11C4.34158 10.7604 4.39331 10.1823 4.49675 9.26562C4.61054 8.34896 4.74502 7.26042 4.90019 6C4.74502 4.73958 4.61054 3.65104 4.49675 2.73438C4.39331 1.80729 4.34158 1.22917 4.34158 1C4.34158 0.697917 4.42951 0.458333 4.60537 0.28125C4.79157 0.09375 5.02432 0 5.30362 0C5.58292 0 5.8105 0.09375 5.98636 0.28125C6.17256 0.458333 6.26566 0.697917 6.26566 1C6.26566 1.22917 6.20876 1.80729 6.09497 2.73438C5.99153 3.65104 5.86222 4.73958 5.70706 6C5.86222 7.26042 5.99153 8.34896 6.09497 9.26562C6.20876 10.1823 6.26566 10.7604 6.26566 11C6.26566 11.2812 6.17256 11.5208 5.98636 11.7188C5.8105 11.9062 5.58292 12 5.30362 12Z" fill="currentColor"/>
 						</svg>
                         <?php echo $article_year; ?>
@@ -52,7 +59,7 @@ $article_year = $args['article_year'];
                 </div>
 
                 <div>
-                    <button type="button" class="flex items-center gap-3 text-blue share-button" aria-label="Compartir">
+                    <button type="button" class="flex items-center gap-3 share-button" aria-label="Compartir">
                         <span class="hidden text-lg font-medium tracking-tight lg:block">
                             COMPARTIR ARTÍCULO
                         </span>

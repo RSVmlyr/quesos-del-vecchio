@@ -14,10 +14,12 @@ $year = date_i18n('Y', strtotime(get_the_date()));
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php 
         get_template_part('template-parts/section/section-article-hero', null, array(
+            'eyebrow' => 'ARTÍCULO',
             'article_thumbnail' => get_the_post_thumbnail_url(get_the_ID(), 'full'), 
             'article_title' => get_the_title(),
 			'article_created_at' => $date,
 			'article_year' => $year,
+			'theme' => 'blue-light',
         )); 
     ?>
 

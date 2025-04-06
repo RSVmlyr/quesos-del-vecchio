@@ -25,4 +25,4 @@ get_header("dark");
 	</main><!-- #main -->
 
 <?php
-get_footer("light");
+get_footer();
