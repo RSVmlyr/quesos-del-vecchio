@@ -26,6 +26,7 @@ const SECTIONS = [
   'Hotspots',
   'HorizontalScroll',
   'ScrollSections',
+  'ArticleHero',
 ];
 
 class App {

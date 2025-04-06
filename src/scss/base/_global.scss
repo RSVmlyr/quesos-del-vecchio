@@ -15,7 +15,14 @@
   }
 }
 
+html {
+  background-color: rgb($beige-2);
+  scroll-behavior: smooth;
+}
+
 body {
+  background-color: rgb($beige-2);
+
   &.disabled {
     overflow: hidden;
   }

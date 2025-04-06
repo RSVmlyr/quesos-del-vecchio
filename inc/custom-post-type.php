@@ -81,7 +81,7 @@ function create_post_types() {
         'show_in_menu'       => true,
         'query_var'          => true,
         'rewrite'            => array(
-            'slug' => 'recipe',
+            'slug' => 'receta',
             'with_front' => false,
             'hierarchical' => true
         ),

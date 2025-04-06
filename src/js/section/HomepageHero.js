@@ -1,5 +1,4 @@
 import { addClickEventListener } from '../utils/listeners';
-import { mediaQueryHook } from '../utils/mediaQuery';
 
 const CLASSNAMES = {
   MAIN_BACKGROUND: '.homepage-hero__background',

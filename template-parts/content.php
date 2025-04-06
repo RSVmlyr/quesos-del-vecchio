@@ -10,54 +10,23 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+	<?php 
+        get_template_part('template-parts/section/section-article-hero', null, array(
+            'article_thumbnail' => get_the_post_thumbnail_url(get_the_ID(), 'full'), 
+            'article_title' => get_the_title(),
+			'article_created_at' => date_i18n('j \D\E F Y', strtotime(get_the_date())),
+        )); 
+    ?>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				quesos_del_vecchio_posted_on();
-				quesos_del_vecchio_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+    <?php if ( have_rows("layout") ) : ?>
+        <?php while ( have_rows("layout") ) : the_row(); ?>
 
-	<?php quesos_del_vecchio_post_thumbnail(); ?>
+            <?php get_template_part( 'template-parts/content', 'acf'); ?>		
 
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'quesos-del-vecchio' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+        <?php endwhile; // End of the loop. ?>
+    <?php endif; ?>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'quesos-del-vecchio' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php quesos_del_vecchio_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<section>
+		La fecha otra vez
+	</section>
 </article><!-- #post-<?php the_ID(); ?> -->

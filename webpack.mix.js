@@ -33,6 +33,7 @@ mix
   .sass(`${RESOURCES_DIR}/scss/section/section-hotspots.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-horizontal-scroll.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-scroll-sections.scss`, DIST_DIR)
+  .sass(`${RESOURCES_DIR}/scss/section/section-article-hero.scss`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/fonts`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/svg`, DIST_DIR)
   .sourceMaps();
