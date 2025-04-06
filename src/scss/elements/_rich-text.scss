@@ -99,7 +99,40 @@
   }
 
   ol {
-    list-style-type: decimal;
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: rem-calc(44);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: counter(item) '.';
+        display: inline-block;
+        counter-increment: item;
+        font-family: $font-gazpacho;
+        font-weight: 500;
+        font-size: rem-calc(24);
+        line-height: 1.4;
+        margin-right: rem-calc(16);
+      }
+    }
+
+    @media only screen and (min-width: theme('screens.lg')) {
+      li {
+        &::before {
+          margin-right: rem-calc(32);
+          font-weight: 700;
+          font-size: rem-calc(32);
+        }
+      }
+    }
   }
 }
 
