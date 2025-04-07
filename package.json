@@ -37,5 +37,8 @@
     "build": "mix --production",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'"
+  },
+  "dependencies": {
+    "tingle.js": "^0.16.0"
   }
 }

@@ -118,7 +118,11 @@ class VerticalSlider {
 
   goToNextSection() {
     // TODO: Fix link tag
-    const nextSection = this.container.nextElementSibling;
+    let nextSection = this.container.nextElementSibling;
+
+    if (nextSection.tagName === 'LINK' || !nextSection) {
+      nextSection = nextSection.nextElementSibling;
+    }
 
     if (nextSection) {
       window.scrollTo({

@@ -9,11 +9,16 @@
 
 .product-hero__blob {
   position: absolute;
-  width: 90%;
+  width: 100%;
+  height: 80%;
+  top: 0;
   left: 0;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 38% 62% 51% 49% / 69% 70% 30% 31%;
+  mask-image: var(--mask-url);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .product-hero__eyebrow {
@@ -27,4 +32,61 @@
     background-color: rgb($light-blue);
     vertical-align: middle;
   }
+}
+
+.occasions-hero__modal {
+  padding-top: 0;
+
+  .tingle-modal-box {
+    width: 100%;
+    background-color: rgb($beige-3);
+    max-width: rem-calc(980);
+  }
+
+  .tingle-modal-box__content {
+    padding: 0;
+  }
+
+  .tingle-modal__close {
+    background-color: rgb($blue);
+    color: rgb($white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem-calc(48);
+    height: rem-calc(48);
+    border-radius: 50%;
+
+    svg {
+      width: rem-calc(12);
+    }
+  }
+
+  .tingle-modal-box__footer {
+    padding: 0;
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
+
+    .tingle-modal-box {
+      width: 80%;
+      border-radius: rem-calc(32);
+    }
+  }
+}
+
+.product-hero__nutritional-close {
+  position: absolute;
+  top: rem-calc(16);
+  right: rem-calc(16);
+  background-color: rgb($blue);
+  color: rgb($white);
+  width: rem-calc(48);
+  height: rem-calc(48);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

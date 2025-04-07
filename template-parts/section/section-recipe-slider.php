@@ -38,8 +38,11 @@
                             </h2>
 
                             <?php if ( has_post_thumbnail() ) : ?>
-                                <figure class="block max-w-[20.5rem] aspect-square mt-4 mx-auto">
-                                    <?php the_post_thumbnail('large', ['class' => 'block w-full h-full object-center']); ?>
+                                <figure 
+                                    class="block max-w-[20.5rem] aspect-[1.2] mt-4 mx-auto recipe-slider__slide-image"
+                                    style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-<?php echo $post->ID % 2 === 0 ? '2' : '3'; ?>.svg);"
+                                >
+                                    <?php the_post_thumbnail('large', ['class' => 'block w-full h-full object-center object-cover']); ?>
                                 </figure>
                             <?php endif; ?>
 

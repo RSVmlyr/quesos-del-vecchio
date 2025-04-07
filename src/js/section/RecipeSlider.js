@@ -14,7 +14,7 @@ class RecipeSlider {
     this.sliderContainer = container.querySelector(CLASSNAMES.SLIDER_CONTAINER);
 
     // Listen for appLoaded event
-    window.addEventListener('appLoaded', this.initCarousel.bind(this));
+    this.initCarousel();
   }
 
   initCarousel() {
