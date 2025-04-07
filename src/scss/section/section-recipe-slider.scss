@@ -44,7 +44,9 @@
 
 .recipe-slider__slide-item {
   position: relative;
-  transition: top 0.1s linear;
+  transition: top 0.5s ease;
+  transform-origin: center;
+  will-change: transform;
 
   @media only screen and (min-width: theme('screens.lg')) {
     top: calc(100% - var(--height));
