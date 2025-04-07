@@ -52,8 +52,8 @@ $hotspots = get_sub_field('hotspots');
                     <button type="button" class="flex flex-col justify-center items-center gap-8 hotspot__button">
                         <div class="hotspot__button-icon">
                             <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.5 6.99609H13.5" stroke="#23195F" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M7.5 13L7.5 1" stroke="#23195F" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M1.5 6.99609H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M7.5 13L7.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                         </div>
 
