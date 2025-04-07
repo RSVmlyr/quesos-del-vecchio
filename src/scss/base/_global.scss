@@ -25,5 +25,9 @@ body {
 
   &.disabled {
     overflow: hidden;
+
+    @media only screen and (min-width: theme('screens.lg')) {
+      padding-right: rem-calc(15);
+    }
   }
 }
