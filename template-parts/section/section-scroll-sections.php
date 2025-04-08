@@ -6,50 +6,64 @@
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-scroll-sections.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
-    class="scroll-sections bg-beige-3 py-7"
+    class="scroll-sections bg-beige-3"
     data-section="ScrollSections"
 >
-    <div class="scroll-sections__pin">
-        <div class="container">
-            <div class="title-container">
-                <h2 class="title-animation">
+    <div class="relative scroll-sections__container">
+        <div class="h-screen flex items-center justify-center container scroll-sections__title-container">
+            <div class="scroll-sections__title">
+                <h2 class="text-[4rem] tracking-tight text-blue font-medium leading-none lg:text-[7.5rem] lg:leading-none">
                     <?php echo $title; ?>
                 </h2>
             </div>
-    
-            <div class="sections-container">
-                <?php 
-                $counter = 1;
-                foreach ($sections as $section) : 
-                    $image = $section['image'];
-                    $description = $section['description'];
-                    
-                    // Format number with leading zero if needed
-                    $section_number = sprintf("%02d", $counter);
-                ?>
-                    <div class="scroll-section">
-                        <div class="image-container">
-                            <figure class="block aspect-[1.35] overflow-hidden">    
-                                <img class="w-full h-full object-cover" src="<?php echo $image['sizes']['2048x2048']; ?>" alt="<?php echo $image['alt']; ?>">
-                            </figure>
-                        </div>
-    
-                        <div class="text-container">
+        </div>
+
+        <div class="h-screen absolute top-0 inset-x-0 w-full scroll-sections__content">
+            <div class="container absolute bottom-20 inset-x-0 flex justify-center items-end gap-12">
+                <div class="relative scroll-sections__content-images basis-1/2">
+                    <?php 
+                        $counter = 1;
+                        foreach ($sections as $section) : 
+                            $image = $section['image'];
+                    ?>
+                        <figure class="absolute bottom-0 left-0 right-0 mx-auto block aspect-[0.85] overflow-hidden rounded-2xl max-w-56 lg:max-w-[30rem] scroll-sections__content-image">    
+                            <img class="w-full h-full object-cover" src="<?php echo $image['sizes']['2048x2048']; ?>" alt="<?php echo $image['alt']; ?>">
+                        </figure>
+                    <?php 
+                        endforeach; 
+                    ?>
+                </div>
+
+                <div class="relative basis-1/2 scroll-sections__content-texts">
+                    <?php 
+                        $counter = 1;
+                        foreach ($sections as $section) : 
+                            $description = $section['description'];
+                            // Format number with leading zero if needed
+                            $section_number = sprintf("%02d", $counter);
+                    ?>
+                        <div class="absolute bottom-0 left-0 max-w-[37.5rem] scroll-sections__content-text">
                             <!-- Section number -->
-                            <div class="section-number"><?php echo $section_number; ?></div>
+                            <div class="text-[4rem] font-gazpacho text-light-blue font-medium tracking-tight leading-none"><?php echo $section_number; ?></div>
                             
-                            <div class="text-blue grid gap-6">
-                                <p class="text-lg tracking-tight font-medium">
-                                    <?php echo $description; ?>
-                                </p>
-                            </div>
+                            <p class="font-gazpacho text-5xl font-medium tracking-tight leading-tight text-blue">
+                                <?php echo $description; ?>
+                            </p>
                         </div>
-                    </div>
-                <?php 
-                    $counter++;
-                endforeach; 
-                ?>
+                    <?php 
+                        $counter++;
+                        endforeach; 
+                    ?>
+                </div>
             </div>
+        </div>
+
+
+        <div class="">
+            <?php foreach ($sections as $section) : ?>
+                <div class="h-screen scroll-sections__trigger">
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

@@ -35,6 +35,7 @@ class App {
 
     // Set Main Dependencies to Global State
     window.$APP.gsap = gsap;
+    window.$APP.gsap.ScrollTrigger = ScrollTrigger;
     window.$APP.gsap.registerPlugin(ScrollTrigger);
 
     window.$APP.Swiper = Swiper;

@@ -1,144 +1,17 @@
-.scroll-sections__pin {
-  min-height: 100vh;
-  position: relative;
-  overflow: visible;
+.scroll-sections__content-image {
+  opacity: 0;
+  transform-origin: top;
+
+  &:nth-child(odd) {
+    transform: rotate(2deg) perspective(1000px);
+  }
+
+  &:nth-child(even) {
+    transform: rotate(-2deg) perspective(1000px);
+  }
 }
 
-.scroll-sections {
-  .title-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  h2 {
-    font-size: 3rem;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    transform-origin: center center;
-
-    @media (min-width: 768px) {
-      font-size: 4.5rem;
-    }
-  }
-
-  .sections-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1200px;
-    overflow: visible;
-  }
-
-  .scroll-section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 2rem;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    will-change: transform, opacity;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      gap: 3rem;
-    }
-
-    .image-container {
-      position: relative;
-      will-change: transform;
-      width: 100%;
-      max-width: 500px;
-      perspective: 1000px;
-      order: 1;
-      transform-style: preserve-3d;
-
-      @media (min-width: 768px) {
-        width: 45%;
-      }
-    }
-
-    figure {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      will-change: transform;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      transform-style: preserve-3d;
-      aspect-ratio: 1.35;
-      background: #fff;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: 20px;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-        pointer-events: none;
-      }
-    }
-
-    .text-container {
-      width: 100%;
-      padding: 2rem 0;
-      will-change: opacity, transform;
-      order: 2;
-
-      @media (min-width: 768px) {
-        width: 45%;
-        padding: 0;
-      }
-    }
-
-    .section-number {
-      font-size: 4rem;
-      color: #41b0d5;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1;
-      will-change: opacity, transform;
-
-      @media (min-width: 768px) {
-        font-size: 6rem;
-      }
-    }
-
-    .text-blue {
-      will-change: opacity;
-
-      p {
-        font-size: 1.125rem;
-        line-height: 1.5;
-
-        @media (min-width: 768px) {
-          font-size: 1.25rem;
-        }
-      }
-    }
-  }
+.scroll-sections__content-text {
+  transform: translateY(50px);
+  opacity: 0;
 }

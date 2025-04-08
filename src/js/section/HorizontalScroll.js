@@ -38,6 +38,11 @@ class HorizontalScroll {
         end: () => '+=' + (this.wrapper.scrollWidth - document.documentElement.clientWidth),
         scrub: true,
         pin: true,
+        pinSpacing: true,
+        onRefresh: (self) => {
+          // Force a recalculation of positions
+          self.refresh();
+        },
       },
     });
   }
