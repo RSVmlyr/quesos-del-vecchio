@@ -27,6 +27,7 @@ const SECTIONS = [
   'HorizontalScroll',
   'ScrollSections',
   'ArticleHero',
+  'AnimateText',
 ];
 
 class App {

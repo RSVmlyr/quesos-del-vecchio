@@ -39,6 +39,7 @@
     "lint:js": "wp-scripts lint-js 'js/*.js'"
   },
   "dependencies": {
+    "split-type": "^0.3.4",
     "tingle.js": "^0.16.0"
   }
 }

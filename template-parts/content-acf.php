@@ -73,4 +73,7 @@ switch(get_row_layout()) {
     case "hero":
         get_template_part('template-parts/section/section-hero');
         break;
+    case "animate_text":
+        get_template_part('template-parts/section/section-animate-text');
+        break;
 }
