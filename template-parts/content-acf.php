@@ -70,4 +70,7 @@ switch(get_row_layout()) {
     case "rich_text":
         get_template_part('template-parts/section/section-rich-text');
         break;
+    case "hero":
+        get_template_part('template-parts/section/section-hero');
+        break;
 }
