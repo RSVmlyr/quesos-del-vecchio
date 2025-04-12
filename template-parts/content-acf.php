@@ -76,4 +76,7 @@ switch(get_row_layout()) {
     case "animate_text":
         get_template_part('template-parts/section/section-animate-text');
         break;
+    case "cards":
+        get_template_part('template-parts/section/section-cards');
+        break;
 }
