@@ -82,4 +82,7 @@ switch(get_row_layout()) {
     case "hero_image_content":
         get_template_part('template-parts/section/section-hero-image-content');
         break;
+    case "gallery":
+        get_template_part('template-parts/section/section-gallery');
+        break;
 }

@@ -2,7 +2,7 @@
 __webpack_public_path__ = window.__webpack_public_path__;
 
 import Swiper from 'swiper';
-import { Navigation, Mousewheel, EffectCoverflow, Pagination } from 'swiper/modules';
+import { Navigation, Mousewheel, EffectCoverflow, Pagination, Autoplay, FreeMode } from 'swiper/modules';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Loader from './elements/Loader';
@@ -28,6 +28,7 @@ const SECTIONS = [
   'ArticleHero',
   'AnimateText',
   'ContentSlider',
+  'Gallery',
 ];
 
 class App {
@@ -44,7 +45,8 @@ class App {
     window.$APP.Swiper.Mousewheel = Mousewheel;
     window.$APP.Swiper.EffectCoverflow = EffectCoverflow;
     window.$APP.Swiper.Pagination = Pagination;
-
+    window.$APP.Swiper.Autoplay = Autoplay;
+    window.$APP.Swiper.FreeMode = FreeMode;
     // Mandatory instances
     this.loader = new Loader({
       app: this,
