@@ -1,3 +1,5 @@
+import { mediaQueryHook } from '../utils/mediaQuery';
+
 const CLASSNAMES = {
   SLIDER_CONTAINER: '.locations-slider__swiper',
   PAGINATION: '.locations-slider__pagination',
@@ -7,6 +9,8 @@ class LocationsSlider {
   constructor(app, container) {
     this.app = app;
     this.container = container;
+
+    this.isMobile = mediaQueryHook('(max-width: 1024px)');
 
     // Slider container
     this.sliderContainer = container.querySelector(CLASSNAMES.SLIDER_CONTAINER);
@@ -21,7 +25,6 @@ class LocationsSlider {
       modules: [window.$APP.Swiper.EffectCoverflow, window.$APP.Swiper.Pagination],
       effect: 'coverflow',
       grabCursor: true,
-      centeredSlides: true,
       slidesPerView: 'auto',
       coverflowEffect: {
         rotate: 0,
