@@ -1,12 +1,12 @@
 const CLASSNAMES = {
-  SLIDER_CONTAINER: '.four-images-slider__swiper',
-  CURRENT_SLIDE: '.four-images-slider__current-count',
-  PROGRESS_BAR: '.four-images-slider__progress',
-  BUTTON_NEXT: '.four-images-slider__button--next',
-  BUTTON_PREV: '.four-images-slider__button--prev',
+  SLIDER_CONTAINER: '.content-slider__swiper',
+  CURRENT_SLIDE: '.content-slider__current-count',
+  PROGRESS_BAR: '.content-slider__progress',
+  BUTTON_NEXT: '.content-slider__button--next',
+  BUTTON_PREV: '.content-slider__button--prev',
 };
 
-class FourImagesSlider {
+class ContentSlider {
   constructor(app, container) {
     this.app = app;
     this.container = container;
@@ -68,4 +68,4 @@ class FourImagesSlider {
   }
 }
 
-export default FourImagesSlider;
+export default ContentSlider;

@@ -2,7 +2,7 @@
 @import '../utils/functions';
 @import '../base/variables';
 
-.four-images-slider__button {
+.content-slider__button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +26,7 @@
   }
 }
 
-.four-images-slider__progress {
+.content-slider__progress {
   position: relative;
   height: rem-calc(2);
   width: rem-calc(20);
@@ -50,10 +50,41 @@
   }
 }
 
-.four-images-slider__images {
+.content-slider__images {
   display: none;
 
   &:first-child {
     display: block;
+  }
+}
+
+.content-slider__mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  mask-image: var(--mask-image);
+  -webkit-mask-image: var(--mask-image);
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.content-slider__slider {
+  @media only screen and (min-width: theme('screens.lg')) {
+    height: auto !important;
+    display: flex;
+    align-items: center;
   }
 }

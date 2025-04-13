@@ -18,7 +18,6 @@ const SECTIONS = [
   'OccasionsSlider',
   'OccasionsHero',
   'VerticalSlider',
-  'FourImagesSlider',
   'InstagramReels',
   'RecipeSlider',
   'ProductHero',
@@ -28,6 +27,7 @@ const SECTIONS = [
   'ScrollSections',
   'ArticleHero',
   'AnimateText',
+  'ContentSlider',
 ];
 
 class App {
