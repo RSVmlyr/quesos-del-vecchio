@@ -57,7 +57,7 @@ $slider_items = get_sub_field('slides');
 
     <?php $index = 0; ?>
     <?php foreach ($slider_items as $item) : ?>
-        <div class="h-28 pointer-events-none border-t border-beige-2 vertical-slider__trigger" data-index="<?php echo $index; ?>"></div>
+        <div class="h-[80vh] pointer-events-none border-t border-beige-2 vertical-slider__trigger" data-index="<?php echo $index; ?>"></div>
         <?php $index++; ?>
     <?php endforeach; ?>
 

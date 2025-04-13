@@ -29,6 +29,7 @@ const SECTIONS = [
   'AnimateText',
   'ContentSlider',
   'Gallery',
+  'VerticalSliderLocations',
 ];
 
 class App {

@@ -39,6 +39,8 @@ mix
   .sass(`${RESOURCES_DIR}/scss/section/section-animate-text.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-hero-image-content.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-gallery.scss`, DIST_DIR)
+  .sass(`${RESOURCES_DIR}/scss/section/section-vertical-slider-locations.scss`, DIST_DIR)
+  .sass(`${RESOURCES_DIR}/scss/section/section-logos.scss`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/fonts`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/svg`, DIST_DIR)
   .sourceMaps();

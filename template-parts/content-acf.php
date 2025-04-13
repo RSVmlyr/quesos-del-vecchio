@@ -85,4 +85,10 @@ switch(get_row_layout()) {
     case "gallery":
         get_template_part('template-parts/section/section-gallery');
         break;
+    case "vertical_slider_locations":
+        get_template_part('template-parts/section/section-vertical-slider-locations');
+        break;   
+    case "logos":
+        get_template_part('template-parts/section/section-logos');
+        break;     
 }
