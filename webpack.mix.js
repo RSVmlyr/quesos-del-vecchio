@@ -37,6 +37,7 @@ mix
   .sass(`${RESOURCES_DIR}/scss/section/section-image-text.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-hero.scss`, DIST_DIR)
   .sass(`${RESOURCES_DIR}/scss/section/section-animate-text.scss`, DIST_DIR)
+  .sass(`${RESOURCES_DIR}/scss/section/section-hero-image-content.scss`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/fonts`, DIST_DIR)
   .copyDirectory(`${RESOURCES_DIR}/svg`, DIST_DIR)
   .sourceMaps();
