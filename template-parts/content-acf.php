@@ -90,5 +90,8 @@ switch(get_row_layout()) {
         break;   
     case "logos":
         get_template_part('template-parts/section/section-logos');
-        break;     
+        break;  
+    case "locations":
+        get_template_part('template-parts/section/section-locations');
+        break;
 }

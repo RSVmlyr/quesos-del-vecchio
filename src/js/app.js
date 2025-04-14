@@ -30,6 +30,7 @@ const SECTIONS = [
   'ContentSlider',
   'Gallery',
   'VerticalSliderLocations',
+  'Locations',
 ];
 
 class App {

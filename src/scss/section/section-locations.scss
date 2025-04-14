@@ -1,0 +1,45 @@
+// import utils
+@import '../utils/functions';
+@import '../base/variables';
+
+.locations__button {
+  background-color: rgb($beige-2);
+  color: rgb($blue);
+
+  &--active {
+    background-color: rgb($blue);
+    color: rgb($white);
+  }
+}
+
+.locations__grid {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.locations__map {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.locations__google-map {
+  position: absolute;
+  inset: 0;
+}
+
+.gm-ui-hover-effect {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.gm-ui-hover-effect > span {
+  margin: 0 !important;
+  width: 12px !important;
+  height: 12px !important;
+}
