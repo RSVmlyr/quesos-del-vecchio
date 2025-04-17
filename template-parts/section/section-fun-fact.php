@@ -13,7 +13,10 @@ $background_color = get_sub_field('color');
 >
     <div class="container flex items-center justify-center">
 
-        <figure class="relative w-full max-w-[33.625rem] flex-1 -mr-40 z-10 translate-y-7">
+        <figure 
+            class="relative w-full max-w-[33.625rem] flex-1 -mr-40 z-10 translate-y-7 lg:max-w-[40rem] fun-fact__mask"
+            style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-2-flipped.svg);"
+        >
             <img class="w-full" src="<?php echo $image["sizes"]["large"]; ?>" alt="<?php echo $image["alt"] ?>" />
         </figure>
 
