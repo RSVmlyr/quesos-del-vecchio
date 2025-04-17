@@ -1,9 +1,9 @@
 <?php
 /**
- * The template for displaying single Occasion posts
+ * The template for displaying single Product posts
  */
 
-get_header();
+get_header("dark");
 ?>
 
 <main id="primary" class="relative block grow">

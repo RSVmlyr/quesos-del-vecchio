@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.2' );
 }
 
 /**
@@ -182,7 +182,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 require get_template_directory() . '/inc/acf/acf-config.php';
 require get_template_directory() . '/inc/acf/custom-wysiwyg.php';
-require get_template_directory() . '/inc/acf/acf-location-post-parent.php';
 
 /**
  * Removing external sources

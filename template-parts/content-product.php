@@ -1,11 +1,28 @@
 <?php
 /**
- * Template part for displaying child occasion content
+ * Template part for displaying product content
  */
 
-// Get parent occasion
-$parent_id = wp_get_post_parent_id(get_the_ID());
-$parent_title = get_the_title($parent_id);  
+// Get the occasion that has linked this product
+$args = array(
+    'post_type' => 'occasion',
+    'meta_query' => array(
+        array(
+            'key' => 'products',
+            'value' => '"' . get_the_ID() . '"',
+            'compare' => 'LIKE'
+        )
+    ),
+    'posts_per_page' => 1
+);
+
+$occasion_query = new WP_Query($args);
+$parent_title = '';
+if ($occasion_query->have_posts()) {
+    $occasion_query->the_post();
+    $parent_title = get_the_title();
+    wp_reset_postdata();
+}
 
 $product_name = get_the_title();
 $product_image = get_field('product_image');
@@ -29,9 +46,7 @@ $nutritional_info = get_field('nutritional_info');
 
     <?php if ( have_rows("layout") ) : ?>
         <?php while ( have_rows("layout") ) : the_row(); ?>
-
             <?php get_template_part( 'template-parts/content', 'acf'); ?>		
-
         <?php endwhile; // End of the loop. ?>
     <?php endif; ?>
 </article> 

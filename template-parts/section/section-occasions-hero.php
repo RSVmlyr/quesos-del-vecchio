@@ -2,12 +2,12 @@
 /**
  * Section Occasions Hero
  * 
- * @param array $args['children'] WP_Query object containing child occasions
+ * @param array $args['products'] WP_Query object containing products
  * @param string $args['description'] Description of the occasion
  */
 
-// Get the passed children query
-$children = isset($args['children']) ? $args['children'] : null;
+// Get the passed products query
+$products = isset($args['products']) ? $args['products'] : null;
 $description = $args['description'];
 ?>
 
@@ -27,27 +27,25 @@ $description = $args['description'];
             </div>
         </div>
     
-        <?php if ($children && $children->have_posts()) : ?>
+        <?php if ($products && !empty($products)) : ?>
             <div class="swiper h-full w-full occasions-hero__swiper">
                 <div class="swiper-wrapper">
-                    <?php while ($children->have_posts()) : 
-                        $children->the_post(); 
-                        $images = get_field('desktop_image');
+                    <?php foreach ($products as $product) : 
+                        $images = get_field('desktop_image', $product->ID);
                     ?>
                         <div class="swiper-slide bg-cover bg-center occasions-hero__slide" style="background-image: url(<?php echo $images["sizes"]["2048x2048"]; ?>);">
                         </div>
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
     
             <div class="absolute container z-10 top-24 bottom-6 inset-x-0 grid grid-rows-[1fr_auto] gap-12 lg:grid-rows-none lg:grid-cols-2 lg:items-end lg:bottom-12 lg:top-12">
                 <ul class="grid gap-4 lg:max-w-fit relative self-end occasions-hero__menu">
-                    <?php while ($children->have_posts()) : 
-                        $children->the_post(); 
-                        $shortname = get_field('shortname');
+                    <?php foreach ($products as $product) : 
+                        $shortname = get_field('shortname', $product->ID);
                     ?>
                         <li class="occasions-hero__menu-item lg:max-w-fit">
-                            <a class="text-white font-gazpacho text-[2.5rem] font-medium leading-none flex justify-between items-center tracking-tight lg:text-8xl lg:max-w-fit" href="<?php the_permalink(); ?>">
+                            <a class="text-white font-gazpacho text-[2.5rem] font-medium leading-none flex justify-between items-center tracking-tight lg:text-8xl lg:max-w-fit" href="<?php the_permalink($product->ID); ?>">
                                 <?php echo $shortname; ?>
     
                                 <div class="bg-beige-3 rounded-full p-2 text-blue w-10 h-10 flex items-center justify-center occasions-hero__menu-item-button lg:hidden">
@@ -57,7 +55,7 @@ $description = $args['description'];
                                 </div>
                             </a>
                         </li>
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
                     <li class="hidden max-w-fit absolute top-0 left-0 lg:block occasions-hero__menu-button">
                         <a href="#" class="tracking-tight bg-orange text-blue rounded-[100%] px-7 py-5 block max-w-fit mx-auto hover:bg-blue hover:text-white transition-colors duration-300 rotate-6 font-medium">
                             Conoce más
@@ -83,17 +81,14 @@ $description = $args['description'];
         <?php endif; ?>
     </div>
 
-    <?php if ($children && $children->have_posts()) : ?>
+    <?php if ($products && !empty($products)) : ?>
         <?php $index = 0; ?>
-        <?php while ($children->have_posts()) : 
-            $children->the_post(); 
-            $images = get_field('desktop_image');
+        <?php foreach ($products as $product) : 
+            $images = get_field('desktop_image', $product->ID);
         ?>
             <div class="block h-60 pointer-events-none occasions-hero__trigger" data-index="<?php echo $index; ?>">
             </div>
             <?php $index++; ?>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
     <?php endif; ?>
 </section>
-
-<?php wp_reset_postdata(); ?>

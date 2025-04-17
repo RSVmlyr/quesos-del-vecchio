@@ -65,7 +65,7 @@ function create_post_types() {
         'hierarchical'       => true,
         'menu_position'      => 5,
         'supports'           => array( 'title', 'custom-fields', 'thumbnail', 'page-attributes' ),
-        'menu_icon'             => 'dashicons-calendar',
+        'menu_icon'             => 'dashicons-buddicons-groups',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'exclude_from_search'   => false,
@@ -81,7 +81,7 @@ function create_post_types() {
         'show_in_menu'       => true,
         'query_var'          => true,
         'rewrite'            => array(
-            'slug' => 'receta',
+            'slug' => 'recetas',
             'with_front' => false,
             'hierarchical' => true
         ),
@@ -89,7 +89,7 @@ function create_post_types() {
         'has_archive'        => true,
         'menu_position'      => 5,
         'supports'           => array( 'title', 'custom-fields', 'thumbnail', 'page-attributes', 'excerpt' ),
-        'menu_icon'             => 'dashicons-calendar',
+        'menu_icon'             => 'dashicons-buddicons-topics',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'exclude_from_search'   => false,
@@ -108,7 +108,31 @@ function create_post_types() {
         'has_archive'        => true,
         'menu_position'      => 5,
         'supports'           => array( 'title', 'custom-fields', 'thumbnail' ),
-        'menu_icon'             => 'dashicons-calendar',
+        'menu_icon'             => 'dashicons-location',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'exclude_from_search'   => false,
+        'show_in_rest'          => true,
+    );
+
+    // Product Post Type
+	$product_args = array(
+        'labels'             => generate_post_type_labels( 'product', 'Productos' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array(
+            'slug' => 'productos',
+            'with_front' => false,
+            'hierarchical' => true
+        ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'menu_position'      => 5,
+        'supports'           => array( 'title', 'custom-fields', 'thumbnail' ),
+        'menu_icon'             => 'dashicons-store',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'exclude_from_search'   => false,
@@ -118,6 +142,7 @@ function create_post_types() {
 	register_post_type( 'occasion', $occasions_args );
 	register_post_type( 'recipe', $recipe_args );
 	register_post_type( 'location', $locations_args );
+    register_post_type( 'product', $product_args );
 }
 
 add_action( 'init', 'create_post_types', 0 );
