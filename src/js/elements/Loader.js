@@ -1,3 +1,5 @@
+import { mediaQueryHook } from '../utils/mediaQuery';
+
 class Loader {
   constructor(params) {
     this.app = params.app;
@@ -12,9 +14,68 @@ class Loader {
     this.percentage = 0;
     this.completeDelay = 1.5;
 
+    this.isMobile = mediaQueryHook('(max-width: 1024px)');
+
     this.loaderDOM = document.querySelector('[data-loader]');
+    this.loaderContentDOM = document.querySelector('[data-loader-content]');
     this.percentageDOM = document.querySelector('[data-loader-percentage]');
     this.phraseDOM = document.querySelector('[data-loader-phrase]');
+    this.loaderWrapTopDOM = document.querySelector('[data-loader-wrap-top]');
+    this.loaderWrapBottomDOM = document.querySelector('[data-loader-wrap-bottom]');
+
+    // Initial fade-in animation
+    this.gsapLibrary.to(this.loaderContentDOM, {
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+
+    // Get all internal links that don't have target="_blank"
+    const internalLinks = document.querySelectorAll('a:not([target="_blank"])');
+
+    // Add click event listeners to each link
+    internalLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (link.hostname !== window.location.hostname) {
+          return;
+        }
+
+        e.preventDefault();
+        this.showForTransition(link.href);
+      });
+    });
+  }
+
+  showForTransition(nextPageUrl) {
+    const tl = this.gsapLibrary.timeline();
+
+    const height = this.isMobile ? '5vh' : '20vh';
+
+    tl.fromTo(
+      this.loaderDOM,
+      {
+        duration: 0.5,
+        ease: 'power4.inOut',
+        y: '100%',
+      },
+      {
+        y: '0%',
+        onComplete: () => {
+          window.location.href = nextPageUrl;
+        },
+      },
+      0
+    );
+
+    tl.to(
+      this.loaderWrapTopDOM,
+      {
+        duration: 0.4,
+        ease: 'power4.inOut',
+        height,
+      },
+      0
+    );
   }
 
   close() {
@@ -24,16 +85,42 @@ class Loader {
 
       const tl = this.gsapLibrary.timeline();
 
-      tl.to(this.loaderDOM, {
-        duration: 1,
-        ease: 'power4.inOut',
-        clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+      tl.to(
+        this.loaderDOM,
+        {
+          duration: 1,
+          ease: 'power4.inOut',
+          y: '-100%',
+          onComplete: () => {
+            document.body.classList.remove('disabled');
 
-        onComplete: () => {
-          this.loaderDOM.style.display = 'none';
-          document.body.classList.remove('disabled');
+            this.gsapLibrary.killTweensOf(this.loaderDOM);
+            this.loaderDOM.classList.add('loader_component--bottom-to-top');
+          },
         },
-      });
+        0
+      );
+
+      tl.to(
+        this.loaderContentDOM,
+        {
+          duration: 0.5,
+          ease: 'power4.inOut',
+          opacity: 0,
+        },
+        0
+      );
+
+      tl.to(
+        this.loaderWrapBottomDOM,
+        {
+          delay: 0.25,
+          duration: 0.75,
+          ease: 'power4.inOut',
+          height: '0',
+        },
+        0
+      );
     }
   }
 

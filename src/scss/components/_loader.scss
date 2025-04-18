@@ -1,9 +1,13 @@
 .loader_component {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateY(0);
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  &--bottom-to-top {
+    transform: translateY(100%);
+  }
 }
 
 .loader_component__rich_text {
@@ -19,4 +23,45 @@
       font-weight: 700;
     }
   }
+}
+
+.loader_component__wrap {
+  position: absolute;
+  will-change: height;
+  width: 100%;
+  overflow: hidden;
+
+  &--top {
+    bottom: 100%;
+    transform: translateY(1%);
+    height: 0;
+
+    .loader_component__wrap__rounded {
+      top: 0;
+    }
+  }
+
+  &--bottom {
+    bottom: 0;
+    transform: translateY(99%);
+    height: 5vh;
+
+    @media only screen and (min-width: theme('screens.lg')) {
+      height: 20vh;
+    }
+
+    .loader_component__wrap__rounded {
+      bottom: 0;
+    }
+  }
+}
+
+.loader_component__wrap__rounded {
+  position: absolute;
+  width: 150%;
+  height: 750%;
+  background-color: rgb($blue);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
 }

@@ -14,7 +14,18 @@ $random_phrase = $phrases[$random];
     class="loader_component fixed inset-0 z-[100] text-white bg-blue flex justify-center items-center"
     style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/loader.svg);"
 >
-    <div class="grid gap-14 w-full max-w-80 justify-center items-center grid-cols-1 text-center lg:max-w-[22.875rem]">
+
+    <div 
+        class="loader_component__wrap loader_component__wrap--top"
+        data-loader-wrap-top
+    >
+        <div class="loader_component__wrap__rounded"></div>
+    </div>
+
+    <div 
+        class="grid gap-14 w-full max-w-80 justify-center items-center grid-cols-1 text-center opacity-0 lg:max-w-[22.875rem]"
+        data-loader-content
+    >
         <figure class="w-full max-w-[7.5rem] mx-auto lg:max-w-[8.75rem]">
             <img 
                 src="<?php echo esc_url( $logo['sizes']["thumbnail"] ); ?>" 
@@ -33,5 +44,13 @@ $random_phrase = $phrases[$random];
                 0%
             </div>
         </div>
+    </div>
+
+
+    <div 
+        class="loader_component__wrap loader_component__wrap--bottom"
+        data-loader-wrap-bottom
+    >
+        <div class="loader_component__wrap__rounded"></div>
     </div>
 </div>
