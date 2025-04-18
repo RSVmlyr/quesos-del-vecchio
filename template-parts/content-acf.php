@@ -94,4 +94,7 @@ switch(get_row_layout()) {
     case "locations":
         get_template_part('template-parts/section/section-locations');
         break;
+    case "provoke":
+        get_template_part('template-parts/section/section-provoke');
+        break;
 }

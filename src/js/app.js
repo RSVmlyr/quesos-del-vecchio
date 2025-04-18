@@ -31,6 +31,7 @@ const SECTIONS = [
   'Gallery',
   'VerticalSliderLocations',
   'Locations',
+  'Provoke',
 ];
 
 class App {

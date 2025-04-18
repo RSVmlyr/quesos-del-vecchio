@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.8",
+    "isotope-layout": "^3.0.6",
+    "isotope-masonry-horizontal": "^2.0.1",
     "split-type": "^0.3.4",
     "tingle.js": "^0.16.0"
   }
