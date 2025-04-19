@@ -1,5 +1,5 @@
 import { addClickEventListener } from '../utils/listeners';
-
+import { mediaQueryHook } from '../utils/mediaQuery';
 const CLASSNAMES = {
   SLIDER_CONTAINER: '.instagram-reels__swiper',
   BUTTON_NEXT: '.instagram-reels__button--next',
@@ -13,6 +13,7 @@ class InstagramReels {
     this.container = container;
     this.swiper = null;
     this.isExpanded = false;
+    this.isMobile = mediaQueryHook('(max-width: 1024px)');
 
     // Slider container
     this.sliderContainer = container.querySelector(CLASSNAMES.SLIDER_CONTAINER);
@@ -30,7 +31,7 @@ class InstagramReels {
   initSwiper() {
     this.swiper = new window.$APP.Swiper(this.sliderContainer, {
       modules: [window.$APP.Swiper.Navigation],
-      slidesPerView: 4,
+      slidesPerView: this.isMobile ? 1.2 : 4,
       spaceBetween: 24,
       speed: 500,
       allowTouchMove: false,
@@ -38,11 +39,19 @@ class InstagramReels {
   }
 
   goToNextReel() {
-    if (this.swiper.activeIndex === 0 && this.isExpanded === false) {
-      this.isExpanded = true;
-      this.expandSlider();
-    } else {
+    if (this.isMobile) {
       this.swiper.slideNext();
+      if (this.swiper.activeIndex > 0) {
+        this.buttonPrev.classList.add('active');
+      }
+    } else {
+      if (this.swiper.activeIndex === 0 && this.isExpanded === false) {
+        this.isExpanded = true;
+        this.buttonPrev.classList.add('active');
+        this.expandSlider();
+      } else {
+        this.swiper.slideNext();
+      }
     }
 
     if (this.swiper.isEnd) {
@@ -51,11 +60,20 @@ class InstagramReels {
   }
 
   goToPrevReel() {
-    if (this.swiper.activeIndex === 0 && this.isExpanded === true) {
-      this.isExpanded = false;
-      this.compressSlider();
-    } else {
+    if (this.isMobile) {
       this.swiper.slidePrev();
+
+      if (this.swiper.activeIndex === 0) {
+        this.buttonPrev.classList.remove('active');
+      }
+    } else {
+      if (this.swiper.activeIndex === 0 && this.isExpanded === true) {
+        this.isExpanded = false;
+        this.buttonPrev.classList.remove('active');
+        this.compressSlider();
+      } else {
+        this.swiper.slidePrev();
+      }
     }
 
     if (!this.swiper.isEnd) {
@@ -65,7 +83,6 @@ class InstagramReels {
 
   compressSlider() {
     const scrollWidth = this.sliderDescription.dataset.currentWidth;
-    this.buttonPrev.classList.remove('active');
 
     window.$APP.gsap.to(this.sliderDescription, {
       minWidth: scrollWidth,
@@ -77,7 +94,6 @@ class InstagramReels {
   expandSlider() {
     const currentWidth = this.sliderDescription.offsetWidth;
     this.sliderDescription.dataset.currentWidth = currentWidth;
-    this.buttonPrev.classList.add('active');
 
     window.$APP.gsap.to(this.sliderDescription, {
       minWidth: 0,

@@ -21,9 +21,12 @@
 
   &--right {
     padding-left: rem-calc(16);
-    margin: 0 0 0 calc((100vw - $page-max-width) / 2);
     width: 100%;
-    max-width: calc(100vw - ((100vw - $page-max-width) / 2));
+
+    @media only screen and (min-width: theme('screens.lg')) {
+      max-width: calc(100vw - ((100vw - $page-max-width) / 2));
+      margin: 0 0 0 auto;
+    }
   }
 
   &__large {

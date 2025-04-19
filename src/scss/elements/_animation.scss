@@ -24,7 +24,8 @@
 }
 
 .animation--fade-in,
-[data-animation-fade-in] {
+[data-animation-fade-in],
+[data-animation-fade-in-stagger-item] {
   opacity: 0;
   transform: translateY(50%);
 }

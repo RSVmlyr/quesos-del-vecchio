@@ -5,9 +5,10 @@ class Animation {
     this.app = app;
     this.gsap = this.app.gsap;
 
-    this.textSplitDOM = document.querySelectorAll('[data-animation-split-text]');
-    this.scaleDOM = document.querySelectorAll('[data-animation-scale]');
-    this.fadeInDOM = document.querySelectorAll('[data-animation-fade-in]');
+    this.textSplitDOM = Array.from(document.querySelectorAll('[data-animation-split-text]'));
+    this.scaleDOM = Array.from(document.querySelectorAll('[data-animation-scale]'));
+    this.fadeInDOM = Array.from(document.querySelectorAll('[data-animation-fade-in]'));
+    this.fadeInStaggerDOM = Array.from(document.querySelectorAll('[data-animation-fade-in-stagger]'));
 
     // Shared functions
     this.splitTextAnimation = {
@@ -76,6 +77,7 @@ class Animation {
           y: 0,
           ease: 'expo.out',
           duration: 1.2,
+          stagger: 0.1,
         });
       },
       reset: (element) => {
@@ -104,32 +106,34 @@ class Animation {
   async initObservers() {
     await new Promise((resolve) => setTimeout(resolve, 200));
 
-    if (this.textSplitDOM.length > 0) {
-      for (const element of this.textSplitDOM) {
+    await Promise.all([
+      ...this.textSplitDOM.map((element) => {
         setScrollObserver(element, this.splitTextAnimationObserver.bind(this, element), {
           rootMargin: '0px',
-          threshold: 0.8,
+          threshold: 0.5,
         });
-      }
-    }
-
-    if (this.scaleDOM.length > 0) {
-      for (const element of this.scaleDOM) {
+      }),
+      ...this.scaleDOM.map((element) => {
         setScrollObserver(element, this.scaleAnimationObserver.bind(this, element), {
           rootMargin: '0px',
-          threshold: 0.8,
+          threshold: 0.5,
         });
-      }
-    }
-
-    if (this.fadeInDOM.length > 0) {
-      for (const element of this.fadeInDOM) {
+      }),
+      ...this.fadeInDOM.map((element) => {
         setScrollObserver(element, this.fadeInAnimationObserver.bind(this, element), {
           rootMargin: '0px',
-          threshold: 0.8,
+          threshold: 0.5,
         });
-      }
-    }
+      }),
+      ...this.fadeInStaggerDOM.map((element) => {
+        const items = element.querySelectorAll('[data-animation-fade-in-stagger-item]');
+
+        setScrollObserver(element, this.fadeInStaggerAnimationObserver.bind(this, element, items), {
+          rootMargin: '0px',
+          threshold: 0,
+        });
+      }),
+    ]);
   }
 
   splitTextAnimationObserver(element, observer) {
@@ -150,6 +154,13 @@ class Animation {
     if (observer.isIntersecting && !element.dataset.animated) {
       element.dataset.animated = 'true';
       this.fadeInAnimation.run(element);
+    }
+  }
+
+  fadeInStaggerAnimationObserver(element, items, observer) {
+    if (observer.isIntersecting && !element.dataset.animated) {
+      element.dataset.animated = 'true';
+      this.fadeInAnimation.run(items);
     }
   }
 
