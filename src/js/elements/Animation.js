@@ -120,9 +120,11 @@ class Animation {
         });
       }),
       ...this.fadeInDOM.map((element) => {
+        const threshold = element.dataset.animationThreshold || 0.5;
+
         setScrollObserver(element, this.fadeInAnimationObserver.bind(this, element), {
           rootMargin: '0px',
-          threshold: 0.5,
+          threshold: Number(threshold),
         });
       }),
       ...this.fadeInStaggerDOM.map((element) => {
