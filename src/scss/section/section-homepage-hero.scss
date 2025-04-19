@@ -33,20 +33,15 @@
       transition: width 0.6s ease, height 0.6s ease, border-radius 0.3s 0.2s ease-out;
     }
 
-    .homepage-hero__title {
-      opacity: 1;
-      transition: opacity 0.4s 0.4s ease;
-    }
-
     &:nth-child(1) {
-      & ~ .homepage-hero__bottom .homepage-hero__arrow--left .homepage-hero__arrow-shape {
-        animation-name: bounceAlpha;
+      & ~ .homepage-hero__bottom .homepage-hero__arrow--right .homepage-hero__arrow-shape {
+        animation-name: initial;
       }
     }
 
     &:nth-child(2) {
-      & ~ .homepage-hero__bottom .homepage-hero__arrow--right .homepage-hero__arrow-shape {
-        animation-name: bounceAlpha;
+      & ~ .homepage-hero__bottom .homepage-hero__arrow--left .homepage-hero__arrow-shape {
+        animation-name: initial;
       }
     }
   }
@@ -64,8 +59,8 @@
   border-radius: 33% 67% 43% 57% / 54% 51% 49% 46%;
   transition: width 0.4s ease, height 0.4s ease, border-radius 0.4s ease-out;
   position: relative;
-  width: clamp(250px, 50vw, 300px);
-  height: clamp(250px, 50vw, 300px);
+  width: clamp(250px, 90vw, 370px);
+  height: clamp(250px, 90vw, 370px);
   overflow: hidden;
 
   @media only screen and (min-width: theme('screens.lg')) {
@@ -87,11 +82,6 @@
     inset: 0;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 100%);
   }
-}
-
-.homepage-hero__title {
-  opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
 .homepage-hero__arrow {
@@ -121,6 +111,7 @@
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-name: bounceAlpha;
 
   &:last-child {
     animation-delay: 0.2s;

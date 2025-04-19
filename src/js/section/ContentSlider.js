@@ -4,6 +4,12 @@ const CLASSNAMES = {
   PROGRESS_BAR: '.content-slider__progress',
   BUTTON_NEXT: '.content-slider__button--next',
   BUTTON_PREV: '.content-slider__button--prev',
+
+  TITLE: '.content-slider__title',
+  PRE_TITLE: '.content-slider__pre-title',
+  DESCRIPTION: '.content-slider__description',
+  LINK: '.content-slider__link',
+  IMAGE: '.content-slider__images-item',
 };
 
 class ContentSlider {
@@ -11,10 +17,16 @@ class ContentSlider {
     this.app = app;
     this.container = container;
     this.swiper = null;
+    this.animations = app.animations;
 
     // Slider container
     this.sliderContainer = container.querySelector(CLASSNAMES.SLIDER_CONTAINER);
     this.sliderItemsCount = this.sliderContainer.querySelectorAll('.swiper-slide').length;
+
+    this.sliderTitles = Array.from(this.sliderContainer.querySelectorAll(CLASSNAMES.TITLE));
+    this.sliderPreTitles = Array.from(this.sliderContainer.querySelectorAll(CLASSNAMES.PRE_TITLE));
+    this.sliderDescriptions = Array.from(this.sliderContainer.querySelectorAll(CLASSNAMES.DESCRIPTION));
+    this.sliderLinks = Array.from(this.sliderContainer.querySelectorAll(CLASSNAMES.LINK));
 
     this.progressBar = container.querySelector(CLASSNAMES.PROGRESS_BAR);
 
@@ -26,6 +38,20 @@ class ContentSlider {
       this.totalSlides = parseInt(this.progressBar.dataset.progressWidth);
     }
 
+    this.initEventListeners();
+    this.initAnimations();
+  }
+
+  async initAnimations() {
+    await Promise.all([
+      ...this.sliderTitles.map((title) => this.animations.splitTextAnimation.set(title)),
+      ...this.sliderPreTitles.map((preTitle) => this.animations.fadeInAnimation.set(preTitle)),
+      ...this.sliderDescriptions.map((description) => this.animations.fadeInAnimation.set(description)),
+      ...this.sliderLinks.map((link) => this.animations.scaleAnimation.set(link)),
+    ]);
+  }
+
+  initEventListeners() {
     // Listen for appLoaded event
     window.addEventListener('appLoaded', this.initSwiper.bind(this));
   }
@@ -34,7 +60,7 @@ class ContentSlider {
     this.swiper = new window.$APP.Swiper(this.sliderContainer, {
       modules: [window.$APP.Swiper.Navigation],
       slidesPerView: 1,
-      speed: 500,
+      speed: 300,
       navigation: {
         nextEl: this.buttonNext,
         prevEl: this.buttonPrev,
@@ -47,13 +73,67 @@ class ContentSlider {
           }
         },
         slideChange: (swiper) => {
+          this.animationEnter(swiper.activeIndex);
+
           if (this.sliderItemsCount > 1) {
             this.updateSlideCount(swiper.activeIndex + 1);
             this.updateProgressBar(swiper.activeIndex + 1);
           }
         },
+        slideChangeTransitionEnd: (swiper) => {
+          const isNextSlide = swiper.previousTranslate > swiper.translate;
+          const activeIndex = swiper.activeIndex;
+          const previousSlideIndex = isNextSlide ? activeIndex - 1 : activeIndex + 1;
+
+          this.animationExit(previousSlideIndex);
+        },
       },
     });
+
+    this.initObserver(this.swiper.activeIndex);
+  }
+
+  initObserver(activeSlideIndex) {
+    window.$APP.gsap.timeline({
+      scrollTrigger: {
+        trigger: this.sliderContainer,
+        start: 'center bottom',
+        onEnter: () => {
+          this.animationEnter(activeSlideIndex);
+        },
+        onLeaveBack: (self) => self.disable(),
+      },
+    });
+  }
+
+  animationEnter(activeSlideIndex) {
+    if (this.swiper === null) return;
+
+    const activeSlideTitle = this.sliderTitles[activeSlideIndex];
+    const activeSlidePreTitle = this.sliderPreTitles[activeSlideIndex];
+    const activeSlideDescription = this.sliderDescriptions[activeSlideIndex];
+    const activeSlideLink = this.sliderLinks[activeSlideIndex];
+
+    // title animation
+    this.animations.fadeInAnimation.run(activeSlidePreTitle, 0.2);
+    this.animations.splitTextAnimation.run(activeSlideTitle, 0.2);
+    this.animations.fadeInAnimation.run(activeSlideDescription, 0.4);
+    this.animations.scaleAnimation.run(activeSlideLink, 0.6);
+  }
+
+  animationExit(previousSlideIndex) {
+    if (this.swiper === null) return;
+
+    const previousSlideTitle = this.sliderTitles[previousSlideIndex];
+    const previousSlidePreTitle = this.sliderPreTitles[previousSlideIndex];
+    const previousSlideDescription = this.sliderDescriptions[previousSlideIndex];
+    const previousSlideLink = this.sliderLinks[previousSlideIndex];
+
+    // title animation
+    this.animations.splitTextAnimation.reset(previousSlideTitle);
+    this.animations.fadeInAnimation.reset(previousSlidePreTitle);
+    this.animations.fadeInAnimation.reset(previousSlideDescription);
+    this.animations.scaleAnimation.reset(previousSlideLink);
   }
 
   updateSlideCount(currentSlide) {

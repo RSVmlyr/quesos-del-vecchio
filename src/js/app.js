@@ -3,12 +3,15 @@ __webpack_public_path__ = window.__webpack_public_path__;
 
 import Swiper from 'swiper';
 import { Navigation, Mousewheel, EffectCoverflow, Pagination, Autoplay, FreeMode } from 'swiper/modules';
+import SplitType from 'split-type';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Loader from './elements/Loader';
 import Header from './elements/Header';
 import Cursor from './elements/Cursor';
 import ShareButton from './elements/ShareButton';
+import Animation from './elements/Animation';
+
 // import Swiper styles
 import 'swiper/css';
 
@@ -50,16 +53,21 @@ class App {
     window.$APP.Swiper.Pagination = Pagination;
     window.$APP.Swiper.Autoplay = Autoplay;
     window.$APP.Swiper.FreeMode = FreeMode;
+    window.$APP.SplitType = SplitType;
+
     // Mandatory instances
+    this.animations = new Animation(this);
     this.loader = new Loader({
       app: this,
       sectionsLength: SECTIONS.length,
     });
+
     new Header(this);
     new Cursor(this);
     new ShareButton(this);
 
     // Init loading
+    // this.animations.init();
     this._init();
   }
 

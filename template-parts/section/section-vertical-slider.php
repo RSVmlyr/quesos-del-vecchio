@@ -29,21 +29,28 @@ $slider_items = get_sub_field('slides');
         </div>
 
         <div class="mt-16 grid gap-4 lg:flex-1 lg:mt-0 lg:grow">
-            <p class="text-sm font-semibold tracking-tight text-center text-blue lg:text-left vertical-slider__eyebrow">
+            <p 
+                class="text-sm font-semibold tracking-tight text-center text-blue lg:text-left vertical-slider__eyebrow"
+                data-animation-fade-in
+            >
                 <?php echo $eyebrow; ?>
             </p>
 
-            <div class="container no-container--lg">
+            <div class="relative container no-container--lg vertical-slider__titles-container">
                 <?php foreach ($slider_items as $item) :
                     $title = $item['title'];
                 ?>
-                    <h2 class="text-center text-[2rem] tracking-tight font-medium text-blue leading-snug self-start max-w-[46.5rem] mx-auto lg:text-left lg:text-[3.5rem] lg:leading-tight lg:ml-0 lg:max-w-[31.25rem] vertical-slider__slide-title">
+                    <h2 class="absolute top-0 inset-x-0 text-center text-[2rem] tracking-tight font-medium text-blue leading-snug self-start max-w-[46.5rem] mx-auto lg:text-left lg:text-[3.5rem] lg:leading-tight lg:ml-0 lg:max-w-[31.25rem] vertical-slider__slide-title">
                         <?php echo $title; ?>
                     </h2>
                 <?php endforeach; ?>
             </div>
 
-            <button type="button" class="hidden mt-10 max-w-fit text-lg tracking-tighter text-blue font-medium gap-2 items-center lg:flex vertical-slider__next-button">
+            <button 
+                type="button" 
+                class="hidden mt-10 max-w-fit text-lg tracking-tighter text-blue font-medium gap-2 items-center lg:flex vertical-slider__next-button"
+                data-animation-fade-in
+            >
                 CONOCE MÁS
 
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

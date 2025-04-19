@@ -1,0 +1,30 @@
+// body.app-loading {
+//   [data-animation-split-text] {
+//     // opacity: 0;
+//   }
+// }
+
+.animation--scale,
+[data-animation-scale] {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.animation--split-text,
+[data-animation-split-text] {
+  .animate-text__line {
+    overflow: hidden;
+    line-height: 1;
+  }
+
+  .animate-text__word {
+    opacity: 0;
+    transform: translateY(110%) rotate(12deg);
+  }
+}
+
+.animation--fade-in,
+[data-animation-fade-in] {
+  opacity: 0;
+  transform: translateY(50%);
+}

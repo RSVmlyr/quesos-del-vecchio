@@ -28,8 +28,8 @@ $total_posts = 0
 
                     <div class="occasions-slider__item-blob-container">
                         <div class="occasions-slider__item-blob occasions-slider__item-blob occasions-slider__item-blob-primary">
-                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-6 z-10 text-center w-full max-w-[15rem] lg:max-w-[33.375rem] lg:-translate-y-1/4">
-                                <h2 class="text-white text-5xl font-medium mb-5 tracking-tight lg:text-[4rem]">
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-6 z-10 text-center w-full max-w-[15.8rem] lg:max-w-[33.375rem] lg:-translate-y-1/4">
+                                <h2 class="text-white text-5xl font-medium mb-5 tracking-tight text-center lg:text-[4rem] occasions-slider__item-blob-title">
                                     <?php the_title(); ?>
                                 </h2>
         
@@ -41,7 +41,10 @@ $total_posts = 0
                             <?php if (has_post_thumbnail()) : 
                                 $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), '1536x1536');
                             ?>
-                                <div class="occasions-slider__item-blob-image occasions-slider__item-blob-main" style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');"></div>
+                                <div 
+                                    class="occasions-slider__item-blob-image occasions-slider__item-blob-main" 
+                                    style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');"
+                                ></div>
                             <?php endif; ?>
 
                             <div 

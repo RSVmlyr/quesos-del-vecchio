@@ -5,6 +5,7 @@ const CLASSNAMES = {
   SLIDER_CONTAINER: '.vertical-slider__swiper',
   SLIDER_TRIGGER: '.vertical-slider__trigger',
   BLOB: '.vertical-slider__blob',
+  TITLES_CONTAINER: '.vertical-slider__titles-container',
   SLIDE_TITLE: '.vertical-slider__slide-title',
   NEXT_BUTTON: '.vertical-slider__next-button',
 };
@@ -13,8 +14,10 @@ class VerticalSlider {
   constructor(app, container) {
     this.app = app;
     this.container = container;
+    this.animations = this.app.animations;
     this.isMobile = mediaQueryHook('(max-width: 1024px)');
     this.swiper = null;
+    this.currentIndex = 0;
 
     // Next button
     this.nextButton = container.querySelector(CLASSNAMES.NEXT_BUTTON);
@@ -22,10 +25,47 @@ class VerticalSlider {
 
     // Slider container
     this.sliderContainer = container.querySelector(CLASSNAMES.SLIDER_CONTAINER);
+    this.sliderTitlesContainer = container.querySelector(CLASSNAMES.TITLES_CONTAINER);
     this.sliderTitles = container.querySelectorAll(CLASSNAMES.SLIDE_TITLE);
+    this.blobs = container.querySelectorAll(CLASSNAMES.BLOB);
+
+    for (const title of this.sliderTitles) {
+      this.animations.splitTextAnimation.set(title);
+
+      // Set the height of the first title
+      if (title === this.sliderTitles[0]) {
+        this.setTitlesContainerHeight(title.offsetHeight);
+      }
+    }
 
     // Listen for appLoaded event
     window.addEventListener('appLoaded', this.initSwiper.bind(this));
+
+    // Add resize handler
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  handleResize() {
+    const newIsMobile = mediaQueryHook('(max-width: 1024px)');
+
+    // Only reinitialize if the mobile state has changed
+    if (newIsMobile !== this.isMobile) {
+      this.isMobile = newIsMobile;
+
+      // Store current slide index
+      if (this.swiper) {
+        this.currentIndex = this.swiper.activeIndex;
+      }
+
+      // Destroy existing swiper
+      if (this.swiper) {
+        this.swiper.destroy(true, true);
+        this.swiper = null;
+      }
+
+      // Reinitialize swiper
+      this.initSwiper();
+    }
   }
 
   initSwiper() {
@@ -36,6 +76,7 @@ class VerticalSlider {
       allowTouchMove: false,
       on: {
         slideChange: (swiper) => {
+          this.setTitlesContainerHeight(this.sliderTitles[swiper.activeIndex].offsetHeight);
           this.animationEnter(swiper.activeIndex);
         },
         slideChangeTransitionStart: (swiper) => {
@@ -48,8 +89,23 @@ class VerticalSlider {
       },
     });
 
-    this.animationEnter(0);
+    this.initObserver(this.swiper.activeIndex);
     this.setupTriggers();
+  }
+
+  initObserver(activeSlideIndex) {
+    const start = this.isMobile ? 'bottom bottom' : 'center bottom';
+
+    window.$APP.gsap.timeline({
+      scrollTrigger: {
+        trigger: this.sliderContainer,
+        start,
+        onEnter: () => {
+          this.animationEnter(activeSlideIndex);
+        },
+        onLeaveBack: (self) => self.disable(),
+      },
+    });
   }
 
   setupTriggers() {
@@ -83,15 +139,13 @@ class VerticalSlider {
 
     window.$APP.gsap.to(activeSlideBlob, {
       scale: 1,
+      opacity: 1,
       duration: 0.7,
       ease: 'power2.out',
     });
 
-    window.$APP.gsap.to(activeSlideTitle, {
-      opacity: 1,
-      duration: 0.5,
-      ease: 'linear',
-    });
+    // title animation
+    this.animations.splitTextAnimation.run(activeSlideTitle);
   }
 
   animationExit(previousSlideIndex) {
@@ -105,19 +159,16 @@ class VerticalSlider {
 
     window.$APP.gsap.to(previousSlideBlob, {
       scale: 0.3,
+      opacity: 0,
       duration: 0.7,
       ease: 'power2.out',
     });
 
-    window.$APP.gsap.to(previousSlideTitle, {
-      opacity: 0,
-      duration: 0.5,
-      ease: 'linear',
-    });
+    // title animation
+    this.animations.splitTextAnimation.reset(previousSlideTitle);
   }
 
   goToNextSection() {
-    // TODO: Fix link tag
     let nextSection = this.container.nextElementSibling;
 
     if (nextSection.tagName === 'LINK' || !nextSection) {
@@ -131,6 +182,10 @@ class VerticalSlider {
         behavior: 'smooth',
       });
     }
+  }
+
+  setTitlesContainerHeight(height) {
+    this.sliderTitlesContainer.style.height = `${height}px`;
   }
 }
 

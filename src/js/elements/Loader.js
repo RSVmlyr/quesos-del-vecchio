@@ -30,8 +30,8 @@ class Loader {
       ease: 'power2.out',
     });
 
-    // Get all internal links that don't have target="_blank"
-    const internalLinks = document.querySelectorAll('a:not([target="_blank"])');
+    // Get all internal links that don't have target="_blank" and don't have a hash
+    const internalLinks = document.querySelectorAll('a:not([target="_blank"]):not([href*="#"])');
 
     // Add click event listeners to each link
     internalLinks.forEach((link) => {
@@ -70,7 +70,7 @@ class Loader {
     tl.to(
       this.loaderWrapTopDOM,
       {
-        duration: 0.4,
+        duration: 0.5,
         ease: 'power4.inOut',
         height,
       },
@@ -88,11 +88,12 @@ class Loader {
       tl.to(
         this.loaderDOM,
         {
-          duration: 1,
+          duration: 0.75,
           ease: 'power4.inOut',
           y: '-100%',
           onComplete: () => {
             document.body.classList.remove('disabled');
+            document.body.classList.remove('app-loading');
 
             this.gsapLibrary.killTweensOf(this.loaderDOM);
             this.loaderDOM.classList.add('loader_component--bottom-to-top');
@@ -114,7 +115,7 @@ class Loader {
       tl.to(
         this.loaderWrapBottomDOM,
         {
-          delay: 0.25,
+          delay: 0.2,
           duration: 0.75,
           ease: 'power4.inOut',
           height: '0',

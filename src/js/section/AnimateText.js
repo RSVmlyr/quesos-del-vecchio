@@ -1,6 +1,3 @@
-import { addClickEventListener } from '../utils/listeners';
-import SplitType from 'split-type';
-
 const CLASSNAMES = {
   TEXT: '.animate-text__paragraph',
 };
@@ -12,7 +9,7 @@ class AnimateText {
 
     this.text = this.container.querySelector(CLASSNAMES.TEXT);
 
-    this.splitText = new SplitType(this.text, {
+    this.splitText = window.$APP.SplitType(this.text, {
       types: 'lines, words',
       lineClass: 'animate-text__line',
       wordClass: 'animate-text__word',

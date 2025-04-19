@@ -16,11 +16,13 @@ get_header();
             "occasions_title" => get_field('occations')['title'],
             "occasions_background" => get_field('occations')['background_image'],
             "occasions_background_color" => get_field('occations')['background_color'],
+            "occasions_link" => get_field('occations')['link'],
 
             "tempt_title" => get_field('tempt')['title'],
             "tempt_background" => get_field('tempt')['background_image'],
             "tempt_background_color" => get_field('tempt')['background_color'],
-
+            "tempt_link" => get_field('tempt')['link'],
+            
             "text_bottom" => get_field('text_bottom')
         ));
     ?>

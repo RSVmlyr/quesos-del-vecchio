@@ -9,7 +9,7 @@ $slider_items = get_sub_field('slide');
     data-section="ContentSlider"
     class="custom-template-<?php echo get_row_layout(); ?> relative bg-beige-3 py-12 lg:h-screen lg:min-h-[56rem] lg:flex lg:items-center"
 >
-    <div class="swiper w-full lg:max-w-[35rem] lg:mx-auto content-slider__swiper">
+    <div class="swiper w-full lg:mx-auto content-slider__swiper">
         <div class="swiper-wrapper">
             <?php foreach ($slider_items as $item): 
                 $pre_title = $item['pre_title'];
@@ -22,22 +22,22 @@ $slider_items = get_sub_field('slide');
                     <div class="container grid gap-4 lg:gap-8">
                         <div class="grid gap-4 max-w-80 mx-auto lg:max-w-[25.625rem]">
                             <?php if($pre_title): ?>
-                                <p class="hidden text-blue tracking-tight font-medium text-lg text-center lg:block">
+                                <p class="hidden text-blue tracking-tight font-medium text-lg text-center lg:block content-slider__pre-title">
                                     <?php echo $pre_title; ?>
                                 </p>
                             <?php endif; ?>
     
-                            <h2 class="text-blue text-center text-[2.5rem] tracking-tight font-medium leading-tight lg:text-[4rem]">
+                            <h2 class="text-blue text-center text-[2.5rem] tracking-tight font-medium leading-tight lg:text-[4rem] content-slider__title">
                                 <?php echo $title; ?>
                             </h2>
                         </div>
 
-                        <p class="text-blue font-medium text-center tracking-tight mx-auto max-w-[16.625rem] lg:text-2xl lg:max-w-[24rem] lg:font-normal">
+                        <p class="text-blue font-medium text-center tracking-tight mx-auto max-w-[16.625rem] lg:text-2xl lg:max-w-[24rem] lg:font-normal content-slider__description">
                             <?php echo $description; ?>
                         </p>
 
                         <?php if($link): ?>
-                            <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="text-white bg-blue tracking-tight text-center font-medium py-[0.875rem] text-sm rounded-[12.5rem] mx-auto px-6 lg:text-lg lg:font-semibold lg:py-6 lg:px-7">
+                            <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="text-white bg-blue tracking-tight text-center font-medium py-[0.875rem] text-sm rounded-[12.5rem] mx-auto px-6 lg:text-lg lg:font-semibold lg:py-6 lg:px-7 content-slider__link">
                                 <?php echo $link['title']; ?>
                             </a>
                         <?php endif; ?>
@@ -89,9 +89,12 @@ $slider_items = get_sub_field('slide');
 
     </div>
 
-    <div class="hidden pointer-events-none absolute inset-0 container lg:block">
+    <div class="hidden pointer-events-none absolute inset-0 container z-10 lg:block">
         <div class="absolute top-11 bottom-11 left-12 right-12 content-slider__images">
-            <div class="absolute top-0 left-0">
+            <div 
+                class="block absolute top-0 left-0 content-slider__images-item"
+                data-animation-scale
+            >
                 <figure 
                     class="w-full max-w-[15.75rem] xl:max-w-[20.75rem] content-slider__mask"
                     style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-3-reflection-y.svg);"
@@ -100,7 +103,10 @@ $slider_items = get_sub_field('slide');
                 </figure>
             </div>
 
-            <div class="absolute top-0 right-0">
+            <div 
+                class="absolute top-0 right-0 content-slider__images-item"
+                data-animation-scale
+            >
                 <figure 
                     class="w-full max-w-[18.75rem] xl:max-w-[23.75rem] content-slider__mask"
                     style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-2.svg);"
@@ -109,7 +115,10 @@ $slider_items = get_sub_field('slide');
                 </figure>
             </div>
 
-            <div class="absolute bottom-0 left-0">
+            <div 
+                class="absolute bottom-0 left-0 content-slider__images-item"
+                data-animation-scale
+            >
                 <figure 
                     class="w-full max-w-[20.125rem] xl:max-w-[25.125rem] content-slider__mask"
                     style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-3.svg);"
@@ -118,7 +127,10 @@ $slider_items = get_sub_field('slide');
                 </figure>
             </div>
 
-            <div class="absolute bottom-0 right-0">
+            <div 
+                class="absolute bottom-0 right-0 content-slider__images-item"
+                data-animation-scale
+            >
                 <figure 
                     class="w-full max-w-[21.5rem] xl:max-w-[23.5rem] content-slider__mask"
                     style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-4.svg);"
@@ -128,7 +140,10 @@ $slider_items = get_sub_field('slide');
             </div>
 
             <?php if($images["top_center"]): ?>
-                <div class="absolute -top-11 left-1/2 -translate-x-1/2">
+                <div 
+                    class="absolute -top-11 left-1/2 -translate-x-1/2"
+                    data-animation-scale
+                >
                     <figure 
                         class="w-full max-w-[10rem] content-slider__mask"
                         style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-3-reflection-y.svg);"

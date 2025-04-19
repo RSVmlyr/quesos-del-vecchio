@@ -1,5 +1,5 @@
 import { getAncestorByClass } from '../utils/querySelectors';
-
+import { mediaQueryHook } from '../utils/mediaQuery';
 const CLASSNAMES = {
   MARQUEE: '.occasions-slider__marquee',
   CURRENT_SLIDE: '.occasions-slider__current-count',
@@ -7,6 +7,7 @@ const CLASSNAMES = {
 
   BLOBS: '.occasions-slider__item-blob',
 
+  BLOB_TITLE: '.occasions-slider__item-blob-title',
   BLOB_BUTTON: '.occasions-slider__item-blob-button',
   SLIDER_ITEM: '.occasions-slider__item',
   BLOB_HOVER: '.occasions-slider__item-blob-hover',
@@ -20,6 +21,14 @@ class OccasionsSlider {
   constructor(app, container) {
     this.app = app;
     this.container = container;
+    this.animations = app.animations;
+    this.isMobile = mediaQueryHook('(max-width: 1024px)');
+
+    // SplitText
+    this.blobTitleElements = container.querySelectorAll(CLASSNAMES.BLOB_TITLE);
+    for (const blobTitle of this.blobTitleElements) {
+      this.animations.splitTextAnimation.set(blobTitle);
+    }
 
     // Marquee
     this.marqueeElements = container.querySelectorAll(CLASSNAMES.MARQUEE);
@@ -36,8 +45,11 @@ class OccasionsSlider {
       const blobSecondary = parent.querySelectorAll(CLASSNAMES.BLOB_SECONDARY);
       const productImages = parent.querySelectorAll(CLASSNAMES.PRODUCT_IMAGES);
       const productContainer = parent.querySelector(CLASSNAMES.PRODUCT_CONTAINER);
+      this.animations.scaleAnimation.set(blobButton);
 
       blobButton.addEventListener('mouseenter', () => {
+        if (this.isMobile) return;
+
         this.hoverStart({
           mainImage: blobMain,
           hoverImage: blobHover,
@@ -48,6 +60,8 @@ class OccasionsSlider {
       });
 
       blobButton.addEventListener('mouseleave', () => {
+        if (this.isMobile) return;
+
         this.hoverEnd({
           mainImage: blobMain,
           hoverImage: blobHover,
@@ -78,7 +92,7 @@ class OccasionsSlider {
       slidesPerView: 1,
       mousewheel: {
         enable: true,
-        thresholdDelta: 10,
+        thresholdDelta: 15,
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -90,6 +104,12 @@ class OccasionsSlider {
           const blobElements = activeSlide.querySelectorAll(CLASSNAMES.BLOBS);
           const marqueeElement = activeSlide.querySelector(CLASSNAMES.MARQUEE);
 
+          const blobTitleElement = activeSlide.querySelector(CLASSNAMES.BLOB_TITLE);
+          const blobButtonElement = activeSlide.querySelector(CLASSNAMES.BLOB_BUTTON);
+
+          this.animations.splitTextAnimation.run(blobTitleElement, 0.6);
+          this.animations.scaleAnimation.run(blobButtonElement, 0.7);
+
           this.animateMarquee(marqueeElement);
           this.animateBlobSecondary(blobElements);
           this.updateSlideCount(1);
@@ -100,6 +120,12 @@ class OccasionsSlider {
 
           const currentBlobElements = activeSlide.querySelectorAll(CLASSNAMES.BLOBS);
           const currentMarqueeElement = activeSlide.querySelector(CLASSNAMES.MARQUEE);
+
+          const blobTitleElement = activeSlide.querySelector(CLASSNAMES.BLOB_TITLE);
+          const blobButtonElement = activeSlide.querySelector(CLASSNAMES.BLOB_BUTTON);
+
+          this.animations.splitTextAnimation.run(blobTitleElement, 0.6);
+          this.animations.scaleAnimation.run(blobButtonElement, 0.7);
 
           this.animateMarquee(currentMarqueeElement);
           this.animateBlobSecondary(currentBlobElements);
@@ -114,9 +140,15 @@ class OccasionsSlider {
           const previousBlobSecondaryElements = previousSlide.querySelectorAll(CLASSNAMES.BLOBS);
           const previousMarqueeElement = previousSlide.querySelector(CLASSNAMES.MARQUEE);
 
-          this.resetAnimations({
+          const blobTitleElement = previousSlide.querySelector(CLASSNAMES.BLOB_TITLE);
+          const blobButtonElement = previousSlide.querySelector(CLASSNAMES.BLOB_BUTTON);
+
+          this.animations.splitTextAnimation.reset(blobTitleElement);
+          this.animations.scaleAnimation.reset(blobButtonElement);
+
+          this.animations.resetAnimations({
             elements: [...previousBlobSecondaryElements, previousMarqueeElement],
-            clearProps: 'scale,y',
+            clearProps: 'scale,y,opacity',
           });
         },
       },
@@ -217,7 +249,7 @@ class OccasionsSlider {
   }
 
   hoverEnd(params) {
-    this.resetAnimations({
+    this.app.animations.resetAnimations({
       elements: [params.mainImage, params.hoverImage, params.secondaryImages],
       clearProps: 'opacity',
     });
@@ -228,19 +260,11 @@ class OccasionsSlider {
       ease: 'power2.out',
       onComplete: () => {
         params.productContainer.style.display = 'none';
-        this.resetAnimations({
+        this.app.animations.resetAnimations({
           elements: params.productImages,
           clearProps: 'y',
         });
       },
-    });
-  }
-
-  resetAnimations(params) {
-    this.app.gsap.killTweensOf(params.elements);
-    this.app.gsap.set(params.elements, {
-      duration: 0,
-      clearProps: params.clearProps,
     });
   }
 }

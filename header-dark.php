@@ -45,7 +45,7 @@ $google_maps_id_map = $google_maps['map_id'];
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class("relative bg-custom-grey text-custom-black_light font-figtree font-normal antialiased disabled"); ?>>
+<body <?php body_class("relative bg-custom-grey text-custom-black_light font-figtree font-normal antialiased disabled app-loading"); ?>>
 <?php wp_body_open(); ?>
 <?php include_once('template-parts/loader.php'); ?>
 <div id="page" class="h-full min-h-screen flex flex-col">
