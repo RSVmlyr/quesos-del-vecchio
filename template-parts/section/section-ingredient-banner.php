@@ -22,13 +22,14 @@ $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-co
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-ingredient-banner.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
-    class="bg-beige-3 <?php echo $section_class; ?>"
+    class="bg-beige-3 overflow-hidden <?php echo $section_class; ?>"
     data-section=""
 >
     <div class="container <?php echo $container_class; ?>">
     <!-- lg:min-h-72 -->
         <a
             data-animation-fade-in
+            data-animation-threshold="0"
             href="<?php echo get_permalink( $product->ID ); ?>"
             class="relative z-0 bg-orange ingredient-banner__bg grid px-4 overflow-hidden lg:px-8 lg:overflow-visible <?php echo $banner_class; ?>"
             style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/banner-wave.svg); background-color: <?php echo $background_color; ?>"

@@ -11,24 +11,25 @@ $image = get_sub_field('image');
     <div class="container container--medium"> 
         <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] lg:gap-9">
             <div class="lg:self-center lg:grid lg:gap-12">
-                <h2 class="text-blue text-2xl font-medium tracking-tight leading-snug lg:text-5xl lg:leading-[1.2]">
+                <h2 class="text-blue text-2xl font-medium tracking-tight leading-snug lg:text-5xl lg:leading-[1.2]" data-animation-split-text>
                     <?php echo $title; ?>
                 </h2>
     
-                <p class="hidden text-lg font-medium tracking-tight leading-normal text-blue lg:block">
+                <p class="hidden text-lg font-medium tracking-tight leading-normal text-blue lg:block" data-animation-fade-in>
                     <?php echo $description; ?>
                 </p>
             </div>
 
             <div>
                 <figure 
+                    data-animation-scale
                     class="image-text__image"
                     style="--mask-url: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-2.svg);"
                 >
                     <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>">
                 </figure>
 
-                <p class="block text-base font-medium tracking-tight leading-normal text-blue lg:hidden">
+                <p class="block text-base font-medium tracking-tight leading-normal text-blue lg:hidden" data-animation-fade-in>
                     <?php echo $description; ?>
                 </p>
             </div>
