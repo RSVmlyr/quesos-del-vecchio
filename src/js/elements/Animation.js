@@ -128,7 +128,11 @@ class Animation {
         });
       }),
       ...this.fadeInStaggerDOM.map((element) => {
-        const items = element.querySelectorAll('[data-animation-fade-in-stagger-item]');
+        let items = element.querySelectorAll('[data-animation-fade-in-stagger-item]');
+
+        if (items.length === 0) {
+          items = element.children;
+        }
 
         setScrollObserver(element, this.fadeInStaggerAnimationObserver.bind(this, element, items), {
           rootMargin: '0px',

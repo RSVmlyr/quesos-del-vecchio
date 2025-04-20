@@ -48,6 +48,7 @@ $slider_items = get_sub_field('slide');
 
         <div class="container">
             <figure 
+                data-animation-scale
                 class="mt-8 w-full max-w-[22.375rem] mx-auto lg:hidden content-slider__mask"
                 style="--mask-image: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-2.svg);"
             >

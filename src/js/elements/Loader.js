@@ -54,7 +54,7 @@ class Loader {
     tl.fromTo(
       this.loaderDOM,
       {
-        duration: 0.5,
+        duration: 0.3,
         ease: 'power4.inOut',
         y: '100%',
       },
@@ -70,7 +70,7 @@ class Loader {
     tl.to(
       this.loaderWrapTopDOM,
       {
-        duration: 0.5,
+        duration: 0.3,
         ease: 'power4.inOut',
         height,
       },

@@ -25,7 +25,8 @@
 
 .animation--fade-in,
 [data-animation-fade-in],
-[data-animation-fade-in-stagger-item] {
+[data-animation-fade-in-stagger-item],
+[data-animation-fade-in-stagger] > li.menu-item {
   opacity: 0;
   transform: translateY(50%);
 }

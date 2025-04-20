@@ -13,18 +13,18 @@
 >
     <div class="mb-8 lg:mb-[7.5rem]">
         <div class="container text-center">
-            <p class="text-sm font-medium tracking-tight text-blue mb-2 lg:text-lg lg:font-semibold">
+            <p class="text-sm font-medium tracking-tight text-blue mb-2 lg:text-lg lg:font-semibold" data-animation-fade-in>
                 <?php echo $pre_title; ?>
             </p>
 
-            <h2 class="text-[2rem] leading-snug tracking-tight font-medium text-blue lg:text-[4rem] lg:leading-snug">
+            <h2 class="text-[2rem] leading-snug tracking-tight font-medium text-blue lg:text-[4rem] lg:leading-snug" data-animation-split-text>
                 <?php echo $title; ?>
             </h2>
         </div>
     </div>
 
 
-    <div class="container no-container--lg">
+    <div class="container no-container--lg" data-animation-fade-in-stagger>
         <div class="embla__viewport recipe-slider__embla_viewport overflow-hidden">
             <div class="embla__container recipe-slider__container">
                 <?php foreach( $recipes as $post ): 
@@ -35,7 +35,7 @@
                     $shortname = get_field( "shortname", $product->ID );
                 ?>
                     <div class="embla__slide recipe-slider__slide flex-shrink-0">
-                        <a href="<?php the_permalink(); ?>" class="block recipe-slider__slide-item" aria-label="<?php the_title(); ?>">
+                        <a href="<?php the_permalink(); ?>" class="block recipe-slider__slide-item" aria-label="<?php the_title(); ?>" data-animation-fade-in-stagger-item>
                             <h2 class="text-lg tracking-tight font-medium text-center text-blue leading-tight lg:text-2xl">
                                 <?php the_title(); ?>
                             </h2>
