@@ -35,7 +35,7 @@ $author = $additional_information['author'];
 				</div>
 
 				<div class="grid z-10 relative gap-6 sm:w-6/12 sm:max-w-[38.75rem] sm:mr-auto lg:gap-12">
-					<figure class="block max-w-20 lg:max-w-[7.5rem]" data-animation-scale>
+					<figure class="block max-w-20 lg:max-w-[7.5rem]">
 						<img src="<?php echo $isotype_logo['url']; ?>" alt="<?php echo $isotype_logo['alt']; ?>">
 					</figure>
 

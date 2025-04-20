@@ -25,7 +25,7 @@ $copyright = $additional_information['copyright'];
 $author = $additional_information['author'];
 ?>
 
-	<footer id="colophon" class="relative bg-beige-3 pb-6">
+	<footer id="colophon" class="relative bg-beige-3 pb-6 overflow-hidden">
 		<div class="container grid gap-6 sm:gap-[3.6875rem]">
 			<div class="pt-[75vw] sm:pt-0 sm:h-[25rem] sm:flex sm:items-center lg:h-[42.875rem]">
 				<div class="absolute top-0 inset-x-0 z-0 sm:w-6/12 sm:left-auto sm:right-0">
@@ -35,16 +35,16 @@ $author = $additional_information['author'];
 				</div>
 
 				<div class="grid z-10 relative gap-6 sm:w-6/12 sm:max-w-[38.75rem] sm:mr-auto lg:gap-12">
-					<figure class="block max-w-20 lg:max-w-[7.5rem]">
+					<figure class="block max-w-20 lg:max-w-[7.5rem]" data-animation-scale>
 						<img src="<?php echo $isotype_logo['url']; ?>" alt="<?php echo $isotype_logo['alt']; ?>">
 					</figure>
 
 					<div>
-						<p class="font-gazpacho text-[2rem] tracking-tight text-blue font-medium leading-snug lg:text-[3.5rem]">
+						<p data-animation-split-text class="font-gazpacho text-[2rem] tracking-tight text-blue font-medium leading-snug lg:text-[3.5rem]">
 							<?php echo $footer_text; ?>
 						</p>
 	
-						<form class="mt-6 footer__form">
+						<form class="mt-6 footer__form" data-animation-fade-in>
 							<input type="email" placeholder="Suscríbete y recibe novedades" class="" />
 							<button class="" type="submit" aria-label="Enviar">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,15 +67,16 @@ $author = $additional_information['author'];
 									'menu_id'        => 'primary-menu',
 									'container'       => 'ul',
 									'menu_class'      => 'grid grid-cols-2 gap-6 font-gazpacho text-2xl font-medium text-blue tracking-tight sm:grid-cols-4 sm:justify-items-end lg:text-[2rem] lg:gap-20',
+									'items_wrap'     => '<ul data-animation-fade-in-stagger id="%1$s" class="%2$s">%3$s</ul>',
 								)
 							);
 						?>
 					</nav>
 		
 					<?php if ( ! empty( $facebook ) || ! empty( $instagram ) || ! empty( $youtube ) ) : ?>
-						<div class="flex gap-8 items-center pb-6 pt-8 sm:py-0 sm:shrink">
+						<div class="flex gap-8 items-center pb-6 pt-8 sm:py-0 sm:shrink" data-animation-fade-in-stagger>
 							<?php if ( ! empty( $instagram ) ): ?>
-								<a href="<?php echo $instagram; ?>" class="text-blue footer__social-media" aria-label="Instagram" target="_blank">
+								<a data-animation-fade-in-stagger-item href="<?php echo $instagram; ?>" class="text-blue footer__social-media" aria-label="Instagram" target="_blank">
 									<?php
 										echo file_get_contents(get_template_directory() . '/public/icons/instagram.svg');
 									?>
@@ -83,7 +84,7 @@ $author = $additional_information['author'];
 							<?php endif; ?>
 		
 							<?php if ( ! empty( $facebook ) ): ?>
-								<a href="<?php echo $facebook; ?>" class="text-blue footer__social-media" aria-label="Facebook" target="_blank">
+								<a data-animation-fade-in-stagger-item href="<?php echo $facebook; ?>" class="text-blue footer__social-media" aria-label="Facebook" target="_blank">
 									<?php
 										echo file_get_contents(get_template_directory() . '/public/icons/facebook.svg');
 									?>
@@ -91,7 +92,7 @@ $author = $additional_information['author'];
 							<?php endif; ?>
 		
 							<?php if ( ! empty( $youtube ) ): ?>
-								<a href="<?php echo $youtube; ?>" class="text-blue footer__social-media" aria-label="Youtube" target="_blank">
+								<a data-animation-fade-in-stagger-item href="<?php echo $youtube; ?>" class="text-blue footer__social-media" aria-label="Youtube" target="_blank">
 									<?php
 										echo file_get_contents(get_template_directory() . '/public/icons/youtube.svg');
 									?>
@@ -101,9 +102,9 @@ $author = $additional_information['author'];
 					<?php endif; ?>
 				</div>
 				
-				<div class="pt-6 border-t border-blue/[0.12] text-xs grid gap-4 uppercase font-medium tracking-tight text-blue sm:pt-8 sm:grid-cols-2 md:flex lg:items-center lg:font-normal">
+				<div data-animation-fade-in-stagger class="pt-6 border-t border-blue/[0.12] text-xs grid gap-4 uppercase font-medium tracking-tight text-blue sm:pt-8 sm:grid-cols-2 md:flex lg:items-center lg:font-normal">
 					<?php if ( ! empty( $copyright ) ): ?>
-						<div class="rich-text footer__copyright">
+						<div class="rich-text footer__copyright" data-animation-fade-in-stagger-item>
 							<?php echo $copyright; ?>
 						</div>
 					<?php endif; ?>
@@ -111,7 +112,7 @@ $author = $additional_information['author'];
 					<?php if ( isset( $terms_conditions[0] ) && !empty( $terms_conditions[0]->post_content ) ): 
 						$terms_conditions_url = get_permalink( $terms_conditions[0]->ID );
 					?>
-						<a href="<?php echo $terms_conditions_url; ?>" class="max-w-fit" aria-label="Términos y condiciones">
+						<a data-animation-fade-in-stagger-item href="<?php echo $terms_conditions_url; ?>" class="max-w-fit" aria-label="Términos y condiciones">
 							Términos y condiciones
 						</a>
 					<?php endif; ?>
@@ -119,13 +120,13 @@ $author = $additional_information['author'];
 					<?php if ( isset( $privacy_policy[0] ) && !empty( $privacy_policy[0]->post_content ) ): 
 						$privacy_policy_url = get_permalink( $privacy_policy[0]->ID );
 					?>
-						<a href="<?php echo $privacy_policy_url; ?>" class="max-w-fit" aria-label="Política de privacidad">
+						<a data-animation-fade-in-stagger-item href="<?php echo $privacy_policy_url; ?>" class="max-w-fit" aria-label="Política de privacidad">
 							Política de privacidad
 						</a>
 					<?php endif; ?>
 	
 					<?php if ( ! empty( $author ) ): ?>
-						<div class="rich-text md:ml-auto footer__author">
+						<div data-animation-fade-in-stagger-item class="rich-text md:ml-auto footer__author">
 							<?php echo $author; ?>
 						</div>
 					<?php endif; ?>
