@@ -53,8 +53,8 @@ $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-co
                 </figure>
             </div>
         
-            <div class="self-center order-2 flex justify-center lg:order-3">
-                <span data-animation-scale class="inline-block bg-white py-5 px-8 text-blue text-center rounded-[100%] font-semibold tracking-tight mx-auto lg:mr-0 <?php echo $button_class; ?> ingredient-banner__button">
+            <div class="self-center order-2 flex justify-center lg:order-3" data-animation-scale>
+                <span class="inline-block bg-white py-5 px-8 text-blue text-center rounded-[100%] font-semibold tracking-tight mx-auto lg:mr-0 <?php echo $button_class; ?> ingredient-banner__button">
                     <?php echo $button_text; ?>
                 </span>
             </div>

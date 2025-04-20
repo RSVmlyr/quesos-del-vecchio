@@ -114,9 +114,10 @@ class Animation {
         });
       }),
       ...this.scaleDOM.map((element) => {
+        const threshold = element.dataset.animationThreshold || 0.5;
         setScrollObserver(element, this.scaleAnimationObserver.bind(this, element), {
           rootMargin: '0px',
-          threshold: 0.5,
+          threshold: Number(threshold),
         });
       }),
       ...this.fadeInDOM.map((element) => {
