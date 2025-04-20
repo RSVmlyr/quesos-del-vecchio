@@ -1,7 +1,11 @@
+import Tingle from 'tingle.js';
+import 'tingle.js/dist/tingle.min.css';
+import { mediaQueryHook } from '../utils/mediaQuery';
 const CLASSNAMES = {
   HOTSPOT: '.hotspot',
   HOTSPOT_BUTTON: '.hotspot__button',
   HOTSPOT_BOX: '.hotspot__box',
+  HOTSPOT_CLOSE: '.hotspot__close',
 };
 
 class Hotspots {
@@ -10,6 +14,7 @@ class Hotspots {
     this.container = container;
     this.hotspots = this.container.querySelectorAll(CLASSNAMES.HOTSPOT);
     this.activeHotspot = null;
+    this.isMobile = mediaQueryHook('(max-width: 1024px)');
 
     // Add click outside handler
     document.addEventListener('click', this.handleClickOutside.bind(this));
@@ -34,25 +39,42 @@ class Hotspots {
   }
 
   setupHotspot(hotspot) {
+    const modal = new Tingle.modal({
+      footer: true,
+      closeMethods: ['overlay', 'escape'],
+      closeLabel: 'Cerrar',
+      cssClass: ['hotspots__modal'],
+    });
+
     const button = hotspot.querySelector(CLASSNAMES.HOTSPOT_BUTTON);
     const box = hotspot.querySelector(CLASSNAMES.HOTSPOT_BOX);
+    const close = box.querySelector(CLASSNAMES.HOTSPOT_CLOSE);
+
+    modal.setContent(box.innerHTML);
+    modal.addFooterBtn(close.innerHTML, 'hotspot__close', () => {
+      modal.close();
+    });
 
     this.adjustBoxPosition(box, hotspot.getBoundingClientRect());
 
     button.addEventListener('click', async (event) => {
       event.stopPropagation(); // Prevent click from bubbling to document
 
-      // Close all hotspots first
-      this.closeAllHotspots();
+      if (this.isMobile) {
+        modal.open();
+      } else {
+        // Close all hotspots first
+        this.closeAllHotspots();
 
-      const hotspotRect = hotspot.getBoundingClientRect();
+        const hotspotRect = hotspot.getBoundingClientRect();
 
-      // Check for viewport collisions and adjust position if needed
-      this.adjustBoxPosition(box, hotspotRect);
+        // Check for viewport collisions and adjust position if needed
+        this.adjustBoxPosition(box, hotspotRect);
 
-      // Show the box
-      hotspot.classList.add('hotspot--active');
-      this.activeHotspot = hotspot;
+        // Show the box
+        hotspot.classList.add('hotspot--active');
+        this.activeHotspot = hotspot;
+      }
     });
   }
 

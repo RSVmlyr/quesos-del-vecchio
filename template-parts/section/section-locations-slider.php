@@ -32,7 +32,7 @@
                 </a>
             </div>
 
-            <div class="swiper locations-slider__swiper" data-animation-fade-in-stagger>
+            <div class="swiper locations-slider__swiper">
                 <div class="swiper-wrapper">
                     <?php foreach ($locations as $location) : 
                         setup_postdata($location);
@@ -42,7 +42,7 @@
         
                     ?>
                         <div class="swiper-slide locations-slider__slide">
-                            <a data-animation-fade-in-stagger-item href="<?php the_permalink(); ?>" class="block bg-white rounded-2xl lg:rounded-[3rem] locations-slider__location">
+                            <a href="<?php the_permalink(); ?>" class="block bg-white rounded-2xl lg:rounded-[3rem] locations-slider__location">
                                 <div class="px-3 pt-3 pb-2 lg:p-8">
                                     <h3 class="text-sm text-blue font-semibold tracking-tight leading-tight mb-2 font-figtree lg:text-[2rem] lg:font-medium lg:mb-6">
                                         <?php echo $location->post_title; ?>

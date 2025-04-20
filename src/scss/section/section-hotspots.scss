@@ -48,8 +48,8 @@
 
 .hotspot__button-icon {
   position: relative;
-  width: rem-calc(48);
-  height: rem-calc(48);
+  width: rem-calc(33);
+  height: rem-calc(33);
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -72,8 +72,8 @@
     height: 100%;
     border-radius: 100%;
     background-color: rgb($white);
-    width: rem-calc(80);
-    height: rem-calc(80);
+    width: rem-calc(56);
+    height: rem-calc(56);
     z-index: -2;
     opacity: 0.2;
   }
@@ -88,17 +88,75 @@
     height: 100%;
     border-radius: 100%;
     background-color: rgb($white);
-    width: rem-calc(48);
-    height: rem-calc(48);
+    width: rem-calc(33);
+    height: rem-calc(33);
     z-index: -1;
     opacity: 1;
     transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
   }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    width: rem-calc(48);
+    height: rem-calc(48);
+
+    &::after {
+      width: rem-calc(80);
+      height: rem-calc(80);
+    }
+
+    &::before {
+      width: rem-calc(48);
+      height: rem-calc(48);
+    }
+  }
 }
 
 .hotspot__box {
-  display: grid;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease-in-out;
+}
+
+.hotspots__modal {
+  display: flex;
+  align-items: flex-end;
+
+  .tingle-modal-box {
+    background-color: transparent;
+    margin-bottom: 0;
+  }
+
+  .tingle-modal-box__content {
+    padding: 0;
+  }
+
+  .tingle-modal-box__footer {
+    padding: 0;
+  }
+}
+
+.hotspot__close {
+  position: absolute;
+  top: rem-calc(16);
+  right: rem-calc(16);
+}
+
+.hotspot__close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: rem-calc(32);
+  height: rem-calc(32);
+  border-radius: 100%;
+
+  &--blue {
+    color: rgb($beige-3);
+    background: rgb($blue);
+  }
+
+  &--white {
+    background: rgb($beige-3);
+    color: rgb($blue);
+  }
 }

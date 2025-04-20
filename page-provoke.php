@@ -7,7 +7,7 @@
  * @package quesos-del-vecchio
  */
 
-get_header();
+get_header("dark");
 ?>
 
     <main id="primary" class="relative block grow">
