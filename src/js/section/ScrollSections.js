@@ -62,7 +62,7 @@ class ScrollSections {
     window.$APP.gsap.to(this.title, {
       ease: 'none',
       opacity: 0.3,
-      scale: 1.8,
+      scale: 1.5,
       scrollTrigger: {
         trigger: this.titleContainer,
         start: `top top`,

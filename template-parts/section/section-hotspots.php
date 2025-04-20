@@ -11,7 +11,7 @@ $hotspots = get_sub_field('hotspots');
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-hotspots.css" rel="stylesheet" type="text/css" media="all">
 
-<section class="hotspots" data-section="Hotspots">
+<section class="hotspots overflow-hidden lg:overflow-visible" data-section="Hotspots">
     <div class="relative">
         <div>
             <figure class="hidden w-full lg:block">

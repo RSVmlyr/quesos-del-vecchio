@@ -19,8 +19,8 @@
         </div>
 
         <div class="h-screen absolute top-0 inset-x-0 w-full scroll-sections__content">
-            <div class="container absolute bottom-20 inset-x-0 flex justify-center items-end gap-12">
-                <div class="relative scroll-sections__content-images basis-1/2">
+            <div class="container absolute bottom-20 inset-x-0 flex flex-col justify-end lg:flex-row lg:justify-center lg:items-end lg:gap-12 scroll-sections__content-container">
+                <div class="relative scroll-sections__content-images lg:basis-1/2">
                     <?php 
                         $counter = 1;
                         foreach ($sections as $section) : 
@@ -34,7 +34,7 @@
                     ?>
                 </div>
 
-                <div class="relative basis-1/2 scroll-sections__content-texts">
+                <div class="relative lg:basis-1/2 scroll-sections__content-texts">
                     <?php 
                         $counter = 1;
                         foreach ($sections as $section) : 
@@ -44,9 +44,9 @@
                     ?>
                         <div class="absolute bottom-0 left-0 max-w-[37.5rem] scroll-sections__content-text">
                             <!-- Section number -->
-                            <div class="text-[4rem] font-gazpacho text-light-blue font-medium tracking-tight leading-none"><?php echo $section_number; ?></div>
+                            <div class="text-5xl font-gazpacho text-light-blue font-medium tracking-tight leading-none lg:text-[4rem]"><?php echo $section_number; ?></div>
                             
-                            <p class="font-gazpacho text-5xl font-medium tracking-tight leading-tight text-blue">
+                            <p class="font-gazpacho text-2xl font-medium tracking-tight leading-tight text-blue lg:text-5xl">
                                 <?php echo $description; ?>
                             </p>
                         </div>
