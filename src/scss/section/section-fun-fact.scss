@@ -8,12 +8,21 @@
   &::after {
     content: '';
     position: absolute;
-    top: rem-calc(35);
-    right: rem-calc(35);
-    width: rem-calc(32);
-    height: rem-calc(32);
+    top: rem-calc(16);
+    right: rem-calc(16);
+    width: rem-calc(24);
+    height: rem-calc(24);
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 100%;
+  }
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    &::after {
+      top: rem-calc(35);
+      right: rem-calc(35);
+      width: rem-calc(32);
+      height: rem-calc(32);
+    }
   }
 }
 
@@ -37,5 +46,13 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+}
+
+.fun-fact__fact .animate-text__line {
+  line-height: 1.4;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    line-height: 1.2;
   }
 }
