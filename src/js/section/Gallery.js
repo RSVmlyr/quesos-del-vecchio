@@ -20,7 +20,7 @@ class Gallery {
       modules: [window.$APP.Swiper.FreeMode, window.$APP.Swiper.Autoplay],
       slidesPerView: 'auto',
       loop: true,
-      speed: 5000,
+      speed: 20000,
       freeMode: true,
       autoplay: {
         delay: 0.5,
