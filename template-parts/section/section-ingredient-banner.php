@@ -28,16 +28,17 @@ $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-co
     <div class="container <?php echo $container_class; ?>">
     <!-- lg:min-h-72 -->
         <a
+            data-animation-fade-in
             href="<?php echo get_permalink( $product->ID ); ?>"
             class="relative z-0 bg-orange ingredient-banner__bg grid px-4 overflow-hidden lg:px-8 lg:overflow-visible <?php echo $banner_class; ?>"
             style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/banner-wave.svg); background-color: <?php echo $background_color; ?>"
         >
             <div class="self-center order-1 text-center pt-9 mb-3 lg:text-left lg:mb-0 lg:pr-8 <?php echo $height_class; ?>">
-                <p class="font-medium tracking-tight text-blue mb-1 <?php echo $eyebrow_class; ?>">
+                <p class="font-medium tracking-tight text-blue mb-1 <?php echo $eyebrow_class; ?>" data-animation-fade-in>
                     <?php echo $eyebrow; ?>
                 </p>
             
-                <h2 class="text-[2.5rem] tracking-tight text-blue leading-tight font-medium <?php echo $title_class; ?>">
+                <h2 class="text-[2.5rem] tracking-tight text-blue leading-tight font-medium <?php echo $title_class; ?>" data-animation-split-text>
                     <?php echo $product->post_title; ?>
                 </h2>
             </div>
@@ -53,7 +54,7 @@ $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-co
             </div>
         
             <div class="self-center order-2 flex justify-center lg:order-3">
-                <span class="inline-block bg-white py-5 px-8 text-blue text-center rounded-[100%] font-semibold tracking-tight mx-auto lg:mr-0 <?php echo $button_class; ?> ingredient-banner__button">
+                <span data-animation-scale class="inline-block bg-white py-5 px-8 text-blue text-center rounded-[100%] font-semibold tracking-tight mx-auto lg:mr-0 <?php echo $button_class; ?> ingredient-banner__button">
                     <?php echo $button_text; ?>
                 </span>
             </div>

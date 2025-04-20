@@ -12,13 +12,13 @@ $text = get_sub_field('text');
 >
     <div class="container grid gap-12 lg:grid-cols-[auto_1fr] lg:gap-[5.5rem]"> 
         <div>
-            <figure class="max-w-20 lg:max-w-[8.75rem]">
+            <figure class="max-w-20 lg:max-w-[8.75rem]" data-animation-scale>
                 <img src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>">
             </figure>
         </div>
 
         <div class="lg:pt-28">
-            <p class="text-blue tracking-tight font-medium mb-2 lg:text-lg lg:font-semibold lg:mb-6">
+            <p class="text-blue tracking-tight font-medium mb-2 lg:text-lg lg:font-semibold lg:mb-6" data-animation-fade-in>
                 <?php echo $eyebrow; ?>
             </p>
 

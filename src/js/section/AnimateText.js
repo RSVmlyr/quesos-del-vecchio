@@ -9,7 +9,7 @@ class AnimateText {
 
     this.text = this.container.querySelector(CLASSNAMES.TEXT);
 
-    this.splitText = window.$APP.SplitType(this.text, {
+    this.splitText = window.$APP.SplitType.create(this.text, {
       types: 'lines, words',
       lineClass: 'animate-text__line',
       wordClass: 'animate-text__word',
