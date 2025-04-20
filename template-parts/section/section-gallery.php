@@ -38,14 +38,14 @@ if (!empty($current_slide)) {
 >
     <div class="container">
         <div class="grid gap-4 text-center lg:max-w-[61.25rem] lg:mx-auto">
-            <p class="text-blue tracking-tight font-medium lg:text-lg lg:mb-6"><?php echo $pre_title; ?></p>
-            <h2 class="text-blue tracking-tight font-medium text-[2rem] leading-snug lg:text-5xl">
+            <p class="text-blue tracking-tight font-medium lg:text-lg lg:mb-6" data-animation-fade-in><?php echo $pre_title; ?></p>
+            <h2 class="text-blue tracking-tight font-medium text-[2rem] leading-snug lg:text-5xl" data-animation-split-text>
                 <?php echo $title; ?>
             </h2>
         </div>
     </div>
 
-    <div class="swiper mt-12 lg:mt-20 gallery-swiper">
+    <div class="swiper mt-12 lg:mt-20 gallery-swiper" data-animation-fade-in data-animation-threshold="0">
         <div class="swiper-wrapper gallery-swiper__wrapper">
             <?php foreach ($slides as $slide) : ?>
                 <?php if (count($slide) === 1) : ?>

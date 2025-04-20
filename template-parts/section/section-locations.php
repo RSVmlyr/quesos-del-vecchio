@@ -12,16 +12,16 @@ $locations = get_sub_field('locations');
 >
     <div class="container grid grid-cols-[1fr_auto]"> 
         <div class="lg:max-w-[28rem]">
-            <p class="text-sm text-blue tracking-tight font-medium mb-4 lg:text-lg lg:mb-6">
+            <p class="text-sm text-blue tracking-tight font-medium mb-4 lg:text-lg lg:mb-6" data-animation-fade-in>
                 <?php echo $pre_title; ?>
             </p>
-            <h2 class="text-blue tracking-tight font-medium text-[2rem] leading-snug lg:text-[3.5rem]">
+            <h2 class="text-blue tracking-tight font-medium text-[2rem] leading-snug lg:text-[3.5rem]" data-animation-split-text>
                 <?php echo $title; ?>
             </h2>
         </div>
 
-        <div class="flex gap-2 self-end">
-            <button type="button" class="w-10 h-10 flex items-center justify-center rounded-full lg:w-14 lg:h-14 locations__button locations__button--grid locations__button--active" aria-label="Ver grilla">
+        <div class="flex gap-2 self-end" data-animation-fade-in-stagger>
+            <button data-animation-fade-in-stagger-item type="button" class="w-10 h-10 flex items-center justify-center rounded-full lg:w-14 lg:h-14 locations__button locations__button--grid locations__button--active" aria-label="Ver grilla">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="block lg:w-4 lg:h-4">
                     <path d="M5.85742 2.00024H1.85742V6.00024H5.85742V2.00024Z" stroke="currentColor" stroke-width="0.857143" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M12.1445 2.00024H8.14453V6.00024H12.1445V2.00024Z" stroke="currentColor" stroke-width="0.857143" stroke-linecap="round" stroke-linejoin="round"/>
@@ -30,7 +30,7 @@ $locations = get_sub_field('locations');
                 </svg>
             </button>
 
-            <button type="button" class="w-10 h-10 flex items-center justify-center rounded-full lg:w-14 lg:h-14 locations__button locations__button--map" aria-label="Ver mapa">
+            <button data-animation-fade-in-stagger-item type="button" class="w-10 h-10 flex items-center justify-center rounded-full lg:w-14 lg:h-14 locations__button locations__button--map" aria-label="Ver mapa">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="block lg:w-4 lg:h-4">
                     <path d="M4.7168 3.71509H12.1454" stroke="currentColor" stroke-width="0.857143" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M4.7168 7.14282H12.1454" stroke="currentColor" stroke-width="0.857143" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,7 +45,7 @@ $locations = get_sub_field('locations');
 
     <div class="container pt-8 lg:pt-14">
         <div class="locations__grid locations__grid--active">
-            <div class="grid gap-8 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-8 md:gap-6 md:grid-cols-2 lg:grid-cols-3" data-animation-fade-in-stagger>
                 <?php foreach ($locations as $location) : 
                     setup_postdata($location);
                     $location_image = get_the_post_thumbnail_url($location->ID, 'full');
@@ -53,7 +53,7 @@ $locations = get_sub_field('locations');
                     $schedule = get_field('schedule', $location->ID);
         
                 ?>
-                    <div class="grid gap-6 bg-white rounded-[2rem] p-3 lg:p-4">
+                    <div class="grid gap-6 bg-white rounded-[2rem] p-3 lg:p-4" data-animation-fade-in-stagger-item>
                         <figure class="block aspect-[1.5] rounded-[1.5rem] overflow-hidden md:aspect-[1.8]">
                             <img class="w-full h-full object-cover" src="<?php echo $location_image; ?>" alt="<?php echo $location->post_title; ?>">
                         </figure>
