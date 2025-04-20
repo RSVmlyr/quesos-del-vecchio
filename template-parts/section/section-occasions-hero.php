@@ -43,7 +43,7 @@ $description = $args['description'];
                         <?php foreach ($products as $product) : 
                             $shortname = get_field('shortname', $product->ID);
                         ?>
-                            <li class="occasions-hero__menu-item lg:max-w-fit">
+                            <li class="relative occasions-hero__menu-item lg:max-w-fit">
                                 <a class="text-white font-gazpacho font-medium leading-none flex justify-between items-center tracking-tight lg:max-w-fit" href="<?php the_permalink($product->ID); ?>">
                                     <div data-animation-split-text>
                                         <?php echo $shortname; ?>
@@ -54,16 +54,16 @@ $description = $args['description'];
                                             <path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     </div>
+
+                                    <div 
+                                        class="hidden absolute -top-6 -right-24 tracking-tight bg-orange text-blue rounded-[100%] px-7 py-5 text-base lg:block max-w-fit mx-auto hover:bg-blue hover:text-white transition-colors transition-opacity duration-300 rotate-6 font-medium occasions-hero__menu-item-fake-link"
+                                    >
+                                        Conoce más
+                                    </div>
                                 </a>
                             </li>
                         <?php endforeach; ?>
-                        <li class="hidden max-w-fit absolute top-0 left-0 lg:block occasions-hero__menu-button" data-animation-scale>
-                            <a href="#" class="tracking-tight bg-orange text-blue rounded-[100%] px-7 py-5 block max-w-fit mx-auto hover:bg-blue hover:text-white transition-colors duration-300 rotate-6 font-medium">
-                                Conoce más
-                            </a>
-                        </li>
                     </ul>
-        
         
                     <div class="self-end" data-animation-scale>
                         <a href="#" class="text-white uppercase bg-blue block text-center rounded-full py-[0.875rem] px-3 text-sm flex items-center justify-center gap-2 tracking-tight lg:text-base lg:max-w-fit lg:ml-auto lg:px-7 lg:py-5 lg:gap-3">

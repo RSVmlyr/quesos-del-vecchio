@@ -18,7 +18,6 @@ class OccasionsHero {
     // Animation elements
     this.description = container.querySelector(CLASSNAMES.OCCASION_DESCRIPTION);
     this.menu = container.querySelector(CLASSNAMES.OCCASION_MENU);
-    this.menuButton = container.querySelector(CLASSNAMES.OCCASION_MENU_BUTTON);
 
     // Images
     this.images = container.querySelectorAll(CLASSNAMES.OCCASION_IMAGE);
@@ -74,31 +73,15 @@ class OccasionsHero {
     const isMobile = mediaQueryHook('(max-width: 1024px)');
     const menu = this.container.querySelector(CLASSNAMES.OCCASION_MENU);
     const menuOption = menu.children[activeIndex];
-    const menuOptionLink = menuOption.querySelector('a').href;
-    const menuButtonElement = this.menuButton.querySelector('a');
 
     for (const option of this.menu.children) {
       option.classList.remove('active');
     }
-
-    menuButtonElement.href = menuOptionLink;
     menuOption.classList.add('active');
 
     if (isMobile) {
       return;
     }
-
-    const menuButtonWidth = this.menuButton.offsetWidth;
-    const menuOptionWidth = menuOption.offsetWidth;
-    const menuOptionYPosition = menuOption.offsetTop;
-    const threshold = 20;
-
-    window.$APP.gsap.to(this.menuButton, {
-      y: `${menuOptionYPosition - threshold}px`,
-      x: `${menuOptionWidth - menuButtonWidth / 4}px`,
-      duration: 0.5,
-      ease: 'power3.inout',
-    });
   }
 
   animateDescription(isEnter) {
