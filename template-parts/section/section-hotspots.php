@@ -23,7 +23,7 @@ $hotspots = get_sub_field('hotspots');
             </figure>
         </div>
 
-        <div class="absolute inset-0">
+        <div class="absolute inset-0" data-animation-fade-in-stagger data-animation-threshold="0.5">
             <?php foreach( $hotspots as $hotspot ) : 
                 $type = $hotspot['type'];
                 $label = $hotspot['label'];
@@ -49,24 +49,25 @@ $hotspots = get_sub_field('hotspots');
                     data-coordinate-desktop="<?php echo $coordinate_desktop; ?>"
                     data-coordinate-mobile="<?php echo $coordinate_mobile; ?>"
                 >
-                    <button type="button" class="flex flex-col justify-center items-center gap-8 hotspot__button">
-                        <div class="hotspot__button-icon">
-                            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.5 6.99609H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M7.5 13L7.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
+                    <div data-animation-fade-in-stagger-item>
+                        <button type="button" class="flex flex-col justify-center items-center gap-8 hotspot__button">
+                            <div class="hotspot__button-icon">
+                                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.5 6.99609H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M7.5 13L7.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
 
 
-                        <div class="block bg-white text-blue text-lg tracking-tight font-medium py-3 px-[1.375rem] rounded-full">
-                            <?php echo $label; ?>
-                        </div>
-                    </button>
+                            <div class="block bg-white text-blue text-lg tracking-tight font-medium py-3 px-[1.375rem] rounded-full">
+                                <?php echo $label; ?>
+                            </div>
+                        </button>
 
                         <?php if ( $type === 'block' ) : 
-                           $hotspot_image = $hotspot["block"]['image'];
-                           $hotspot_title = $hotspot["block"]['title'];
-                           $hotspot_description = $hotspot["block"]['description'];
+                            $hotspot_image = $hotspot["block"]['image'];
+                            $hotspot_title = $hotspot["block"]['title'];
+                            $hotspot_description = $hotspot["block"]['description'];
                         ?>
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[25rem] max-w-[25rem] w-full bg-white p-6 gap-6 rounded-[3rem] hotspot__box">
                                 <figure class="block w-full h-[12.5rem] rounded-3xl overflow-hidden">
@@ -100,13 +101,13 @@ $hotspots = get_sub_field('hotspots');
                                         <img class="w-full h-full object-cover" src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>">
                                     </figure>
                                 <?php endif; ?>
-    
+
                                 <div class="text-white grid gap-6 px-2 pb-2">
                                     <div class="grid gap-3">
                                         <p class="text-light-blue tracking-tight font-gazpacho">
                                             <?php echo $preparation_time; ?>
                                         </p>
-    
+
                                         <h2 class="text-[1.5rem] leading-tight font-medium tracking-tight font-figtree">
                                             <?php echo $title; ?>   
                                         </h2>
@@ -126,6 +127,7 @@ $hotspots = get_sub_field('hotspots');
                                 </div>
                             </div>
                         <?php endif; ?>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>

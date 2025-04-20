@@ -129,6 +129,7 @@ class Animation {
       }),
       ...this.fadeInStaggerDOM.map((element) => {
         let items = element.querySelectorAll('[data-animation-fade-in-stagger-item]');
+        const threshold = element.dataset.animationThreshold || 0;
 
         if (items.length === 0) {
           items = element.children;
@@ -136,7 +137,7 @@ class Animation {
 
         setScrollObserver(element, this.fadeInStaggerAnimationObserver.bind(this, element, items), {
           rootMargin: '0px',
-          threshold: 0,
+          threshold: Number(threshold),
         });
       }),
     ]);

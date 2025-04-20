@@ -46,7 +46,7 @@
                             <!-- Section number -->
                             <div class="text-5xl font-gazpacho text-light-blue font-medium tracking-tight leading-none lg:text-[4rem]"><?php echo $section_number; ?></div>
                             
-                            <p class="font-gazpacho text-2xl font-medium tracking-tight leading-tight text-blue lg:text-5xl">
+                            <p class="font-gazpacho text-2xl font-medium tracking-tight leading-tight text-blue mt-5 lg:text-5xl">
                                 <?php echo $description; ?>
                             </p>
                         </div>
