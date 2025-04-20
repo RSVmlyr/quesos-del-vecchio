@@ -23,7 +23,7 @@ $hotspots = get_sub_field('hotspots');
             </figure>
         </div>
 
-        <div class="absolute inset-0" data-animation-fade-in-stagger data-animation-threshold="0.5">
+        <div class="absolute inset-0" data-animation-fade-in-stagger data-animation-threshold="0.35">
             <?php foreach( $hotspots as $hotspot ) : 
                 $type = $hotspot['type'];
                 $label = $hotspot['label'];

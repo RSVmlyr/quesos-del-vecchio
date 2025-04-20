@@ -108,9 +108,10 @@ class Animation {
 
     await Promise.all([
       ...this.textSplitDOM.map((element) => {
+        const threshold = element.dataset.animationThreshold || 0.5;
         setScrollObserver(element, this.splitTextAnimationObserver.bind(this, element), {
           rootMargin: '0px',
-          threshold: 0.5,
+          threshold: Number(threshold),
         });
       }),
       ...this.scaleDOM.map((element) => {
