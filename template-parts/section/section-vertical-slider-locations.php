@@ -13,18 +13,18 @@ $slider_items = get_sub_field('slides');
     >
 
         <div class="mb-16 grid gap-4 lg:flex-1 lg:mt-0 lg:grow">
-            <div class="container no-container--lg">
+            <div class="relative container no-container--lg vertical-slider-locations__titles-container">
                 <?php foreach ($slider_items as $item) :
                     $eyebrow = $item['eyebrow'];
                     $title = $item['title'];
                     $description = $item['description'];
                 ?>
-                    <div class="vertical-slider-locations__slide-content">
+                    <div class="absolute top-0 inset-x-0 vertical-slider-locations__slide-content">
                         <p class="text-sm font-semibold tracking-tight text-center text-blue mb-3 lg:text-left vertical-slider-locations__eyebrow">
                             <?php echo $eyebrow; ?>
                         </p>
 
-                        <h2 class="text-center text-[2rem] tracking-tight font-medium text-blue leading-snug self-start max-w-[46.5rem] mx-auto lg:text-left lg:text-[3.5rem] lg:leading-tight lg:ml-0 lg:max-w-[31.25rem]">
+                        <h2 class="text-center text-[2rem] tracking-tight font-medium text-blue leading-snug self-start max-w-[46.5rem] mx-auto lg:text-left lg:text-[3.5rem] lg:leading-tight lg:ml-0 lg:max-w-[31.25rem] vertical-slider-locations__slide-title">
                             <?php echo $title; ?>
                         </h2>
 

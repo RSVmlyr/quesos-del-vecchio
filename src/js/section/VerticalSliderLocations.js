@@ -5,6 +5,11 @@ const CLASSNAMES = {
   SLIDER_TRIGGER: '.vertical-slider-locations__trigger',
   BLOB: '.vertical-slider-locations__blob',
   SLIDE_CONTENT: '.vertical-slider-locations__slide-content',
+  TITLES_CONTAINER: '.vertical-slider-locations__titles-container',
+
+  SLIDE_TITLE: '.vertical-slider-locations__slide-title',
+  SLIDE_DESCRIPTION: '.vertical-slider-locations__slide-description',
+  SLIDE_EYEBROW: '.vertical-slider-locations__eyebrow',
 };
 
 class VerticalSliderLocations {
@@ -13,13 +18,56 @@ class VerticalSliderLocations {
     this.container = container;
     this.isMobile = mediaQueryHook('(max-width: 1024px)');
     this.swiper = null;
+    this.animations = this.app.animations;
+    this.currentIndex = 0;
 
     // Slider container
     this.sliderContainer = container.querySelector(CLASSNAMES.SLIDER_CONTAINER);
     this.sliderContents = container.querySelectorAll(CLASSNAMES.SLIDE_CONTENT);
+    this.sliderTitlesContainer = container.querySelector(CLASSNAMES.TITLES_CONTAINER);
+
+    for (const content of this.sliderContents) {
+      const title = content.querySelector(CLASSNAMES.SLIDE_TITLE);
+      const description = content.querySelector(CLASSNAMES.SLIDE_DESCRIPTION);
+      const eyebrow = content.querySelector(CLASSNAMES.SLIDE_EYEBROW);
+
+      this.animations.splitTextAnimation.set(title);
+      this.animations.fadeInAnimation.set(description);
+      this.animations.fadeInAnimation.set(eyebrow);
+
+      if (content === this.sliderContents[0]) {
+        this.setTitlesContainerHeight(content.offsetHeight);
+      }
+    }
 
     // Listen for appLoaded event
     window.addEventListener('appLoaded', this.initSwiper.bind(this));
+
+    // Add resize handler
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  handleResize() {
+    const newIsMobile = mediaQueryHook('(max-width: 1024px)');
+
+    // Only reinitialize if the mobile state has changed
+    if (newIsMobile !== this.isMobile) {
+      this.isMobile = newIsMobile;
+
+      // Store current slide index
+      if (this.swiper) {
+        this.currentIndex = this.swiper.activeIndex;
+      }
+
+      // Destroy existing swiper
+      if (this.swiper) {
+        this.swiper.destroy(true, true);
+        this.swiper = null;
+      }
+
+      // Reinitialize swiper
+      this.initSwiper();
+    }
   }
 
   initSwiper() {
@@ -30,6 +78,7 @@ class VerticalSliderLocations {
       allowTouchMove: false,
       on: {
         slideChange: (swiper) => {
+          this.setTitlesContainerHeight(this.sliderContents[swiper.activeIndex].offsetHeight);
           this.animationEnter(swiper.activeIndex);
         },
         slideChangeTransitionStart: (swiper) => {
@@ -42,8 +91,23 @@ class VerticalSliderLocations {
       },
     });
 
-    this.animationEnter(0);
+    this.initObserver(this.swiper.activeIndex);
     this.setupTriggers();
+  }
+
+  initObserver(activeSlideIndex) {
+    const start = this.isMobile ? 'bottom bottom' : 'center bottom';
+
+    window.$APP.gsap.timeline({
+      scrollTrigger: {
+        trigger: this.sliderContainer,
+        start,
+        onEnter: () => {
+          this.animationEnter(activeSlideIndex);
+        },
+        onLeaveBack: (self) => self.disable(),
+      },
+    });
   }
 
   setupTriggers() {
@@ -73,19 +137,22 @@ class VerticalSliderLocations {
     const activeSlideBlob = activeSlide.querySelector(CLASSNAMES.BLOB);
     const activeSlideContent = this.sliderContents[activeSlideIndex];
 
+    const activeSlideTitle = activeSlideContent.querySelector(CLASSNAMES.SLIDE_TITLE);
+    const activeSlideDescription = activeSlideContent.querySelector(CLASSNAMES.SLIDE_DESCRIPTION);
+    const activeSlideEyebrow = activeSlideContent.querySelector(CLASSNAMES.SLIDE_EYEBROW);
+
     activeSlideContent.classList.add('active');
 
     window.$APP.gsap.to(activeSlideBlob, {
       scale: 1,
+      opacity: 1,
       duration: 0.7,
       ease: 'power2.out',
     });
 
-    window.$APP.gsap.to(activeSlideContent, {
-      opacity: 1,
-      duration: 0.5,
-      ease: 'linear',
-    });
+    this.animations.splitTextAnimation.run(activeSlideTitle);
+    this.animations.fadeInAnimation.run(activeSlideDescription);
+    this.animations.fadeInAnimation.run(activeSlideEyebrow);
   }
 
   animationExit(previousSlideIndex) {
@@ -95,19 +162,26 @@ class VerticalSliderLocations {
     const previousSlideBlob = previousSlide.querySelector(CLASSNAMES.BLOB);
     const previousSlideContent = this.sliderContents[previousSlideIndex];
 
+    const previousSlideTitle = previousSlideContent.querySelector(CLASSNAMES.SLIDE_TITLE);
+    const previousSlideDescription = previousSlideContent.querySelector(CLASSNAMES.SLIDE_DESCRIPTION);
+    const previousSlideEyebrow = previousSlideContent.querySelector(CLASSNAMES.SLIDE_EYEBROW);
+
     previousSlideContent.classList.remove('active');
 
     window.$APP.gsap.to(previousSlideBlob, {
       scale: 0.3,
       duration: 0.7,
+      opacity: 0,
       ease: 'power2.out',
     });
 
-    window.$APP.gsap.to(previousSlideContent, {
-      opacity: 0,
-      duration: 0.5,
-      ease: 'linear',
-    });
+    this.animations.splitTextAnimation.reset(previousSlideTitle);
+    this.animations.fadeInAnimation.reset(previousSlideDescription);
+    this.animations.fadeInAnimation.reset(previousSlideEyebrow);
+  }
+
+  setTitlesContainerHeight(height) {
+    this.sliderTitlesContainer.style.height = `${height}px`;
   }
 }
 
