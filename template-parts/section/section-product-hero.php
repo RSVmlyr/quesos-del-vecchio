@@ -34,15 +34,15 @@ $nutritional_table = $nutritional_info["nutritional_table"];
 > 
     <div class="container grid h-full gap-x-9 grid-rows-[auto,1fr,auto] lg:grid-cols-[40%,1fr] lg:grid-rows-1">
         <div class="self-center text-center lg:text-left lg:col-span-1">
-            <p class="text-light-blue uppercase font-semibold text-base tracking-tight lg:text-lg product-hero__eyebrow">
+            <p data-animation-fade-in class="text-light-blue uppercase font-semibold text-base tracking-tight lg:text-lg product-hero__eyebrow">
                 <?php echo $occasion_title; ?>
             </p>
     
-            <h1 class="text-5xl tracking-tight text-blue font-medium leading-none mt-[1.125rem] lg:text-[7.5rem]">
+            <h1 data-animation-split-text class="text-5xl tracking-tight text-blue font-medium leading-none mt-[1.125rem] lg:text-[7.5rem]">
                 <?php echo $product_title; ?>
             </h1>
 
-            <p class="hidden mt-12 text-[2rem] leading-tight tracking-tight text-blue lg:block">
+            <p data-animation-fade-in class="hidden mt-12 text-[2rem] leading-tight tracking-tight text-blue lg:block">
                 <?php echo $product_description; ?>
             </p>
         </div>
@@ -50,6 +50,7 @@ $nutritional_table = $nutritional_info["nutritional_table"];
         <div class="relative flex items-center max-w-96 mx-auto lg:max-w-none lg:w-full lg:col-span-1 lg:justify-end">
             <?php if ($product_thumbnail): ?>
                 <figure 
+                    data-animation-scale
                     class="product-hero__blob"
                     style="--mask-url: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-3-reflection-y.svg);"
                 >
@@ -57,13 +58,13 @@ $nutritional_table = $nutritional_info["nutritional_table"];
                 </figure>
             <?php endif; ?>
         
-            <figure class="relative z-10 self-end max-w-[37rem]">
+            <figure data-animation-scale class="relative z-10 self-end max-w-[37rem]">
                 <img class="block" src="<?php echo $product_image["url"]; ?>" alt="<?php echo $product_image["alt"]; ?>">
             </figure>
         </div>
     
-        <div class="relative grid gap-2 items-center z-10 lg:grid-cols-3 lg:col-span-2">
-            <div>
+        <div data-animation-fade-in-stagger class="relative grid gap-2 items-center z-10 lg:grid-cols-3 lg:col-span-2">
+            <div data-animation-fade-in-stagger-item>
                 <button type="button" class="bg-beige-2 text-sm rounded-[12.5rem] text-blue py-[0.875rem] px-[3.25rem] tracking-tight font-semibold text-center w-full lg:max-w-fit lg:text-base lg:py-6 product-hero__nutritional-button">
                     VER TABLA NUTRICONAL
                 </button>
@@ -142,7 +143,7 @@ $nutritional_table = $nutritional_info["nutritional_table"];
                 </div>
             </div>
 
-            <div class="hidden justify-self-center lg:block">
+            <div data-animation-fade-in-stagger-item class="hidden justify-self-center lg:block">
                 <button 
                     type="button" 
                     class="max-w-fit text-sm tracking-tighter text-blue font-medium gap-2 items-center lg:flex product-hero__next-button"
@@ -156,7 +157,7 @@ $nutritional_table = $nutritional_info["nutritional_table"];
                 </button>
             </div>
         
-            <div class="lg:justify-self-end">
+            <div data-animation-fade-in-stagger-item class="lg:justify-self-end">
                 <a class="flex justify-center items-center gap-3 bg-orange rounded-[12.5rem] text-blue text-sm py-[0.875rem] px-[3.25rem] tracking-tight font-semibold text-center w-full lg:max-w-fit lg:text-base lg:py-6" href="<?php echo $delivery_link; ?>" target="_blank">
                     COMPRA EN 
                     <svg width="47" height="20" viewBox="0 0 47 20" fill="none" xmlns="http://www.w3.org/2000/svg">
