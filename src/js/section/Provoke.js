@@ -4,6 +4,7 @@ import IsotopeMasonryHorizontal from 'isotope-masonry-horizontal';
 const CLASSNAMES = {
   WRAPPER: '.provoke__wrapper',
   SECTION: '.provoke__section',
+  BUTTON: '.provoke__filter-button',
 };
 
 class Provoke {
@@ -13,9 +14,37 @@ class Provoke {
 
     this.wrapper = this.container.querySelector(CLASSNAMES.WRAPPER);
     this.sections = this.wrapper.querySelectorAll(CLASSNAMES.SECTION);
-    this.gap = 28; // This should match the gap-28 class value
+    this.buttons = this.container.querySelectorAll(CLASSNAMES.BUTTON);
+
+    this.gap = 48; // This should match the gap-28 class value
     this.iso = null; // Store isotope instance
+    this.scrollTrigger = null;
     this.init();
+  }
+
+  initScrollTrigger() {
+    const wrapperWidth = this.container.querySelector(CLASSNAMES.WRAPPER).scrollWidth - document.documentElement.clientWidth + 'px';
+
+    this.scrollTrigger = window.$APP.gsap.to(this.wrapper, {
+      x: () => `-${wrapperWidth}`,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: this.container,
+        start: 'top top',
+        end: () => '+=' + wrapperWidth,
+        scrub: true,
+        pin: true,
+        pinSpacing: true,
+        onRefresh: (self) => {
+          // Force a recalculation of positions
+          self.refresh();
+          // Force isotope layout refresh too
+          // if (this.iso) {
+          //   this.iso.layout();
+          // }
+        },
+      },
+    });
   }
 
   init() {
@@ -29,32 +58,21 @@ class Provoke {
       },
     });
 
-    // Make sure to use arrow function to keep "this" context
-    this.iso.on('layoutComplete', (items) => {
-      this.setPositionClasses(items);
+    this.buttons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        this.filterSections(e.target.dataset.filter);
+      });
     });
 
-    // Set the wrapper width based on actual section widths
-    // this.wrapper.style.width = `${this.calculateTotalWidth()}px`;
-    window.$APP.gsap.to(this.wrapper, {
-      x: () => -(this.wrapper.scrollWidth - document.documentElement.clientWidth) + 'px',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: this.container,
-        start: 'top top',
-        end: () => '+=' + (this.wrapper.scrollWidth - document.documentElement.clientWidth),
-        scrub: true,
-        pin: true,
-        pinSpacing: true,
-        onRefresh: (self) => {
-          // Force a recalculation of positions
-          self.refresh();
-          // Force isotope layout refresh too
-          if (this.iso) {
-            this.iso.layout();
-          }
-        },
-      },
+    this.initScrollTrigger();
+
+    this.setPositionClasses(this.iso.filteredItems);
+
+    this.iso.on('arrangeComplete', (items) => {
+      this.scrollTrigger.scrollTrigger.kill();
+      this.initScrollTrigger();
     });
   }
 
@@ -79,15 +97,27 @@ class Provoke {
     });
   }
 
-  calculateTotalWidth() {
-    let totalWidth = 0;
-    this.sections.forEach((section) => {
-      const sectionWidth = section.offsetWidth;
-      totalWidth += sectionWidth + this.gap;
+  filterSections(filter) {
+    let filterBy = '';
+
+    switch (filter) {
+      case 'recetas':
+        filterBy = '.provoke__section--recipe, .provoke__section--placeholder';
+        break;
+      case 'blogs':
+        filterBy = '.provoke__section--article, .provoke__section--placeholder';
+        break;
+      case 'productos':
+        filterBy = '.provoke__section--product, .provoke__section--placeholder';
+        break;
+      case 'media':
+        filterBy = '.provoke__section--video, .provoke__section--social-media, .provoke__section--placeholder';
+        break;
+    }
+
+    this.iso.arrange({
+      filter: filterBy,
     });
-    // Subtract the last gap since it's not needed after the last section
-    totalWidth -= this.gap;
-    return totalWidth;
   }
 }
 

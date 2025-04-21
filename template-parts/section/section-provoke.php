@@ -10,6 +10,9 @@ shuffle($sections); // Randomize the order of sections
     data-section="Provoke"
 >
     <div class="h-full provoke__wrapper"> 
+
+        <div class="provoke__section provoke__section--placeholder"></div>
+
         <?php foreach ($sections as $section) : 
             $type = $section["type"];
         ?>
@@ -21,7 +24,11 @@ shuffle($sections); // Randomize the order of sections
                     $link = $social_media["link"];
                 ?>
                     <div class="provoke__section provoke__section--social-media">
-                        <div class="w-full aspect-square overflow-hidden rounded-[3rem] provoke__item-social-media">
+                        <div 
+                            class="w-full aspect-square overflow-hidden rounded-[3rem] provoke__item-social-media" 
+                            data-animation-scale
+                            data-animation-threshold="0"
+                        >
                             <a class="relative block w-full h-full" href="<?php echo $link["url"]; ?>" target="<?php echo $link["target"]; ?>">
                                 <figure class="absolute inset-0">
                                     <img class="w-full h-full object-cover" src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>">
@@ -71,12 +78,18 @@ shuffle($sections); // Randomize the order of sections
                 ?>
                     <div class="provoke__section provoke__section--product">
                         <div class="aspect-square provoke__item-product">
-                            <h2 class="text-[2.5rem] tracking-tight font-medium leading-none text-blue text-center mb-4 lg:text-5xl lg:mb-6">
+                            <h2 
+                                data-animation-split-text 
+                                data-animation-threshold="0"
+                                class="text-[2.5rem] tracking-tight font-medium leading-none text-blue text-center mb-4 lg:text-5xl lg:mb-6"
+                            >
                                 <?php echo $title; ?>
                             </h2>
 
                             <a 
-                                href="<?php the_permalink( $product_selected->ID ); ?>" class="relative flex items-center justify-center aspect-[1.2]"
+                                data-animation-scale
+                                data-animation-threshold="0"
+                                href="<?php the_permalink( $product_selected->ID ); ?>" class="relative flex items-center justify-center aspect-[1.3]"
                             >
                                 <figure 
                                     class="absolute inset-0 provoke__item-product-image"
@@ -99,17 +112,27 @@ shuffle($sections); // Randomize the order of sections
                     $title = $article_selected->post_title;
                 ?>
                     <div class="provoke__section provoke__section--article">
-                        <div class="provoke__item-article">
+                        <div 
+                            class="provoke__item-article" 
+                        >
                             <a 
                                 href="<?php the_permalink( $article_selected->ID ); ?>" 
                                 class="grid bg-beige-2 bg-cover bg-center py-8 px-7 text-center overflow-hidden rounded-[3rem] gap-7 lg:py-11 lg:px-14"
                                 style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/banner-article.svg);"
                             >
-                                <h2 class="text-2xl tracking-tight font-medium leading-snug text-blue lg:text-[2rem] lg:leading-tight">
+                                <h2 
+                                    data-animation-split-text
+                                    data-animation-threshold="0"
+                                    class="text-2xl tracking-tight font-medium leading-snug text-blue lg:text-[2rem] lg:leading-tight"
+                                >
                                     <?php echo $title; ?>
                                 </h2>
 
-                                <div class="text-lg tracking-tight font-medium text-blue flex items-center justify-center gap-3 rounded-full border border-blue py-3 pl-6 pr-4 max-w-fit mx-auto">
+                                <div 
+                                    data-animation-scale
+                                    data-animation-threshold="0"
+                                    class="text-lg tracking-tight font-medium text-blue flex items-center justify-center gap-3 rounded-full border border-blue py-3 pl-6 pr-4 max-w-fit mx-auto"
+                                >
                                     LEER ARTÍCULO
 
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
@@ -135,11 +158,11 @@ shuffle($sections); // Randomize the order of sections
                         <div class="provoke__item-recipe">
                                 <a href="<?php the_permalink( $recipe_selected->ID ); ?>" class="grid gap-4 bg-beige-2 p-6 rounded-3xl overflow-hidden lg:gap-7 lg:p-8">
                                     <div class="grid gap-4">
-                                        <p class="text-blue tracking-tight font-medium">
+                                        <p class="text-blue tracking-tight font-medium" data-animation-fade-in data-animation-threshold="0">
                                             RECETA
                                         </p>
         
-                                        <h2 class="text-blue text-[2rem] tracking-tight font-medium leading-snug max-w-96">
+                                        <h2 class="text-blue text-[2rem] tracking-tight font-medium leading-snug max-w-96" data-animation-split-text data-animation-threshold="0">
                                             <?php echo $title; ?>
                                         </h2>
                                     </div>
@@ -149,7 +172,7 @@ shuffle($sections); // Randomize the order of sections
                                             $thumbnail_id = get_post_thumbnail_id( $recipe_selected->ID );
                                             $thumbnail_url = wp_get_attachment_image_src( $thumbnail_id, 'medium_large' )[0];
                                         ?>
-                                        <div class="relative">
+                                        <div class="relative" data-animation-fade-in data-animation-threshold="0">
                                             <figure class="rounded-3xl overflow-hidden aspect-[1.48]">
                                                 <img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $title; ?>" class="w-full h-full object-cover">
                                             </figure>
@@ -177,7 +200,7 @@ shuffle($sections); // Randomize the order of sections
                     
                 ?>
                     <div class="provoke__section provoke__section--video">
-                        <div class="provoke__item-video">
+                        <div class="provoke__item-video" data-animation-scale data-animation-threshold="0">
                             <video autoplay muted loop class="pointer-events-none">
                                 <source src="<?php echo $video_selected["url"]; ?>" />
                             </video>
@@ -190,11 +213,31 @@ shuffle($sections); // Randomize the order of sections
                     $image_selected = $image["image_selected"];
                 ?>
                     <div class="provoke__section provoke__section--image">
-                        <div class="provoke__item-image">
+                        <div class="provoke__item-image" data-animation-scale data-animation-threshold="0">
                             <img src="<?php echo $image_selected["sizes"]["medium_large"]; ?>" alt="<?php echo $image_selected["alt"]; ?>">
                         </div>
                     </div>
                 <?php endif; ?>
         <?php endforeach; ?>
+    </div>
+
+    <div 
+        class="fixed flex gap-5 justify-between items-center bottom-6 left-0 right-0 bg-white text-blue z-10 max-w-[22.37rem] mx-auto w-full py-4 px-6 rounded-[3rem] provoke__filter lg:max-w-[29rem] lg:px-10"
+    >
+        <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="recetas"> 
+            Recetas
+        </button>
+
+        <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="blogs"> 
+            Blogs
+        </button>
+
+        <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="productos"> 
+            Productos
+        </button>
+
+        <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="media"> 
+           Media
+        </button>
     </div>
 </section>
