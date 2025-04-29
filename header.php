@@ -48,10 +48,10 @@ $google_maps_id_map = $google_maps['map_id'];
 <body <?php body_class("relative bg-custom-grey text-custom-black_light font-figtree font-normal antialiased disabled app-loading"); ?>>
 <?php wp_body_open(); ?>
 <?php include_once('template-parts/loader.php'); ?>
-<div id="page" class="h-full min-h-screen flex flex-col">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sibs-co' ); ?></a>
+<div id="page" class="flex flex-col">
+	<a class="skip-link screen-reader-text" href="#primary">Saltar al contenido</a>
 
-	<header id="main-header" class="fixed top-0 inset-x-0 z-50 header">
+	<header id="main-header" class="fixed top-0 inset-x-0 z-50 header header--light">
 		<div class="container">
 			<div class="py-4 flex justify-between items-center lg:py-12 lg:pb-0 header_container">
 				<div class="">
@@ -62,6 +62,10 @@ $google_maps_id_map = $google_maps['map_id'];
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="block max-w-44 lg:max-w-48 header_logo-dark" aria-label="Ir al inicio">
 						<img src="<?php echo $main_logo_dark['url']; ?>" class="" alt="<?php bloginfo( 'name' ); ?>" width="192" height="56" />
 					</a>
+
+					<div class="hidden text-beige-3 text-[2rem] tracking-tight font-medium leading-none header_menu_label">
+						Menú
+					</div>
 				</div>
 	
 				<div class="overflow-hidden rounded-[12.5rem] lg:flex lg:items-center lg:relative">
@@ -96,7 +100,10 @@ $google_maps_id_map = $google_maps['map_id'];
 		</div>
 	</header><!-- #masthead -->
 
-	<div class="fixed inset-0 bg-blue z-40 pt-24 text-beige-3 pb-8 overflow-scroll header_navigation_mobile lg:hidden">
+	<div 
+		class="fixed inset-0 bg-blue z-40 pt-24 text-beige-3 pb-8 overflow-scroll header_navigation_mobile lg:hidden"
+		style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/menu_circle.svg);"
+	>
 		<div class="container flex flex-col">
 			<nav class="grow flex justify-center items-center">
 				<?php
@@ -141,7 +148,7 @@ $google_maps_id_map = $google_maps['map_id'];
 					</div>
 				<?php endif; ?>
 	
-				<div class="pt-6 border-t border-beige-3/[.1] border-solid text-xs text-center grid gap-4 uppercase">
+				<div class="pt-6 border-t border-beige-3/[.1] border-solid text-xs text-center grid gap-4 uppercase header_footer">
 					<?php if ( ! empty( $copyright ) ): ?>
 						<div class="rich-text">
 							<?php echo $copyright; ?>

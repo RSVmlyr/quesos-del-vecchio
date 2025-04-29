@@ -9,7 +9,7 @@ $slider_items = get_sub_field('slide');
     data-section="ContentSlider"
     class="custom-template-<?php echo get_row_layout(); ?> relative bg-beige-3 py-12 lg:h-screen lg:min-h-[56rem] lg:flex lg:items-center"
 >
-    <div class="swiper w-full lg:mx-auto content-slider__swiper">
+    <div class="swiper w-full lg:mx-auto lg:max-w-[35rem] content-slider__swiper">
         <div class="swiper-wrapper">
             <?php foreach ($slider_items as $item): 
                 $pre_title = $item['pre_title'];

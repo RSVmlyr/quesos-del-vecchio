@@ -24,7 +24,7 @@ $text_bottom = $args['text_bottom'];
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-homepage-hero.css" rel="stylesheet" type="text/css" media="all">
 
-<section class="relative w-screen h-screen" data-section="HomepageHero">
+<section class="relative w-screen h-svh min-h-svh" data-section="HomepageHero">
     <button type="button" class="homepage-hero__background" data-custom-cursor-area data-custom-cursor-label="Explorar">
         <div class="absolute -translate-x-1/2 -translate-y-1/2 z-10 top-1/2 left-1/2 w-full max-w-[46rem]">
             <h2 

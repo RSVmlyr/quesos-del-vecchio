@@ -88,12 +88,12 @@ $description = $args['description'];
         <?php foreach ($products as $product) : 
             $images = get_field('desktop_image', $product->ID);
         ?>
-            <div class="block pointer-events-none occasions-hero__trigger h-[50vh]" data-index="<?php echo $index; ?>">
+            <div class="block pointer-events-none occasions-hero__trigger occasions-hero__trigger-block" data-index="<?php echo $index; ?>">
             </div>
             <?php $index++; ?>
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <div class="block pointer-events-none h-[50vh]">
+    <div class="block pointer-events-none occasions-hero__trigger-block">
     </div>
 </section>

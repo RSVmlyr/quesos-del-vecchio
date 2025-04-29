@@ -35,6 +35,12 @@ class Header {
 
   stickyHandler() {
     const currentScroll = document.scrollingElement ? document.scrollingElement.scrollTop : document.documentElement.scrollTop;
+    const isProvoke = document.body.classList.contains('page-template-page-provoke');
+
+    if (isProvoke) {
+      this.header.classList.add('header--sticky');
+      return;
+    }
 
     if (currentScroll > 0) {
       this.header.classList.add('header--sticky');
@@ -64,6 +70,19 @@ class Header {
   screenNavigationsHandler() {
     const isMediaMatch = mediaQueryHook(this.minScreenSize);
     this.isDesktop = isMediaMatch;
+  }
+
+  setHeaderLight() {
+    this.header.classList.add('header--forced-light');
+  }
+
+  setHeaderDark() {
+    this.header.classList.add('header--forced-dark');
+  }
+
+  resetHeader() {
+    this.header.classList.remove('header--forced-light');
+    this.header.classList.remove('header--forced-dark');
   }
 }
 

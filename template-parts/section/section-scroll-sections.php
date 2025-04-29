@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="h-screen absolute top-0 inset-x-0 w-full scroll-sections__content">
+        <div class="h-svh absolute top-0 inset-x-0 w-full scroll-sections__content">
             <div class="container absolute bottom-20 inset-x-0 flex flex-col justify-end lg:flex-row lg:justify-center lg:items-end lg:gap-12 scroll-sections__content-container">
                 <div class="relative scroll-sections__content-images lg:basis-1/2">
                     <?php 

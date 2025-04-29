@@ -3,6 +3,7 @@ __webpack_public_path__ = window.__webpack_public_path__;
 
 import Swiper from 'swiper';
 import { Navigation, Mousewheel, EffectCoverflow, Pagination, Autoplay, FreeMode } from 'swiper/modules';
+
 import SplitType from 'split-type';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -53,6 +54,7 @@ class App {
     window.$APP.Swiper.Pagination = Pagination;
     window.$APP.Swiper.Autoplay = Autoplay;
     window.$APP.Swiper.FreeMode = FreeMode;
+
     window.$APP.SplitType = SplitType;
 
     // Mandatory instances
@@ -62,7 +64,7 @@ class App {
       sectionsLength: SECTIONS.length,
     });
 
-    new Header(this);
+    this.header = new Header(this);
     new Cursor(this);
     new ShareButton(this);
 

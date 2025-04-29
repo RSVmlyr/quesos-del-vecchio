@@ -70,7 +70,7 @@ $hotspots = get_sub_field('hotspots');
                             $hotspot_description = $hotspot["block"]['description'];
                         ?>
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[25rem] max-w-[25rem] w-full hotspot__box">
-                                <div class="grid bg-white p-6 gap-6 rounded-t-3xl lg:rounded-[3rem]">
+                                <div class="grid bg-white p-4 lg:p-6 gap-6 rounded-t-3xl lg:rounded-[3rem]">
                                     <div class="flex justify-between items-center lg:hidden">
                                         <p class="text-blue tracking-tight uppercase text-lg">
                                             <?php echo $label; ?>
@@ -113,7 +113,7 @@ $hotspots = get_sub_field('hotspots');
                             $link = get_the_permalink($recipe->ID);
                         ?>
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[25rem] max-w-[25rem] w-full hotspot__box">
-                                <div class="grid bg-blue p-6 gap-6 rounded-t-3xl lg:rounded-[3rem]">
+                                <div class="grid bg-blue p-4 lg:p-6 gap-6 rounded-t-3xl lg:rounded-[3rem]">
                                     <div class="flex justify-between items-center lg:hidden">
                                         <p class="text-white tracking-tight uppercase text-lg">
                                             <?php echo $label; ?>

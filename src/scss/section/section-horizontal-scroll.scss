@@ -73,9 +73,13 @@
 }
 
 .horizontal-scroll__main-asset--no-shape {
-  width: rem-calc(900);
+  width: rem-calc(600);
   display: flex;
   align-items: flex-end;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    width: rem-calc(900);
+  }
 }
 
 .horizontal-scroll__asset--no-shape {

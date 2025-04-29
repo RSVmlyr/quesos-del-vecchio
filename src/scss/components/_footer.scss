@@ -4,20 +4,25 @@
 
 .footer__form {
   display: flex;
-  border-radius: 12px;
-  overflow: hidden;
   width: 100%;
 
   input {
     background-color: rgb($beige-3);
     padding: rem-calc(18) rem-calc(24);
     flex-grow: 1;
+    border-radius: 12px 0 0 12px;
+
+    &:focus {
+      outline: 1px solid rgb($blue);
+      outline-offset: -1px;
+    }
   }
 
   button {
     background-color: rgb($blue);
     height: auto;
     padding: 0 rem-calc(18);
+    border-radius: 0 12px 12px 0;
   }
 
   @media only screen and (min-width: theme('screens.md')) {

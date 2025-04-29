@@ -37,7 +37,7 @@ class Provoke {
         pinSpacing: true,
         onRefresh: (self) => {
           // Force a recalculation of positions
-          self.refresh();
+          // self.refresh();
           // Force isotope layout refresh too
           // if (this.iso) {
           //   this.iso.layout();
@@ -118,6 +118,8 @@ class Provoke {
     this.iso.arrange({
       filter: filterBy,
     });
+
+    this.setPositionClasses(this.iso.filteredItems);
   }
 }
 

@@ -1,10 +1,13 @@
 import { addClickEventListener } from '../utils/listeners';
 import { mediaQueryHook } from '../utils/mediaQuery';
+import { setScrollObserver } from '../utils/intersectionObserver';
+
 const CLASSNAMES = {
   SLIDER_CONTAINER: '.instagram-reels__swiper',
   BUTTON_NEXT: '.instagram-reels__button--next',
   BUTTON_PREV: '.instagram-reels__button--prev',
   SLIDER_DESCRIPTION: '.instagram-reels__description',
+  VIDEO: '.instagram-reels__video',
 };
 
 class InstagramReels {
@@ -20,9 +23,16 @@ class InstagramReels {
     this.sliderDescription = container.querySelector(CLASSNAMES.SLIDER_DESCRIPTION);
     this.buttonNext = container.querySelector(CLASSNAMES.BUTTON_NEXT);
     this.buttonPrev = container.querySelector(CLASSNAMES.BUTTON_PREV);
+    this.videos = container.querySelectorAll(CLASSNAMES.VIDEO);
 
     addClickEventListener(this.buttonNext, this.goToNextReel.bind(this));
     addClickEventListener(this.buttonPrev, this.goToPrevReel.bind(this));
+
+    for (const video of this.videos) {
+      video.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    }
 
     // Listen for appLoaded event
     window.addEventListener('appLoaded', this.initSwiper.bind(this));

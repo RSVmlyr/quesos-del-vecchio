@@ -9,7 +9,7 @@ $logos = get_sub_field('logos');
     class="bg-beige-3 pb-12 logos lg:py-20"
 >
     <div class="container"> 
-        <div class="bg-light-blue rounded-3xl p-12 lg:py-16" data-animation-fade-in>
+        <div class="bg-light-blue rounded-3xl p-12 lg:py-16">
             <div class="max-w-60 mx-auto lg:max-w-none lg:grid lg:grid-cols-[18rem,1fr] lg:gap-14 lg:items-center">
                 <h2 data-animation-split-text class="text-blue text-center text-2xl tracking-tight font-medium leading-snug mb-8 lg:text-[2rem] lg:mb-0 lg:text-left">
                     <?php echo $title; ?>

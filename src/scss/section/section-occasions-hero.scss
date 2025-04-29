@@ -36,6 +36,8 @@
   top: 0;
   z-index: 10;
   height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   width: 100%;
   overflow: hidden;
 }
@@ -99,4 +101,8 @@
       }
     }
   }
+}
+
+.occasions-hero__trigger-block {
+  height: 50vh;
 }

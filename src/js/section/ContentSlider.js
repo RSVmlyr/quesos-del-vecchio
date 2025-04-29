@@ -60,7 +60,7 @@ class ContentSlider {
     this.swiper = new window.$APP.Swiper(this.sliderContainer, {
       modules: [window.$APP.Swiper.Navigation],
       slidesPerView: 1,
-      speed: 300,
+      speed: 400,
       navigation: {
         nextEl: this.buttonNext,
         prevEl: this.buttonPrev,
@@ -99,14 +99,14 @@ class ContentSlider {
         trigger: this.sliderContainer,
         start: 'center bottom',
         onEnter: () => {
-          this.animationEnter(activeSlideIndex);
+          this.animationEnter(activeSlideIndex, true);
         },
         onLeaveBack: (self) => self.disable(),
       },
     });
   }
 
-  animationEnter(activeSlideIndex) {
+  animationEnter(activeSlideIndex, onEnter = false) {
     if (this.swiper === null) return;
 
     const activeSlideTitle = this.sliderTitles[activeSlideIndex];
@@ -115,10 +115,10 @@ class ContentSlider {
     const activeSlideLink = this.sliderLinks[activeSlideIndex];
 
     // title animation
-    this.animations.fadeInAnimation.run(activeSlidePreTitle, 0.2);
-    this.animations.splitTextAnimation.run(activeSlideTitle, 0.2);
-    this.animations.fadeInAnimation.run(activeSlideDescription, 0.4);
-    this.animations.scaleAnimation.run(activeSlideLink, 0.6);
+    this.animations.fadeInAnimation.run(activeSlidePreTitle, onEnter ? 0 : 0.5);
+    this.animations.splitTextAnimation.run(activeSlideTitle, onEnter ? 0 : 0.5);
+    this.animations.fadeInAnimation.run(activeSlideDescription, onEnter ? 0.3 : 0.6);
+    this.animations.scaleAnimation.run(activeSlideLink, onEnter ? 0.4 : 0.6);
   }
 
   animationExit(previousSlideIndex) {

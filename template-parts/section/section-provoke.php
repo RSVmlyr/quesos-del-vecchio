@@ -6,12 +6,10 @@ shuffle($sections); // Randomize the order of sections
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-provoke.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
-    class="bg-beige-3 min-h-[56rem] h-[56rem] provoke"
+    class="bg-beige-3 provoke"
     data-section="Provoke"
 >
-    <div class="h-full provoke__wrapper"> 
-
-        <div class="provoke__section provoke__section--placeholder"></div>
+    <div class="provoke__wrapper"> 
 
         <?php foreach ($sections as $section) : 
             $type = $section["type"];
@@ -77,7 +75,7 @@ shuffle($sections); // Randomize the order of sections
                     $image = $product["image"];
                 ?>
                     <div class="provoke__section provoke__section--product">
-                        <div class="aspect-square provoke__item-product">
+                        <div class="provoke__item-product">
                             <h2 
                                 data-animation-split-text 
                                 data-animation-threshold="0"
@@ -89,7 +87,7 @@ shuffle($sections); // Randomize the order of sections
                             <a 
                                 data-animation-scale
                                 data-animation-threshold="0"
-                                href="<?php the_permalink( $product_selected->ID ); ?>" class="relative flex items-center justify-center aspect-[1.3]"
+                                href="<?php the_permalink( $product_selected->ID ); ?>" class="relative flex items-center justify-center aspect-[1.4]"
                             >
                                 <figure 
                                     class="absolute inset-0 provoke__item-product-image"
@@ -98,7 +96,7 @@ shuffle($sections); // Randomize the order of sections
                                     <img src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>" class="w-full h-full object-cover">
                                 </figure>
 
-                                <div class="relative z-10 text-base tracking-tight font-medium leading-none text-blue bg-white rounded-[100%] py-7 px-12 mt-5 lg:text-2xl lg:px-14 lg:mt-24">
+                                <div class="relative z-10 text-base tracking-tight font-medium leading-none text-blue bg-white rounded-[100%] py-7 px-12 mt-5 lg:text-2xl lg:px-14 lg:mt-24 hover:bg-blue hover:text-white transition-all duration-300">
                                     Ver más
                                 </div>
                             </a>

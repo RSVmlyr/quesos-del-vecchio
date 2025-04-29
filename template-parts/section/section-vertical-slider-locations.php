@@ -12,8 +12,8 @@ $slider_items = get_sub_field('slides');
         class="flex flex-col justify-center sticky top-0 z-10 min-h-screen pt-14 pb-16 lg:pt-0 lg:pb-0 lg:flex-row lg:justify-center lg:items-center lg:h-screen lg:gap-20 xl:gap-28 container--lg"
     >
 
-        <div class="mb-16 grid gap-4 lg:flex-1 lg:mt-0 lg:grow">
-            <div class="relative container no-container--lg vertical-slider-locations__titles-container">
+        <div class="container no-container--lg  grid gap-4 lg:flex-1  lg:grow">
+            <div class="relative  vertical-slider-locations__titles-container">
                 <?php foreach ($slider_items as $item) :
                     $eyebrow = $item['eyebrow'];
                     $title = $item['title'];
@@ -36,7 +36,7 @@ $slider_items = get_sub_field('slides');
             </div>
         </div>
 
-        <div class="swiper lg:flex-1 vertical-slider-locations__swiper">    
+        <div class="swiper mt-5 lg:mt-0 lg:flex-1 vertical-slider-locations__swiper">    
             <div class="swiper-wrapper">    
                 <?php foreach ($slider_items as $item): 
                     $image = $item['image'];

@@ -6,8 +6,16 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  height: 100vh;
   clip-path: circle(200vh at 50% -100vh);
+
+  clip-path: circle(200svh at 50% -100svh);
+  height: 100svh;
+  min-height: 100svh;
+
+  @media only screen and (min-width: theme('screens.lg')) {
+    background-attachment: fixed;
+  }
 
   &::after {
     content: '';

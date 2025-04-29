@@ -10,7 +10,7 @@
 >
     <div class="container">
         <div
-            class="relative aspect-[.8] bg-cover bg-center rounded-3xl overflow-hidden bg-fixed lg:aspect-video lg:rounded-[3.5rem]"
+            class="relative aspect-[.8] bg-cover bg-center rounded-3xl overflow-hidden lg:bg-fixed lg:aspect-video lg:rounded-[3.5rem]"
             style="background-image: url(<?php echo esc_url($image["sizes"]["2048x2048"]); ?>)"
         >
             <div 

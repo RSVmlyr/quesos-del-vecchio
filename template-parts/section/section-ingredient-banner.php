@@ -14,7 +14,7 @@ $button_class = $container_class == 'container--small' ? '' : 'lg:py-12 lg:px-16
 $height_class = $container_class == 'container--small' ? 'lg:py-8' : 'lg:py-24';
 $image_class = $double_image == "true" ? '' : 'lg:hidden';
 $main_image_class = $double_image == "true" ? '' : 'ingredient-banner__image--single';
-$section_class = $double_image == "true" ? 'pt-16 lg:pt-28' : '';
+$section_class = $double_image == "true" ? 'pt-16 overflow-hidden lg:pt-28' : '';
 $bottom_class = $double_image == "true" ? 'lg:h-28' : '';
 $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-cols-[1fr,33%,1fr]' : 'rounded-[3rem] lg:grid-cols-[1fr,28%,1fr]';
 ?>
@@ -22,7 +22,7 @@ $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-co
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-ingredient-banner.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
-    class="bg-beige-3 overflow-hidden <?php echo $section_class; ?>"
+    class="bg-beige-3 <?php echo $section_class; ?>"
     data-section=""
 >
     <div class="container <?php echo $container_class; ?>">

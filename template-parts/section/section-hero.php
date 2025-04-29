@@ -6,7 +6,7 @@ $title = get_sub_field('title');
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-hero.css" rel="stylesheet" type="text/css" media="all">
 
 <section 
-    class="bg-beige-3 h-screen flex items-center justify-center min-h-[42rem] lg:min-h-[56rem] hero"
+    class="bg-beige-3 flex items-center justify-center hero"
     style="background-image: url(<?php echo $background_image["sizes"]["2048x2048"]; ?>);"
 >
     <div class="container"> 

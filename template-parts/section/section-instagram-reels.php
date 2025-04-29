@@ -12,7 +12,7 @@
 
 <section 
     data-section="InstagramReels"
-    class="custom-template-<?php echo get_row_layout(); ?> bg-beige-3 py-[3.3125rem] overflow-hidden"
+    class="block custom-template-<?php echo get_row_layout(); ?> bg-beige-3 py-[3.3125rem] overflow-hidden"
 >
     <!-- gap-[6.125rem] -->
     <!-- container--right -->
@@ -60,8 +60,7 @@
                     ?>
                         <div class="swiper-slide instagram-reels__slide">
                             <a href="<?php echo $reel_link; ?>" target="_blank" class="block" data-animation-fade-in-stagger-item>
-                                <video autoplay muted loop class="pointer-events-none aspect-[9/16] overflow-hidden rounded-3xl">
-                                    <source src="<?php echo $reel; ?>" />
+                                <video autoplay muted loop playsinline preload="none" src="<?php echo $reel; ?>" class="pointer-events-none aspect-[9/16] overflow-hidden rounded-3xl instagram-reels__video">
                                 </video>
                             </a>
                         </div>

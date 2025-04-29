@@ -20,6 +20,24 @@
       }
     }
   }
+
+  @media only screen and (max-width: theme('screens.lg')) {
+    &.header--active {
+      .header_logo,
+      .header_logo-dark {
+        display: none !important;
+      }
+
+      .header_menu_label {
+        display: block !important;
+      }
+
+      .header_button_svg {
+        background-color: rgb($beige-3) !important;
+        color: rgb($blue) !important;
+      }
+    }
+  }
 }
 
 .header_logo {
@@ -97,6 +115,10 @@
   pointer-events: none;
   transition: opacity 0.3s;
 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   &--active {
     opacity: 1;
     pointer-events: initial;
@@ -113,30 +135,34 @@
   .header_container {
     padding-top: rem-calc(16);
   }
+}
 
-  .header_logo {
-    display: none;
+.header--sticky:not(.header--forced-light):not(.header--forced-dark) {
+  &.header--light {
+    .header_logo {
+      display: none;
 
-    &-dark {
-      display: block;
+      &-dark {
+        display: block;
+      }
     }
-  }
 
-  .header_button_svg {
-    background-color: rgb($blue);
-    color: rgb($beige-3);
-  }
-
-  .header_button_label {
-    background-color: rgb($blue);
-    color: rgb($beige-3);
-  }
-
-  .header_navigation_desktop {
-    background-color: rgb($blue);
-
-    a {
+    .header_button_svg {
+      background-color: rgb($blue);
       color: rgb($beige-3);
+    }
+
+    .header_button_label {
+      background-color: rgb($blue);
+      color: rgb($beige-3);
+    }
+
+    .header_navigation_desktop {
+      background-color: rgb($blue);
+
+      a {
+        color: rgb($beige-3);
+      }
     }
   }
 }
@@ -158,5 +184,49 @@
     a {
       color: rgb($beige-3);
     }
+  }
+
+  .header_logo {
+    display: none;
+  }
+
+  .header_logo-dark {
+    display: block;
+  }
+}
+
+.header--forced-light {
+  .header_logo {
+    display: block;
+  }
+
+  .header_logo-dark {
+    display: none;
+  }
+
+  .header_button_svg {
+    background-color: rgb($beige-3);
+    color: rgb($blue);
+  }
+
+  .header_button_label {
+    background-color: rgb($beige-3);
+    color: rgb($blue);
+  }
+
+  .header_navigation_desktop {
+    background-color: rgb($beige-3);
+
+    a {
+      color: rgb($blue);
+    }
+  }
+}
+
+.header_footer {
+  .rich-text > * {
+    color: rgb($beige-3);
+    font-size: 0.75rem /* 12px */;
+    line-height: 1rem;
   }
 }
