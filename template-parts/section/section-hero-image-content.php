@@ -6,7 +6,7 @@ $title = get_sub_field('title');
 $description = get_sub_field('description');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-hero-image-content.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-hero-image-content.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section class="bg-beige-3 h-svh min-h-svh pt-28 lg:min-h-[56rem] hero-image-content lg:pb-24">
     <div class="container relative z-10 h-full grid grid-rows-[1fr_auto] lg:grid-cols-2 lg:gap-24 lg:grid-rows-none"> 

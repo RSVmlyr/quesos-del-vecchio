@@ -3,7 +3,7 @@ $background_image = get_sub_field('background_image');
 $title = get_sub_field('title');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-hero.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-hero.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="bg-beige-3 flex items-center justify-center hero"

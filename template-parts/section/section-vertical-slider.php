@@ -3,7 +3,7 @@ $eyebrow = get_sub_field('eyebrow');
 $slider_items = get_sub_field('slides');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-vertical-slider.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-vertical-slider.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     data-section="VerticalSlider"

@@ -19,7 +19,7 @@ $bottom_class = $double_image == "true" ? 'lg:h-28' : '';
 $banner_class = $container_class == 'container--small' ? 'rounded-3xl lg:grid-cols-[1fr,33%,1fr]' : 'rounded-[3rem] lg:grid-cols-[1fr,28%,1fr]';
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-ingredient-banner.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-ingredient-banner.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="bg-beige-3 <?php echo $section_class; ?>"

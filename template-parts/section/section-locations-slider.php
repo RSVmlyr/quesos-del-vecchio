@@ -6,7 +6,7 @@
     $locations = get_sub_field('locations');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-locations-slider.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-locations-slider.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     data-section="LocationsSlider"

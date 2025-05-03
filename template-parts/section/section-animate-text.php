@@ -4,7 +4,7 @@ $eyebrow = get_sub_field('eyebrow');
 $text = get_sub_field('text');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-animate-text.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-animate-text.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="bg-beige-3 py-8 lg:pt-12 lg:pb-40"

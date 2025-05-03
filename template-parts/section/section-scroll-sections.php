@@ -3,7 +3,7 @@
     $sections = get_sub_field('sections');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-scroll-sections.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-scroll-sections.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="scroll-sections bg-beige-3"

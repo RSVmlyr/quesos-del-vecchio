@@ -3,7 +3,7 @@ $images = get_sub_field('images');
 $slider_items = get_sub_field('slide');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-content-slider.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-content-slider.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     data-section="ContentSlider"

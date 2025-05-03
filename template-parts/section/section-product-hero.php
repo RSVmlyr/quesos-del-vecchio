@@ -25,7 +25,7 @@ $nutritional_ingredients = $nutritional_info["ingredients"];
 $nutritional_table = $nutritional_info["nutritional_table"];
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-product-hero.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-product-hero.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="relative bg-beige-3 occasions-hero h-svh min-h-svh pt-24 pb-6 lg:pt-[4.1875rem] lg:min-h-[47.75rem] product-hero" 

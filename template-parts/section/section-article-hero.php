@@ -19,7 +19,7 @@ $border_color = $theme === 'blue' ? 'border-white/20' : 'border-blue/20';
 $icon_color = $theme === 'blue' ? 'text-light-blue' : 'text-blue';
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-article-hero.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-article-hero.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="mt-[6.75rem] pb-6 lg:pb-12 lg:mt-[8.5rem]"

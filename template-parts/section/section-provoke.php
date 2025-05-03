@@ -3,7 +3,7 @@ $sections = get_sub_field('item');
 shuffle($sections); // Randomize the order of sections
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-provoke.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-provoke.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="bg-beige-3 provoke"

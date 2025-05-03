@@ -22,7 +22,7 @@ $tempt_link = $args['tempt_link'];
 $text_bottom = $args['text_bottom'];
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-homepage-hero.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-homepage-hero.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section class="relative w-screen h-svh min-h-svh" data-section="HomepageHero">
     <button type="button" class="homepage-hero__background" data-custom-cursor-area data-custom-cursor-label="Explorar">

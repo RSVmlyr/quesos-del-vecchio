@@ -9,10 +9,13 @@ const DIST_DIR = path.resolve(__dirname, 'dist');
 const LOCAL_URL = 'quesos-del-vecchio.local/';
 
 mix
+  .setPublicPath(__dirname)
   .webpackConfig({
     plugins: [new CleanWebpackPlugin({ verbose: false, cleanOnceBeforeBuildPatterns: [DIST_DIR] })],
+    output: {
+      chunkFilename: 'dist/[name].[contenthash].js',
+    },
   })
-  .setPublicPath(__dirname)
   .options({
     processCssUrls: false,
     postCss: [tailwindcss('tailwind.config.js')],

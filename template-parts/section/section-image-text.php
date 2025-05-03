@@ -5,7 +5,7 @@ $description = get_sub_field('description');
 $image = get_sub_field('image');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-image-text.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-image-text.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section class="py-6 lg:py-12">
     <div class="container container--medium"> 

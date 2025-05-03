@@ -8,7 +8,7 @@
 
 
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-instagram-reels.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-instagram-reels.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     data-section="InstagramReels"

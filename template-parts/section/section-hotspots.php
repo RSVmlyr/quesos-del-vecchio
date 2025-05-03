@@ -9,7 +9,7 @@ $main_image_mobile = get_sub_field('image_mobile');
 $hotspots = get_sub_field('hotspots');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-hotspots.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-hotspots.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section class="hotspots overflow-hidden lg:overflow-visible" data-section="Hotspots">
     <div class="relative">

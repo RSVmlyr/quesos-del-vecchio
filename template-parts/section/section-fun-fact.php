@@ -5,7 +5,7 @@ $image = get_sub_field('image');
 $background_color = get_sub_field('color');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-fun-fact.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-fun-fact.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="bg-beige-3 py-8 lg:py-28 fun-fact overflow-hidden"

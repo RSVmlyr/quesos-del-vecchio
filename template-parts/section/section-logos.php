@@ -3,7 +3,7 @@ $title = get_sub_field('title');
 $logos = get_sub_field('logos');
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-logos.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-logos.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section 
     class="bg-beige-3 pb-12 logos lg:py-20"

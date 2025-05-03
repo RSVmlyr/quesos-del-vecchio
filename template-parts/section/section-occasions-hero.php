@@ -11,7 +11,7 @@ $products = isset($args['products']) ? $args['products'] : null;
 $description = $args['description'];
 ?>
 
-<link href="<?php echo get_template_directory_uri(); ?>/dist/section-occasions-hero.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo get_template_directory_uri(); ?>/dist/section-occasions-hero.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
 
 <section class="relative bg-beige-3 occasions-hero" data-section="OccasionsHero" data-header-light> 
     <div class="occasions-hero__container">
