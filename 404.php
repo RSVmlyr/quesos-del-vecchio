@@ -7,51 +7,21 @@
  * @package quesos-del-vecchio
  */
 
-get_header();
+get_header('dark');
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="relative block grow">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'quesos-del-vecchio' ); ?></h1>
+		<section class="h-screen flex items-center justify-center">
+			<header class="text-center">
+				<h1 class="text-blue text-4xl tracking-tight font-semibold mb-4">
+					No se encontró la página
+				</h1>
+
+				<a href="<?php echo home_url(); ?>" class="block mx-auto w-full text-blue bg-orange mt-4 rounded-[12.5rem] py-4 px-[1.125rem] text-sm font-medium tracking-tight text-center lg:max-w-fit lg:px-6">
+					Volver al inicio
+				</a>
 			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'quesos-del-vecchio' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'quesos-del-vecchio' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$quesos_del_vecchio_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'quesos-del-vecchio' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$quesos_del_vecchio_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
 
 	</main><!-- #main -->

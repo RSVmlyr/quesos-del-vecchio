@@ -60,16 +60,14 @@ mix.browserSync({
  */
 
 if (mix.inProduction()) {
-  mix
-    .sourceMaps(false)
-    .options({
-      terser: {
-        terserOptions: {
-          compress: {
-            drop_console: true,
-          },
+  mix.version();
+  mix.sourceMaps(false).options({
+    terser: {
+      terserOptions: {
+        compress: {
+          drop_console: true,
         },
       },
-    })
-    .version();
+    },
+  });
 }
