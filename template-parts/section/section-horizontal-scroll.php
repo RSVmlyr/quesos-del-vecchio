@@ -43,7 +43,7 @@ $sections = get_sub_field('sections');
                             <?php endif; ?>
                 
                             <?php if ( $main_screen['asset']['type'] === 'video' ) : ?>
-                                <video src="<?php echo $main_screen['asset']['url']; ?>" autoplay muted loop playsinline></video>
+                                <video preload="none" src="<?php echo $main_screen['asset']['url']; ?>" autoplay muted loop playsinline></video>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ $sections = get_sub_field('sections');
                             <?php endif; ?>
                     
                             <?php if ( $main_screen['asset']['type'] === 'video' ) : ?>
-                                <video src="<?php echo $main_screen['asset']['url']; ?>" autoplay muted loop playsinline></video>
+                                <video  preload="none" src="<?php echo $main_screen['asset']['url']; ?>" autoplay muted loop playsinline></video>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ $sections = get_sub_field('sections');
                             <?php endif; ?>
         
                             <?php if ( $asset['type'] === 'video' ) : ?>
-                                <video src="<?php echo $asset['url']; ?>" autoplay muted loop playsinline></video>
+                                <video preload="none" src="<?php echo $asset['url']; ?>" autoplay muted loop playsinline></video>
                             <?php endif; ?>
                         </div>
                     </div>

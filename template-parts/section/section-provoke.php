@@ -199,7 +199,7 @@ shuffle($sections); // Randomize the order of sections
                 ?>
                     <div class="provoke__section provoke__section--video">
                         <div class="provoke__item-video" data-animation-scale data-animation-threshold="0">
-                            <video autoplay muted loop class="pointer-events-none">
+                            <video preload="none" autoplay muted loop class="pointer-events-none">
                                 <source src="<?php echo $video_selected["url"]; ?>" />
                             </video>
                         </div>
