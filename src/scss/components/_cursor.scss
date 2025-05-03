@@ -25,6 +25,13 @@
     padding: rem-calc(83) rem-calc(55);
   }
 
+  &--cta {
+    background-color: rgb($orange);
+    color: rgb($blue);
+    padding: rem-calc(20) rem-calc(28);
+    font-size: rem-calc(14);
+  }
+
   &--default {
     padding: rem-calc(25) rem-calc(55);
   }
@@ -38,3 +45,9 @@
     display: flex;
   }
 }
+
+// <div
+// class="px-7 py-5 text-base lg:block max-w-fit mx-auto hover:bg-blue hover:text-white transition-colors transition-opacity duration-300 rotate-6 font-medium occasions-hero__menu-item-fake-link"
+// >
+// Conoce más
+// </div>

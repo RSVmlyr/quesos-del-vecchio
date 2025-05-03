@@ -7,7 +7,6 @@ const CLASSNAMES = {
 class HorizontalScroll {
   constructor(app, container) {
     this.app = app;
-    this.header = app.header;
     this.container = container;
     this.wrapperContainer = this.container.querySelector(CLASSNAMES.WRAPPER_CONTAINER);
     this.wrapper = this.container.querySelector(CLASSNAMES.WRAPPER);
@@ -45,18 +44,6 @@ class HorizontalScroll {
         onRefresh: (self) => {
           // Force a recalculation of positions
           self.refresh();
-        },
-        onEnter: () => {
-          this.header.setHeaderLight();
-        },
-        onLeave: () => {
-          this.header.resetHeader();
-        },
-        onEnterBack: () => {
-          this.header.setHeaderLight();
-        },
-        onLeaveBack: () => {
-          this.header.resetHeader();
         },
       },
     });

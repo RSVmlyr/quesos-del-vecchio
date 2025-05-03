@@ -35,6 +35,19 @@ class Animation {
           },
         });
       },
+      runOut: (element) => {
+        const words = element.querySelectorAll('.animate-text__word');
+
+        window.$APP.gsap.to(words, {
+          opacity: 0,
+          rotate: 12,
+          y: '110%',
+          duration: 0.2,
+          onComplete: () => {
+            this.splitTextAnimation.reset(element);
+          },
+        });
+      },
       reset: (element) => {
         const words = element.querySelectorAll('.animate-text__word');
 
@@ -78,6 +91,17 @@ class Animation {
           ease: 'expo.out',
           duration: 1.2,
           stagger: 0.1,
+        });
+      },
+      runOut: (element) => {
+        window.$APP.gsap.to(element, {
+          opacity: 0,
+          y: '50%',
+          duration: 0.2,
+          ease: 'power3.inout',
+          onComplete: () => {
+            this.fadeInAnimation.reset(element);
+          },
         });
       },
       reset: (element) => {

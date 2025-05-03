@@ -26,7 +26,7 @@
                         foreach ($sections as $section) : 
                             $image = $section['image'];
                     ?>
-                        <figure class="absolute bottom-0 left-0 right-0 mx-auto block aspect-[0.85] overflow-hidden rounded-2xl max-w-56 lg:max-w-[30rem] scroll-sections__content-image">    
+                        <figure class="absolute bottom-0 left-0 right-0 mx-auto block aspect-[0.85] overflow-hidden rounded-2xl max-w-48 lg:max-w-[30rem] scroll-sections__content-image">    
                             <img class="w-full h-full object-cover" src="<?php echo $image['sizes']['2048x2048']; ?>" alt="<?php echo $image['alt']; ?>">
                         </figure>
                     <?php 

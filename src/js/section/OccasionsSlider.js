@@ -116,16 +116,24 @@ class OccasionsSlider {
           this.updateProgressBar(1);
         },
         slideChange: (swiper) => {
+          const isNextSlide = swiper.previousTranslate > swiper.translate;
           const activeSlide = swiper.slides[swiper.activeIndex];
+          const previousSlide = swiper.slides[isNextSlide ? swiper.activeIndex - 1 : swiper.activeIndex + 1];
 
           const currentBlobElements = activeSlide.querySelectorAll(CLASSNAMES.BLOBS);
           const currentMarqueeElement = activeSlide.querySelector(CLASSNAMES.MARQUEE);
-
           const blobTitleElement = activeSlide.querySelector(CLASSNAMES.BLOB_TITLE);
           const blobButtonElement = activeSlide.querySelector(CLASSNAMES.BLOB_BUTTON);
 
+          const previousMarqueeElement = previousSlide.querySelector(CLASSNAMES.MARQUEE);
+
           this.animations.splitTextAnimation.run(blobTitleElement, 0.6);
           this.animations.scaleAnimation.run(blobButtonElement, 0.7);
+
+          this.animations.resetAnimations({
+            elements: [previousMarqueeElement],
+            clearProps: 'opacity',
+          });
 
           this.animateMarquee(currentMarqueeElement);
           this.animateBlobSecondary(currentBlobElements);
@@ -138,7 +146,6 @@ class OccasionsSlider {
           const previousSlide = swiper.slides[isNextSlide ? activeIndex - 1 : activeIndex + 1];
 
           const previousBlobSecondaryElements = previousSlide.querySelectorAll(CLASSNAMES.BLOBS);
-          const previousMarqueeElement = previousSlide.querySelector(CLASSNAMES.MARQUEE);
 
           const blobTitleElement = previousSlide.querySelector(CLASSNAMES.BLOB_TITLE);
           const blobButtonElement = previousSlide.querySelector(CLASSNAMES.BLOB_BUTTON);
@@ -147,7 +154,7 @@ class OccasionsSlider {
           this.animations.scaleAnimation.reset(blobButtonElement);
 
           this.animations.resetAnimations({
-            elements: [...previousBlobSecondaryElements, previousMarqueeElement],
+            elements: [...previousBlobSecondaryElements],
             clearProps: 'scale,y,opacity',
           });
         },

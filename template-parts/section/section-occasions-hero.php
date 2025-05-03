@@ -13,16 +13,16 @@ $description = $args['description'];
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-occasions-hero.css" rel="stylesheet" type="text/css" media="all">
 
-<section class="relative bg-beige-3 occasions-hero" data-section="OccasionsHero"> 
+<section class="relative bg-beige-3 occasions-hero" data-section="OccasionsHero" data-header-light> 
     <div class="occasions-hero__container">
         <div class="occasions-hero__content">
-            <div class="absolute container z-20 top-[9.5625rem] inset-x-0 lg:top-[12.8125rem]">
+            <div class="absolute container z-20 top-[9.5625rem] inset-x-0 lg:top-[12.8125rem] pointer-events-none">
                 <div class="max-w-80 grid gap-2 lg:max-w-[22.9375rem] lg:gap-4 occasions-hero__description">
-                    <h1 class="text-white text-5xl font-medium tracking-tight lg:text-[3.5rem]" data-animation-split-text>
+                    <h1 class="text-white text-5xl font-medium tracking-tight lg:text-[3.5rem] occasions-hero__description-title">
                         <?php the_title(); ?>
                     </h1>
                 
-                    <p class="text-white font-medium max-w-64 tracking-tight lg:font-normal lg:text-2xl lg:max-w-none" data-animation-fade-in>
+                    <p class="text-white font-medium max-w-64 tracking-tight lg:font-normal lg:text-2xl lg:max-w-none occasions-hero__description-text">
                         <?php echo $description; ?>
                     </p>
                 </div>
@@ -38,14 +38,14 @@ $description = $args['description'];
                     <?php endforeach; ?>
                 </div>
         
-                <div class="absolute container z-10 top-24 bottom-6 inset-x-0 grid grid-rows-[1fr_auto] gap-12 lg:grid-rows-none lg:grid-cols-2 lg:items-end lg:bottom-12 lg:top-12">
-                    <ul class="grid gap-4 lg:max-w-fit relative self-end occasions-hero__menu">
+                <div class="absolute container z-10 top-24 bottom-0 lg:bottom-0 inset-x-0 grid grid-rows-[1fr_auto] gap-12 lg:grid-rows-none lg:grid-cols-2 lg:items-end lg:top-12">
+                    <ul class="grid gap-4 max-h-12 lg:max-h-60 lg:max-w-fit relative self-end overflow-hidden lg:overflow-visible occasions-hero__menu">
                         <?php foreach ($products as $product) : 
                             $shortname = get_field('shortname', $product->ID);
                         ?>
                             <li class="relative occasions-hero__menu-item lg:max-w-fit">
-                                <a class="text-white font-gazpacho font-medium leading-none flex justify-between items-center tracking-tight lg:max-w-fit" href="<?php the_permalink($product->ID); ?>">
-                                    <div data-animation-split-text>
+                                <a class="text-white font-gazpacho font-medium leading-none flex justify-between items-center tracking-tight lg:max-w-fit lg:cursor-none" href="<?php the_permalink($product->ID); ?>" data-custom-cursor-area data-custom-cursor-label="Conoce más" data-custom-cursor-type="CTA">
+                                    <div class="occasions-hero__menu-item-text">
                                         <?php echo $shortname; ?>
                                     </div>    
         
@@ -54,18 +54,12 @@ $description = $args['description'];
                                             <path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     </div>
-
-                                    <div 
-                                        class="hidden absolute -top-6 -right-24 tracking-tight bg-orange text-blue rounded-[100%] px-7 py-5 text-base lg:block max-w-fit mx-auto hover:bg-blue hover:text-white transition-colors transition-opacity duration-300 rotate-6 font-medium occasions-hero__menu-item-fake-link"
-                                    >
-                                        Conoce más
-                                    </div>
                                 </a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
         
-                    <div class="self-end" data-animation-scale>
+                    <div class="self-end pb-6 lg:pb-12" data-animation-scale>
                         <a href="#" class="text-white uppercase bg-blue block text-center rounded-full py-[0.875rem] px-3 text-sm flex items-center justify-center gap-2 tracking-tight lg:text-base lg:max-w-fit lg:ml-auto lg:px-7 lg:py-5 lg:gap-3">
                             <?php the_title(); ?> en nuestras tiendas
         

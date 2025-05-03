@@ -118,17 +118,34 @@
   height: 30%;
   overflow: hidden;
 
+  .provoke__item-image {
+    overflow: hidden;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   &.provoke__section--top {
     top: 0 !important;
-    border-radius: 0 0 rem-calc(24) rem-calc(24);
     transform: translateY(0) !important;
+
+    .provoke__item-image {
+      border-radius: 0 0 rem-calc(24) rem-calc(24);
+    }
   }
 
   &.provoke__section--bottom {
     top: initial !important;
     bottom: 0 !important;
-    border-radius: rem-calc(24) rem-calc(24) 0 0;
     transform: translateY(0) !important;
+
+    .provoke__item-image {
+      border-radius: rem-calc(24) rem-calc(24) 0 0;
+    }
   }
 
   @media only screen and (min-width: theme('screens.lg')) {

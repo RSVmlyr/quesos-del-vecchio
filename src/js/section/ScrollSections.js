@@ -48,7 +48,7 @@ class ScrollSections {
 
     window.$APP.gsap.ScrollTrigger.create({
       trigger: this.title,
-      start: `top top+=40px`,
+      start: `top top+=100px`,
       end: `+=${this.container.offsetHeight - titleOffsetFromTop}px bottom`,
       scrub: true,
       pin: this.title,

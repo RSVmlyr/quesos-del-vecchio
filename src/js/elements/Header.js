@@ -18,6 +18,8 @@ class Header {
     this.navigationMobile = document.querySelector(CLASSNAMES.NAV_MOBILE);
     this.navigationDesktop = document.querySelector(CLASSNAMES.NAV_DESKTOP);
     this.navigationButton = document.querySelector(CLASSNAMES.NAV_BUTTON);
+    this.sectionsHeaderLight = document.querySelectorAll('[data-header-light]');
+    this.sectionsHeaderDark = document.querySelectorAll('[data-header-dark]');
 
     // Media Query
     this.isDesktop;
@@ -31,6 +33,10 @@ class Header {
     window.addEventListener('scroll', this.stickyHandler.bind(this), { passive: true });
 
     addClickEventListener(this.navigationButton, this.toggleMenu.bind(this));
+
+    for (const section of this.sectionsHeaderLight) {
+      this.lightSectionHandler(section);
+    }
   }
 
   stickyHandler() {
@@ -83,6 +89,31 @@ class Header {
   resetHeader() {
     this.header.classList.remove('header--forced-light');
     this.header.classList.remove('header--forced-dark');
+  }
+
+  lightSectionHandler(section) {
+    window.$APP.gsap.ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: 'bottom top',
+
+      onRefresh: (self) => {
+        // Force a recalculation of positions
+        self.refresh();
+      },
+      onEnter: () => {
+        this.setHeaderLight();
+      },
+      onLeave: () => {
+        this.resetHeader();
+      },
+      onEnterBack: () => {
+        this.setHeaderLight();
+      },
+      onLeaveBack: () => {
+        this.resetHeader();
+      },
+    });
   }
 }
 

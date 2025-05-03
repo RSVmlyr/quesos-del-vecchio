@@ -29,8 +29,11 @@ $author = $additional_information['author'];
 		<div class="container grid gap-6 sm:gap-[3.6875rem]">
 			<div class="pt-[75vw] sm:pt-0 sm:h-[25rem] sm:flex sm:items-center lg:h-[42.875rem]">
 				<div class="absolute top-0 inset-x-0 z-0 sm:w-6/12 sm:left-auto sm:right-0">
-					<figure class="ml-auto w-[80vw] max-w-[29.375rem] origin-top-right sm:w-auto sm:h-[25rem] lg:h-[42.875rem] lg:max-w-[43.75rem]" data-animation-scale>
-						<img class="w-full h-full object-contain object-right-top" src="<?php echo $background_image['url']; ?>" alt="<?php echo $background_image['alt']; ?>">
+					<figure 
+						class="ml-auto w-[80vw] max-w-[29.375rem] origin-top-right sm:h-[25rem] lg:h-[42.875rem] lg:max-w-[43.75rem] footer__background-image" 
+						style="--mask-url: url(<?php echo get_template_directory_uri(); ?>/public/shapes/shape-2-cutted.svg);"
+					>
+						<img class="w-full h-full object-contain object-right-top" src="<?php echo $background_image['sizes']['large']; ?>" alt="<?php echo $background_image['alt']; ?>">
 					</figure>
 				</div>
 

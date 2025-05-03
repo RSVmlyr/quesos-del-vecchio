@@ -11,6 +11,7 @@ class Cursor {
     // Classes and Types
     this.cursorTypes = {
       CIRCLE: 'custom-cursor--circle',
+      CTA: 'custom-cursor--cta',
       DEFAULT: 'custom-cursor--default',
     };
 
@@ -41,6 +42,8 @@ class Cursor {
     if (hasLabel || this.cursorLabel.innerText !== hasLabel) this.cursorLabel.innerText = hasLabel;
 
     if (overType === 'CIRCLE') {
+      this.cursor.classList.add(this.cursorTypes[overType]);
+    } else if (overType === 'CTA') {
       this.cursor.classList.add(this.cursorTypes[overType]);
     } else {
       this.cursor.classList.add(this.cursorTypes['DEFAULT']);

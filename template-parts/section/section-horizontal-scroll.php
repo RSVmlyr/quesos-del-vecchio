@@ -10,6 +10,7 @@ $sections = get_sub_field('sections');
     class="overflow-hidden bg-blue bg-cover bg-repeat bg-center"
     data-section="HorizontalScroll"
     style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/patter-horizontal.svg);"
+    data-header-light
 >
     <div class="relative min-h-screen h-svh horizontal-scroll__wrapper-container">
         <div 
