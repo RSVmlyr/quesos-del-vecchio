@@ -56,6 +56,8 @@ class Provoke {
       masonryHorizontal: {
         rowHeight: this.wrapper.offsetHeight / 4,
       },
+      // Use Isotope's built-in random sorting
+      sortBy: 'random',
     });
 
     this.buttons.forEach((button) => {
