@@ -33,13 +33,30 @@
   inset: 0;
 }
 
-.gm-ui-hover-effect {
-  width: 16px !important;
-  height: 16px !important;
+// Leaflet custom styles
+.custom-marker {
+  background: transparent;
+  border: none;
 }
 
-.gm-ui-hover-effect > span {
-  margin: 0 !important;
-  width: 12px !important;
-  height: 12px !important;
+.custom-popup {
+  .leaflet-popup-content-wrapper {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+  }
+
+  .leaflet-popup-tip {
+    background: white;
+  }
+}
+
+// Hide default Leaflet attribution
+.leaflet-control-attribution {
+  display: none;
 }

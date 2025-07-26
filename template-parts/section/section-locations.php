@@ -5,6 +5,7 @@ $locations = get_sub_field('locations');
 ?>
 
 <link href="<?php echo get_template_directory_uri(); ?>/dist/section-locations.css?v=<?php echo _S_VERSION; ?>" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
 <section 
     class="bg-beige-3 py-12 lg:pt-20 lg:pb-8 locations"
@@ -109,6 +110,7 @@ $locations = get_sub_field('locations');
                             data-location-lat="<?php echo $location_lat; ?>"
                             data-location-lng="<?php echo $location_lng; ?>"
                             data-location-address="<?php echo $location_address; ?>"
+                            data-location-schedule="<?php echo $schedule; ?>"
                         >
                             <div class="grid gap-4 px-2">
                                 <h3 class="text-2xl text-blue font-semibold tracking-tight leading-tight lg:text-[2rem]">

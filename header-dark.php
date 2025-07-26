@@ -23,10 +23,6 @@ $privacy_policy = $additional_information['privacy_policy'];
 $terms_conditions = $additional_information['terms_and_conditions'];
 $copyright = $additional_information['copyright'];
 $author = $additional_information['author'];
-
-$google_maps = get_field('google_maps', 'options');
-$google_maps_key = $google_maps["key"];
-$google_maps_id_map = $google_maps['map_id'];
 ?>
 
 <!doctype html>
@@ -43,8 +39,6 @@ $google_maps_id_map = $google_maps['map_id'];
 	<script type="text/javascript">
 		// This will set the path into the global JavaScript scope so it can be picked up further down the path of execution.
 		window.__webpack_public_path__ = "<?php echo get_template_directory_uri(); ?>/";
-		window.googleMapsApiKey = "<?php echo $google_maps_key; ?>";
-		window.googleMapsIdMap = "<?php echo $google_maps_id_map; ?>";
 	</script>
 	<?php wp_head(); ?>
 </head>

@@ -1,5 +1,5 @@
 import { addClickEventListener } from '../utils/listeners';
-import { Loader } from '@googlemaps/js-api-loader';
+import L from 'leaflet';
 
 const CLASSNAMES = {
   CONTAINER: '.locations',
@@ -10,210 +10,6 @@ const CLASSNAMES = {
   MAP_CONTAINER: '.locations__google-map',
   LOCATIONS: '.locations__google-map-location',
 };
-
-const loader = new Loader({
-  apiKey: window.googleMapsApiKey,
-  version: 'weekly',
-  libraries: ['maps', 'marker'],
-});
-
-const mapStyles = [
-  {
-    featureType: 'all',
-    elementType: 'labels.text.fill',
-    stylers: [
-      {
-        saturation: 36,
-      },
-      {
-        color: '#333333',
-      },
-      {
-        lightness: 40,
-      },
-    ],
-  },
-  {
-    featureType: 'all',
-    elementType: 'labels.text.stroke',
-    stylers: [
-      {
-        visibility: 'on',
-      },
-      {
-        color: '#ffffff',
-      },
-      {
-        lightness: 16,
-      },
-    ],
-  },
-  {
-    featureType: 'all',
-    elementType: 'labels.icon',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'administrative',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        lightness: 20,
-      },
-    ],
-  },
-  {
-    featureType: 'administrative',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#fefefe',
-      },
-      {
-        lightness: 17,
-      },
-      {
-        weight: 1.2,
-      },
-    ],
-  },
-  {
-    featureType: 'landscape',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#f5eedd',
-      },
-      {
-        lightness: 20,
-      },
-    ],
-  },
-  {
-    featureType: 'poi',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#f5eedd',
-      },
-      {
-        lightness: 21,
-      },
-    ],
-  },
-  {
-    featureType: 'poi.park',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#e2d2b9',
-      },
-      {
-        lightness: 21,
-      },
-    ],
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-      {
-        lightness: 17,
-      },
-    ],
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-      {
-        lightness: 29,
-      },
-      {
-        weight: 0.2,
-      },
-    ],
-  },
-  {
-    featureType: 'road.arterial',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-      {
-        lightness: 18,
-      },
-    ],
-  },
-  {
-    featureType: 'road.local',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#ffffff',
-      },
-      {
-        lightness: 16,
-      },
-    ],
-  },
-  {
-    featureType: 'transit',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#f2f2f2',
-      },
-      {
-        lightness: 19,
-      },
-    ],
-  },
-  {
-    featureType: 'transit.station.rail',
-    elementType: 'all',
-    stylers: [
-      {
-        visibility: 'on',
-      },
-    ],
-  },
-  {
-    featureType: 'transit.station.rail',
-    elementType: 'labels.icon',
-    stylers: [
-      {
-        hue: '#ff7800',
-      },
-      {
-        saturation: '-10',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#e2d2b9',
-      },
-      {
-        lightness: 17,
-      },
-    ],
-  },
-];
 
 class Locations {
   constructor(app, container) {
@@ -230,72 +26,142 @@ class Locations {
     addClickEventListener(this.buttonGrid, this.toggleGrid.bind(this));
     addClickEventListener(this.buttonMap, this.toggleMap.bind(this));
 
-    this.loadGoogleMaps().then(() => this.initMap());
+    this.initMap();
   }
 
-  loadGoogleMaps() {
-    return loader.importLibrary('maps');
-  }
-
-  async initMap() {
+  initMap() {
     if (!this.mapContainer) return;
 
     const locations = this.getLocations();
     if (locations.length === 0) return;
 
+    // Initialize the map
+    const map = L.map(this.mapContainer, {
+      zoomControl: false,
+      attributionControl: false,
+    });
+
+    // Add tile layer (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+
     // Calculate bounds to fit all markers
-    const bounds = new google.maps.LatLngBounds();
+    const bounds = L.latLngBounds();
     locations.forEach((location) => {
-      bounds.extend(location.position);
+      bounds.extend([location.position.lat, location.position.lng]);
     });
 
-    const map = new google.maps.Map(this.mapContainer, {
-      mapId: window.googleMapsIdMap,
-      styles: mapStyles,
+    // Fit map to bounds with proper padding and ensure all markers are visible
+    map.fitBounds(bounds, {
+      padding: [30, 30],
+      maxZoom: 15,
+      animate: false,
     });
 
-    // Fit map to bounds
-    map.fitBounds(bounds);
+    // If there's only one location, set a reasonable zoom level
+    if (locations.length === 1) {
+      map.setView([locations[0].position.lat, locations[0].position.lng], 13);
+    }
 
-    const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary('marker');
+    // Create custom icon for markers
+    const customIcon = L.divIcon({
+      className: 'custom-marker',
+      html: `
+        <div style="
+          width: 24px;
+          height: 24px;
+          background-color: #23195F;
+          border: 2px solid #ffffff;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        ">
+          <div style="
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
+          "></div>
+        </div>
+      `,
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+    });
 
+    // Add markers for each location
     const markers = locations.map((location) => {
-      const pin = new PinElement({
-        background: '#23195F', // Blue color from your theme
-        borderColor: '#ffffff',
-        glyphColor: '#ffffff',
-        scale: 1.2,
-      });
-
-      const marker = new AdvancedMarkerElement({
-        map,
-        position: location.position,
+      const marker = L.marker([location.position.lat, location.position.lng], {
+        icon: customIcon,
         title: location.name,
-        content: pin.element,
-      });
+      }).addTo(map);
 
-      // Create info window
-      const infoWindow = new google.maps.InfoWindow({
-        content: `
-          <div class="bg-white">
-            <h3 class="text-blue font-semibold text-lg mb-2">${location.name}</h3>
-            <p class="text-blue text-sm">${location.address || ''}</p>
-            <p class="text-blue text-sm">${location.schedule || ''}</p>
-          </div>
-        `,
-        disableAutoPan: true,
-        pixelOffset: new google.maps.Size(0, -30),
-      });
+      // Create popup content
+      const popupContent = `
+        <div style="
+          background: white;
+          padding: 12px;
+          border-radius: 8px;
+          min-width: 200px;
+          font-family: inherit;
+        ">
+          <h3 style="
+            color: #23195F;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+          ">${location.name}</h3>
+          ${
+            location.address
+              ? `<p style="
+            color: #23195F;
+            font-size: 14px;
+            margin: 0 0 4px 0;
+            line-height: 1.3;
+          ">${location.address}</p>`
+              : ''
+          }
+          ${
+            location.schedule
+              ? `<p style="
+            color: #23195F;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.3;
+          ">${location.schedule}</p>`
+              : ''
+          }
+        </div>
+      `;
 
-      // Add click listener to marker
-      marker.addListener('click', () => {
-        infoWindow.open({
-          anchor: marker,
-          map,
-        });
+      // Add popup to marker
+      marker.bindPopup(popupContent, {
+        closeButton: false,
+        className: 'custom-popup',
       });
 
       return marker;
+    });
+
+    // Store map reference for potential future use
+    this.leafletMap = map;
+    this.markers = markers;
+
+    // Ensure proper centering after map is fully loaded
+    map.whenReady(() => {
+      const currentBounds = L.latLngBounds();
+      locations.forEach((location) => {
+        currentBounds.extend([location.position.lat, location.position.lng]);
+      });
+
+      map.fitBounds(currentBounds, {
+        padding: [30, 30],
+        maxZoom: 15,
+        animate: false,
+      });
     });
   }
 
@@ -311,6 +177,28 @@ class Locations {
     this.buttonMap.classList.add('locations__button--active');
     this.grid.classList.remove('locations__grid--active');
     this.map.classList.add('locations__map--active');
+
+    // Invalidate map size when switching to map view to ensure proper rendering
+    if (this.leafletMap) {
+      setTimeout(() => {
+        this.leafletMap.invalidateSize();
+
+        // Re-center the map to show all markers after the map is properly rendered
+        const locations = this.getLocations();
+        if (locations.length > 0) {
+          const bounds = L.latLngBounds();
+          locations.forEach((location) => {
+            bounds.extend([location.position.lat, location.position.lng]);
+          });
+
+          this.leafletMap.fitBounds(bounds, {
+            padding: [30, 30],
+            maxZoom: 15,
+            animate: true,
+          });
+        }
+      }, 150);
+    }
   }
 
   getLocations() {
@@ -325,6 +213,7 @@ class Locations {
           },
           name: location.dataset.locationName,
           address: location.dataset.locationAddress,
+          schedule: location.dataset.locationSchedule,
         });
       }
     });

@@ -39,7 +39,7 @@
     "lint:js": "wp-scripts lint-js 'js/*.js'"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.8",
+    "leaflet": "^1.9.4",
     "isotope-layout": "^3.0.6",
     "isotope-masonry-horizontal": "^2.0.1",
     "split-type": "^0.3.4",
