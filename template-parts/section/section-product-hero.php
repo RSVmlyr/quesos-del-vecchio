@@ -38,7 +38,7 @@ $nutritional_table = $nutritional_info["nutritional_table"];
                 <?php echo $occasion_title; ?>
             </p>
     
-            <h1 data-animation-split-text class="text-5xl tracking-tight text-blue font-medium leading-none mt-[1.125rem] lg:text-[7.5rem]">
+            <h1 data-animation-split-text class="text-5xl tracking-tight text-blue font-medium leading-none mt-[1.125rem] lg:text-[5.5rem]">
                 <?php echo $product_title; ?>
             </h1>
 
