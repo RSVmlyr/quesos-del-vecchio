@@ -73,13 +73,13 @@ $sections = get_sub_field('sections');
             <div 
                 class="relative h-full shrink-0 horizontal-scroll__section"
             >
-                <div class="h-full flex gap-8 lg:gap-14">
-                    <div class="max-w-[13.43rem] lg:max-w-80 py-20 horizontal-scroll__section-title">
-                        <span data-animation-fade-in data-animation-threshold="0.15" class="text-[5rem] lg:text-[12.5rem] text-white font-medium tracking-tight font-gazpacho leading-none">
+                <div class="h-full flex gap-8 lg:gap-14 xl:gap-8">
+                    <div class="max-w-[13.43rem] lg:max-w-80 xl:max-w-none xl:min-w-[350px] xl:w-[300px] py-20 horizontal-scroll__section-title">
+                        <span data-animation-fade-in data-animation-threshold="0.15" class="text-[5rem] lg:text-[7rem] text-white font-medium tracking-tight font-gazpacho leading-none">
                             <?php echo $pre_image["pre_title"]; ?>
                         </span>
     
-                        <h2 class="text-[2rem] lg:text-5xl text-light-blue tracking-tight leading-tight" data-animation-split-text data-animation-threshold="0.15">
+                        <h2 class="text-[2rem] lg:text-4xl text-balance text-light-blue tracking-tight leading-tight" data-animation-split-text data-animation-threshold="0.15">
                             <?php echo $pre_image["title"]; ?>
                         </h2>
                     </div>

@@ -7,6 +7,7 @@ $sections = get_sub_field('item');
 <section 
     class="bg-beige-3 provoke"
     data-section="Provoke"
+    data-filter="false"
 >
     <div class="provoke__wrapper"> 
 
@@ -26,12 +27,12 @@ $sections = get_sub_field('item');
                             data-animation-scale
                             data-animation-threshold="0"
                         >
-                            <a class="relative block w-full h-full" href="<?php echo $link["url"]; ?>" target="<?php echo $link["target"]; ?>">
+                            <a class="group relative block w-full h-full" href="<?php echo $link["url"]; ?>" target="<?php echo $link["target"]; ?>">
                                 <figure class="absolute inset-0">
-                                    <img class="w-full h-full object-cover" src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>">
+                                    <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.05]" src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>">
                                 </figure>
 
-                                <div class="absolute bottom-8 left-8 bg-white rounded-full flex gap-2 text-blue items-center py-3 px-6">
+                                <div class="absolute bottom-8 left-8 bg-white rounded-full flex gap-2 text-blue items-center py-3 px-6 group-hover:bg-blue group-hover:text-white transition-colors duration-300">
 
                                     <?php if ( $icon === 'instagram' ) : ?>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="" viewBox="0 0 16 16">
@@ -78,7 +79,7 @@ $sections = get_sub_field('item');
                             <h2 
                                 data-animation-split-text 
                                 data-animation-threshold="0"
-                                class="text-[2.5rem] tracking-tight font-medium leading-none text-blue text-center mb-4 lg:text-5xl lg:mb-6"
+                                class="text-[2.5rem] tracking-tight font-medium leading-none text-blue text-center mb-4 lg:text-5xl"
                             >
                                 <?php echo $title; ?>
                             </h2>
@@ -86,7 +87,7 @@ $sections = get_sub_field('item');
                             <a 
                                 data-animation-scale
                                 data-animation-threshold="0"
-                                href="<?php the_permalink( $product_selected->ID ); ?>" class="relative flex items-center justify-center aspect-[1.4]"
+                                href="<?php the_permalink( $product_selected->ID ); ?>" class="group relative flex items-center justify-center aspect-[1.4]"
                             >
                                 <figure 
                                     class="absolute inset-0 provoke__item-product-image"
@@ -95,7 +96,7 @@ $sections = get_sub_field('item');
                                     <img src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>" class="w-full h-full object-cover">
                                 </figure>
 
-                                <div class="relative z-10 text-base tracking-tight font-medium leading-none text-blue bg-white rounded-[100%] py-7 px-12 mt-5 lg:text-2xl lg:px-14 lg:mt-24 hover:bg-blue hover:text-white transition-all duration-300">
+                                <div class="relative z-10 text-base tracking-tight font-medium leading-none text-blue bg-white rounded-[100%] py-4 px-12 mt-5 lg:text-2xl lg:py-[1.2rem] lg:px-14 lg:mt-24 group-hover:bg-blue group-hover:text-white transition-all duration-300">
                                     Ver más
                                 </div>
                             </a>
@@ -114,7 +115,7 @@ $sections = get_sub_field('item');
                         >
                             <a 
                                 href="<?php the_permalink( $article_selected->ID ); ?>" 
-                                class="grid bg-beige-2 bg-cover bg-center py-8 px-7 text-center overflow-hidden rounded-[3rem] gap-7 lg:py-11 lg:px-14"
+                                class="group grid bg-beige-2 bg-cover bg-center py-8 px-7 text-center overflow-hidden rounded-[3rem] gap-7 lg:py-11 lg:px-14"
                                 style="background-image: url(<?php echo get_template_directory_uri(); ?>/public/figures/banner-article.svg);"
                             >
                                 <h2 
@@ -128,7 +129,7 @@ $sections = get_sub_field('item');
                                 <div 
                                     data-animation-scale
                                     data-animation-threshold="0"
-                                    class="text-lg tracking-tight font-medium text-blue flex items-center justify-center gap-3 rounded-full border border-blue py-3 pl-6 pr-4 max-w-fit mx-auto"
+                                    class="text-lg tracking-tight font-medium text-blue flex items-center justify-center gap-3 rounded-full border border-blue py-3 pl-6 pr-4 max-w-fit mx-auto group-hover:bg-blue group-hover:text-white transition-colors duration-300"
                                 >
                                     LEER ARTÍCULO
 
@@ -153,7 +154,7 @@ $sections = get_sub_field('item');
                 ?>
                     <div class="provoke__section provoke__section--recipe">
                         <div class="provoke__item-recipe">
-                                <a href="<?php the_permalink( $recipe_selected->ID ); ?>" class="grid gap-4 bg-beige-2 p-6 rounded-3xl overflow-hidden lg:gap-7 lg:p-8">
+                                <a href="<?php the_permalink( $recipe_selected->ID ); ?>" class="group grid gap-4 bg-beige-2 p-6 rounded-3xl overflow-hidden lg:gap-7 lg:p-8 hover:bg-[#E3D0B7] transition-colors duration-300">
                                     <div class="grid gap-4">
                                         <p class="text-blue tracking-tight font-medium" data-animation-fade-in data-animation-threshold="0">
                                             RECETA
@@ -171,7 +172,7 @@ $sections = get_sub_field('item');
                                         ?>
                                         <div class="relative" data-animation-fade-in data-animation-threshold="0">
                                             <figure class="rounded-3xl overflow-hidden aspect-[1.48]">
-                                                <img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $title; ?>" class="w-full h-full object-cover">
+                                                <img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $title; ?>" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.05]">
                                             </figure>
         
                                             <div class="absolute bottom-3 right-3 flex gap-2">
@@ -218,23 +219,44 @@ $sections = get_sub_field('item');
         <?php endforeach; ?>
     </div>
 
+    <?php
+    $has_recetas = false;
+    $has_blogs = false;
+    $has_productos = false;
+    $has_media = false;
+    foreach ($sections as $section) {
+        if ($section["type"] === "recipe") $has_recetas = true;
+        if ($section["type"] === "article") $has_blogs = true;
+        if ($section["type"] === "product") $has_productos = true;
+        if ($section["type"] === "video" || $section["type"] === "imagen" || $section["type"] === "social_media") $has_media = true;
+    }
+    ?>
+
     <div 
-        class="fixed flex gap-5 justify-between items-center bottom-6 left-0 right-0 bg-white text-blue z-10 max-w-[22.37rem] mx-auto w-full py-4 px-6 rounded-[3rem] provoke__filter lg:max-w-[29rem] lg:px-10"
+        class="fixed flex gap-2 justify-between items-center bottom-6 left-0 right-0 bg-white text-blue z-10 max-w-[22.37rem] mx-auto w-full py-2 px-3 rounded-[3rem] provoke__filter lg:max-w-[29rem]"
     >
+        <?php if ($has_recetas): ?>
         <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="recetas"> 
             Recetas
         </button>
+        <?php endif; ?>
 
+        <?php if ($has_blogs): ?>
         <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="blogs"> 
             Blogs
         </button>
+        <?php endif; ?>
 
+        <?php if ($has_productos): ?>
         <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="productos"> 
             Productos
         </button>
+        <?php endif; ?>
 
+        <?php if ($has_media): ?>
         <button type="button" class="tracking-tight font-medium lg:text-lg lg:font-semibold provoke__filter-button" data-filter="media"> 
            Media
         </button>
+        <?php endif; ?>
     </div>
 </section>

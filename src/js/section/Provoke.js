@@ -64,6 +64,15 @@ class Provoke {
       button.addEventListener('click', (e) => {
         e.preventDefault();
 
+        // Cambiar el atributo data-filter del section a "true"
+        this.container.setAttribute('data-filter', 'true');
+
+        // Marcar el botón activo y desactivar los demás
+        this.buttons.forEach(btn => {
+          btn.setAttribute('data-active', 'false');
+        });
+        button.setAttribute('data-active', 'true');
+
         this.filterSections(e.target.dataset.filter);
       });
     });
@@ -122,6 +131,51 @@ class Provoke {
     });
 
     this.setPositionClasses(this.iso.filteredItems);
+
+    // Asignar clases de rotación a las cards de recetas filtradas
+    if (filter === 'recetas') {
+      const recipeCards = this.iso.filteredItems.filter(item => item.element.classList.contains('provoke__section--recipe'));
+      recipeCards.forEach((item, idx) => {
+        // Eliminar clases previas
+        for (let i = 1; i <= 4; i++) {
+          item.element.classList.remove(`provoke__section--recipe-rotate-${i}`);
+        }
+        // Asignar nueva clase
+        const rotateClass = `provoke__section--recipe-rotate-${(idx % 4) + 1}`;
+        item.element.classList.add(rotateClass);
+      });
+      // Eliminar clases de productos
+      this.sections.forEach(section => {
+        for (let i = 1; i <= 4; i++) {
+          section.classList.remove(`provoke__section--product-rotate-${i}`);
+        }
+      });
+    } else if (filter === 'productos') {
+      const productCards = this.iso.filteredItems.filter(item => item.element.classList.contains('provoke__section--product'));
+      productCards.forEach((item, idx) => {
+        // Eliminar clases previas
+        for (let i = 1; i <= 4; i++) {
+          item.element.classList.remove(`provoke__section--product-rotate-${i}`);
+        }
+        // Asignar nueva clase
+        const rotateClass = `provoke__section--product-rotate-${(idx % 4) + 1}`;
+        item.element.classList.add(rotateClass);
+      });
+      // Eliminar clases de recetas
+      this.sections.forEach(section => {
+        for (let i = 1; i <= 4; i++) {
+          section.classList.remove(`provoke__section--recipe-rotate-${i}`);
+        }
+      });
+    } else {
+      // Si no es recetas ni productos, eliminar las clases de rotación de ambos
+      this.sections.forEach(section => {
+        for (let i = 1; i <= 4; i++) {
+          section.classList.remove(`provoke__section--recipe-rotate-${i}`);
+          section.classList.remove(`provoke__section--product-rotate-${i}`);
+        }
+      });
+    }
   }
 }
 

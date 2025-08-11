@@ -33,7 +33,7 @@
   &:nth-child(odd of .provoke__section--social-media) {
     align-items: flex-start;
 
-    & > * {
+    &>* {
       transform: rotate(-6deg);
     }
   }
@@ -41,7 +41,7 @@
   &:nth-child(even of .provoke__section--social-media) {
     align-items: flex-end;
 
-    & > * {
+    &>* {
       transform: rotate(6deg);
     }
   }
@@ -55,13 +55,31 @@
   width: rem-calc(340);
   height: 50%;
   padding-top: rem-calc(24);
+  transform: translateX(0rem) rotate(0deg);
+  transition: .3s;
 
   &.provoke__section--top {
     padding-top: rem-calc(70);
   }
 
   @media only screen and (min-width: theme('screens.lg')) {
-    width: rem-calc(456);
+    width: rem-calc(380);
+  }
+
+  &.provoke__section--product-rotate-1 {
+    transform: translateX(.3rem) rotate(-3deg);
+  }
+
+  &.provoke__section--product-rotate-2 {
+    transform: translateX(18rem) rotate(6deg);
+  }
+
+  &.provoke__section--product-rotate-3 {
+    transform: translateX(6rem) rotate(-1deg);
+  }
+
+  &.provoke__section--product-rotate-4 {
+    transform: translateX(26rem) rotate(-4deg);
   }
 }
 
@@ -72,13 +90,13 @@
   align-items: center;
 
   &:nth-child(odd of .provoke__section--article) {
-    & > * {
+    &>* {
       transform: rotate(-6deg);
     }
   }
 
   &:nth-child(even of .provoke__section--article) {
-    & > * {
+    &>* {
       transform: rotate(6deg);
     }
   }
@@ -94,6 +112,8 @@
   display: flex;
   padding-top: rem-calc(40);
   padding-bottom: rem-calc(24);
+  transition: .3s transform ease, 3s background ease;
+  transform: rotate(0deg);
 
   &:nth-child(odd of .provoke__section--recipe) {
     align-items: flex-start;
@@ -102,6 +122,26 @@
   &:nth-child(even of .provoke__section--recipe) {
     align-items: flex-end;
     height: 100%;
+  }
+
+  &:hover {
+    transform: rotate(0deg) !important;
+  }
+
+  &.provoke__section--recipe-rotate-1 {
+    transform: rotate(-3deg);
+  }
+
+  &.provoke__section--recipe-rotate-2 {
+    transform: rotate(6deg);
+  }
+
+  &.provoke__section--recipe-rotate-3 {
+    transform: rotate(-1deg);
+  }
+
+  &.provoke__section--recipe-rotate-4 {
+    transform: rotate(-4deg);
   }
 }
 
@@ -190,4 +230,13 @@
   mask-position: center;
   -webkit-mask-position: center;
   overflow: hidden;
+}
+
+.provoke__filter-button {
+  padding: .5rem 1rem;
+  border-radius: 999px;
+
+  &[data-active="true"] {
+    background-color: #23195F11;
+  }
 }

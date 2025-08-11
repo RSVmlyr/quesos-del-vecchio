@@ -40,10 +40,10 @@
 .horizontal-scroll__main-asset {
   width: rem-calc(340);
   aspect-ratio: 1;
-  transform: translateY(10%) translateX(-20%);
 
   @media only screen and (min-width: theme('screens.lg')) {
-    width: rem-calc(850);
+    width: rem-calc(680);
+    transform: translate(1.5rem, -3rem);
   }
 }
 
