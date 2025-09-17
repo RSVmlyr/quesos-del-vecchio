@@ -66,7 +66,7 @@ $nutritional_table = $nutritional_info["nutritional_table"];
         <div data-animation-fade-in-stagger class="relative grid gap-2 items-center z-10 lg:grid-cols-3 lg:col-span-2">
             <div data-animation-fade-in-stagger-item>
                 <button type="button" class="bg-beige-2 text-sm rounded-[12.5rem] text-blue py-[0.875rem] px-[3.25rem] tracking-tight font-semibold text-center w-full lg:max-w-fit lg:text-base lg:py-6 product-hero__nutritional-button">
-                    VER TABLA NUTRICONAL
+                    VER TABLA NUTRICIONAL
                 </button>
 
                 <div class="hidden product-hero__nutritional-content">

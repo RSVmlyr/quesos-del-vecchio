@@ -6,10 +6,10 @@
   height: 100vh;
   min-height: 100vh;
 
-  height: 100svh;
-  min-height: 100svh;
+  // height: 100svh;
+  // min-height: 100svh;
 
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .provoke__wrapper {
@@ -63,7 +63,7 @@
   }
 
   @media only screen and (min-width: theme('screens.lg')) {
-    width: rem-calc(380);
+    width: rem-calc(320);
   }
 
   &.provoke__section--product-rotate-1 {

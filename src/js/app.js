@@ -36,6 +36,7 @@ const SECTIONS = [
   'VerticalSliderLocations',
   'Locations',
   'Provoke',
+  'Cards',
 ];
 
 class App {
