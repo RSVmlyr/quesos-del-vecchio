@@ -10,11 +10,9 @@ $sections = get_sub_field('item');
     data-filter="false"
 >
     <div class="provoke__wrapper"> 
-
         <?php foreach ($sections as $section) : 
             $type = $section["type"];
         ?>
-
                 <?php if ( $type === 'social_media' ) : 
                     $social_media = $section["social_media"];
                     $image = $social_media["image"];
@@ -76,14 +74,6 @@ $sections = get_sub_field('item');
                 ?>
                     <div class="provoke__section provoke__section--product">
                         <div class="provoke__item-product">
-                            <h2 
-                                data-animation-split-text 
-                                data-animation-threshold="0"
-                                class="text-[2.5rem] tracking-tight font-medium leading-none text-blue text-center mb-4 lg:text-5xl"
-                            >
-                                <?php echo $title; ?>
-                            </h2>
-
                             <a 
                                 data-animation-scale
                                 data-animation-threshold="0"
@@ -96,9 +86,17 @@ $sections = get_sub_field('item');
                                     <img src="<?php echo $image["sizes"]["medium_large"]; ?>" alt="<?php echo $image["alt"]; ?>" class="w-full h-full object-cover">
                                 </figure>
 
-                                <div class="relative z-10 text-base tracking-tight font-medium leading-none text-blue bg-white rounded-[100%] py-4 px-12 mt-5 lg:text-2xl lg:py-[1.2rem] lg:px-14 lg:mt-24 group-hover:bg-blue group-hover:text-white transition-all duration-300">
+                                <div class="!mt-[220px] relative z-99 text-base tracking-tight font-medium leading-none text-blue bg-white rounded-[100%] py-2 px-6 mt-5 lg:text-xl lg:py-[1.2rem] lg:px-7 lg:mt-2 group-hover:bg-blue group-hover:text-white transition-all duration-300">
                                     Ver más
                                 </div>
+
+                                <h2 
+                                data-animation-split-text 
+                                data-animation-threshold="0"
+                                class="top-[-40%] left-0 rounded-[15px] p-[20px] right-0 m-auto !bg-[#E3D0B7] relative text-[1.5rem] tracking-tight font-medium leading-none text-blue text-center lg:text-xl"
+                                >
+                                <?php echo $title; ?>
+                                </h2>
                             </a>
                         </div>
                     </div>
