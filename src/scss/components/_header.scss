@@ -133,7 +133,7 @@
 
 .header--sticky {
   .header_container {
-    padding-top: rem-calc(16);
+    // padding-top: rem-calc(16);
   }
 }
 
@@ -163,6 +163,10 @@
       a {
         color: rgb($beige-3);
       }
+    }
+    &.header--sticky {
+      background-color: rgb($beige_3);
+      transition: all 0.5s;
     }
   }
 }
@@ -230,3 +234,11 @@
     line-height: 1rem;
   }
 }
+
+// body {
+//   &.page-template-page-provoke {
+//     .header {
+//       background-color: rgb($beige-3); 
+//     }
+//   }
+// }
