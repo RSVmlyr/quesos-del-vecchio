@@ -123,7 +123,7 @@ $author = $additional_information['author'];
 
 					<?php if ( !empty( $privacy_policy ) ): ?>
 						<a href="<?php echo $privacy_policy; ?>" class="max-w-fit" target="_blank" aria-label="Política de privacidad" data-animation-fade-in-stagger-item>
-							Política de privacidad
+							Política de Tratamiento de Datos.
 						</a>
 					<?php endif; ?>
 
